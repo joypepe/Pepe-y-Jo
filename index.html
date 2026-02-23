@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pepe & Jo — Se viene el casorio</title>
+  <meta name="description" content="Invitación al casorio de Pepe & Jo" />
+  <style>
+    :root{
+      --bg:#fbfaf8; --text:#171717; --muted:#6b6b6b; --card:#ffffff;
+      --line: rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-serif, Georgia, "Times New Roman", serif;background:var(--bg);color:var(--text)}
+    a{color:inherit}
+    .wrap{max-width:920px;margin:0 auto;padding:28px 18px 70px}
+    header{padding:42px 0 18px;text-align:center}
+    .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+    h1{margin:12px 0 10px;font-size:48px;line-height:1.06}
+    .sub{margin:0 auto;max-width:520px;color:var(--muted);font-size:16px;line-height:1.5}
+    .pillrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.6);padding:10px 14px;border-radius:999px;font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    @media(min-width:740px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+    .card h3{margin:0 0 10px;font-size:20px}
+    .meta{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:14px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;border:1px solid var(--line);text-decoration:none;background:#fff;font-size:14px}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    section{margin-top:26px}
+    .sec-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+    .sec-title h2{margin:0;font-size:22px}
+    .sec-title span{color:var(--muted);font-size:13px}
+    .count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .cbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+    .cnum{font-size:26px;font-weight:600}
+    .clab{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .timeline{display:grid;gap:10px}
+    .step{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+    .time{font-weight:700}
+    .desc{color:var(--muted);font-size:14px;line-height:1.45}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(min-width:740px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .ph{aspect-ratio:4/5;border-radius:18px;border:1px dashed rgba(0,0,0,.18);background:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-align:center;padding:10px}
+    footer{margin-top:34px;text-align:center;color:var(--muted);font-size:13px}
+    .small{font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="kicker">Se viene el casorio</div>
+      <h1>Pepe & Jo</h1>
+      <p class="sub">Guardate la fecha. Más abajo tenés lugares, confirmación y el itinerario. 💍🥂</p>
+      <div class="pillrow">
+        <div class="pill">📅 <strong id="fechaTexto">Sábado 28/11/2026</strong></div>
+        <div class="pill">📍 <strong id="ciudadTexto">Buenos Aires</strong></div>
+      </div>
+
+      <div class="count" aria-label="contador">
+        <div class="cbox"><div class="cnum" id="d">—</div><div class="clab">Días</div></div>
+        <div class="cbox"><div class="cnum" id="h">—</div><div class="clab">Horas</div></div>
+        <div class="cbox"><div class="cnum" id="m">—</div><div class="clab">Min</div></div>
+        <div class="cbox"><div class="cnum" id="s">—</div><div class="clab">Seg</div></div>
+      </div>
+      <div class="small" style="margin-top:10px;color:var(--muted)">Contador hacia: <span id="targetStr"></span></div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Ceremonia</h3>
+        <div class="meta">
+          <div><strong id="cerNom">Iglesia / Capilla</strong></div>
+          <div id="cerDet">Dirección / detalles</div>
+          <div>🕒 <span id="cerHora">17:00</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn" id="cerMap" href="#" target="_blank" rel="noreferrer">Ver en Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Fiesta</h3>
+        <div class="meta">
+          <div><strong id="fisNom">Salón / Chacra</strong></div>
+          <div id="fisDet">Dirección / detalles</div>
+          <div>🕒 <span id="fisHora">18:30</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn" id="fisMap" href="#" target="_blank" rel="noreferrer">Ver en Maps</a>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="sec-title">
+        <h2>Confirmación</h2>
+        <span>RSVP</span>
+      </div>
+      <div class="card">
+        <div class="meta">
+          <div>Porfa confirmá asistencia (y si tenés alguna restricción alimentaria).</div>
+        </div>
+        <div class="btns">
+          <a class="btn primary" id="rsvp" href="#" target="_blank" rel="noreferrer">Confirmar asistencia</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">
+        <h2>Itinerario</h2>
+        <span>Horarios estimados</span>
+      </div>
+      <div class="timeline" id="timeline"></div>
+      <div class="small" style="margin-top:8px;color:var(--muted)">*Los horarios pueden ajustarse un poquito.</div>
+    </section>
+
+    <section>
+      <div class="sec-title">
+        <h2>Ilustraciones</h2>
+        <span>Galería</span>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div class="small" style="margin-top:8px;color:var(--muted)">Acá vamos a ir subiendo las ilustraciones 💛</div>
+    </section>
+
+    <section>
+      <div class="sec-title">
+        <h2>Regalos</h2>
+        <span>Opcional</span>
+      </div>
+      <div class="card">
+        <div class="meta">
+          <div id="regalosTexto">Tu presencia es lo más importante. Si querés hacernos un regalito: (alias/CBU) ...</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Pepe & Jo — <span id="anio"></span></div>
+    </footer>
+  </div>
+
+  <script>
+    // ✅ EDITÁ ESTOS DATOS (súper fácil)
+    const DATA = {
+      fechaTexto: "Sábado 28/11/2026",
+      ciudadTexto: "Buenos Aires",
+      // OJO: formato ISO: "YYYY-MM-DDTHH:MM:SS-03:00"
+      fechaISO: "2026-11-28T17:00:00-03:00",
+
+      ceremonia: {
+        nombre: "Iglesia / Capilla",
+        detalle: "Dirección / detalles",
+        hora: "17:00",
+        maps: "https://maps.app.goo.gl/REEMPLAZAR"
+      },
+      fiesta: {
+        nombre: "Salón / Chacra",
+        detalle: "Dirección / detalles",
+        hora: "18:30",
+        maps: "https://maps.app.goo.gl/REEMPLAZAR"
+      },
+
+      rsvpUrl: "https://forms.gle/REEMPLAZAR",
+
+      itinerario: [
+        { hora: "17:00", titulo: "Ceremonia", detalle: "Nos vemos en la iglesia 💒" },
+        { hora: "18:15", titulo: "Traslado", detalle: "Rumbo a la fiesta 🚗" },
+        { hora: "19:00", titulo: "Recepción", detalle: "Brindis y entrada 🥂" },
+        { hora: "21:00", titulo: "Cena", detalle: "A comer 😌" },
+        { hora: "23:30", titulo: "Fiesta", detalle: "Se picó mal 💃🕺" }
+      ],
+
+      // Galería: más adelante vamos a reemplazar estos placeholders por imágenes reales
+      // (te explico abajo cómo subirlas)
+      galeriaPlaceholders: 9,
+
+      regalosTexto: "Tu presencia es lo más importante. Si querés hacernos un regalito: ALIAS/CBU (completar)."
+    };
+
+    // Set texts
+    document.getElementById("fechaTexto").textContent = DATA.fechaTexto;
+    document.getElementById("ciudadTexto").textContent = DATA.ciudadTexto;
+    document.getElementById("cerNom").textContent = DATA.ceremonia.nombre;
+    document.getElementById("cerDet").textContent = DATA.ceremonia.detalle;
+    document.getElementById("cerHora").textContent = DATA.ceremonia.hora;
+    document.getElementById("cerMap").href = DATA.ceremonia.maps;
+
+    document.getElementById("fisNom").textContent = DATA.fiesta.nombre;
+    document.getElementById("fisDet").textContent = DATA.fiesta.detalle;
+    document.getElementById("fisHora").textContent = DATA.fiesta.hora;
+    document.getElementById("fisMap").href = DATA.fiesta.maps;
+
+    document.getElementById("rsvp").href = DATA.rsvpUrl;
+    document.getElementById("regalosTexto").textContent = DATA.regalosTexto;
+
+    // Timeline render
+    const t = document.getElementById("timeline");
+    DATA.itinerario.forEach(item => {
+      const el = document.createElement("div");
+      el.className = "step";
+      el.innerHTML = `
+        <div class="time">${item.hora}</div>
+        <div>
+          <div style="font-weight:700">${item.titulo}</div>
+          <div class="desc">${item.detalle}</div>
+        </div>`;
+      t.appendChild(el);
+    });
+
+    // Gallery placeholders
+    const g = document.getElementById("gallery");
+    for(let i=1;i<=DATA.galeriaPlaceholders;i++){
+      const p = document.createElement("div");
+      p.className = "ph";
+      p.textContent = "Ilustración " + i + " (subir imagen)";
+      g.appendChild(p);
+    }
+
+    // Countdown
+    const target = new Date(DATA.fechaISO);
+    document.getElementById("targetStr").textContent = target.toLocaleString("es-AR");
+    function tick(){
+      const now = new Date();
+      const ms = Math.max(0, target.getTime() - now.getTime());
+      const total = Math.floor(ms/1000);
+      const days = Math.floor(total / (3600*24));
+      const hours = Math.floor((total % (3600*24)) / 3600);
+      const mins = Math.floor((total % 3600) / 60);
+      const secs = total % 60;
+      document.getElementById("d").textContent = days;
+      document.getElementById("h").textContent = String(hours).padStart(2,"0");
+      document.getElementById("m").textContent = String(mins).padStart(2,"0");
+      document.getElementById("s").textContent = String(secs).padStart(2,"0");
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    document.getElementById("anio").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
