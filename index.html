@@ -46,66 +46,62 @@
       padding:0 22px;
     }
 
-    /* ===== HERO (con foto de fondo) ===== */
-    .hero{
-      position:relative;
-      padding:68px 0 34px;
-      text-align:center;
-      overflow:hidden;
-    }
+    /* ===== HERO (con foto de fondo elegante) ===== */
+.hero{
+  position:relative;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  color:#ffffff;
+}
 
-    /* ✅ FOTO DE FONDO:
-       1) Guardá tu imagen como "hero.jpg" en la misma carpeta que este HTML
-       2) Si querés otro nombre, cambiá el url(...) acá abajo
-    */
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:url("hero.jpg");
-      background-size:cover;
-      background-position:center;
-      opacity:.22;                 /* <-- opacidad de la foto */
-      transform:scale(1.02);
-      filter:contrast(1.05);
-      z-index:0;
-    }
+/* 📸 FOTO */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.02);
+  z-index:-2;
+}
 
-    /* capa suave para que se lea todo */
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to bottom,
-        rgba(251,248,244,.88),
-        rgba(251,248,244,.72) 45%,
-        rgba(251,248,244,.92)
-      );
-      z-index:0;
-    }
+/* 🎨 OVERLAY GRIS SUAVE (para que el texto se lea) */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(40,40,40,0.45); /* podés ajustar esto */
+  z-index:-1;
+}
 
-    .hero .container{
-      position:relative;
-      z-index:1;
-    }
+.hero .container{
+  position:relative;
+  z-index:1;
+}
 
-    .names{
-      font-size:72px;
-      line-height:1.02;
-      letter-spacing:-.03em;
-      margin:0 0 12px;
-      font-weight:600;
-    }
+/* NOMBRES */
+.names{
+  font-size:72px;
+  line-height:1.02;
+  letter-spacing:-.03em;
+  margin:0 0 12px;
+  font-weight:600;
+}
 
-    .subcopy{
-      margin:0 auto 18px;
-      max-width:820px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.55;
-      font-weight:400;
-    }
+/* TEXTO */
+.subcopy{
+  margin:0 auto 18px;
+  max-width:820px;
+  font-size:18px;
+  line-height:1.55;
+  font-weight:400;
+  color:rgba(255,255,255,0.85);
+}
 
     /* Fecha / lugar editorial (sin pills) */
     .hero-meta{
