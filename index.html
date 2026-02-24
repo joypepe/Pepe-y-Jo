@@ -121,55 +121,56 @@
     .navbtn:active{ transform:translateY(0px); }
 
     /* ===== COUNTDOWN ===== */
-    .countdown-free{
-  margin: 0 auto 40px;
-  padding: 14px 10px;
+   .countdown-free{
+  margin: 10px auto 36px;
+  padding: 10px 0;
 }
 
 .cd-free{
   display:flex;
   align-items:flex-end;
   justify-content:center;
-  gap:22px;
+  gap:26px;
   flex-wrap:wrap;
 }
 
 .cd-unit{
   text-align:center;
-  min-width:130px;
+  min-width:120px;
 }
 
 .cd-free-num{
   font-family: var(--mono);
-  font-size: 62px;
+  font-size: 64px;
   line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: .01em;
 }
 
 .cd-free-label{
   margin-top: 10px;
   font-size: 12px;
-  letter-spacing: .24em;
+  letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 500;
 }
 
-.cd-sep{
+.cd-dot{
   font-family: var(--mono);
-  font-size: 58px;
+  font-size: 48px;
   line-height: 1;
-  color: rgba(0,0,0,.25);
-  transform: translateY(-6px);
+  color: rgba(0,0,0,.18);
+  transform: translateY(-10px);
 }
 
 @media (max-width: 720px){
-  .cd-free{ gap:14px; }
-  .cd-unit{ min-width: 120px; }
-  .cd-free-num{ font-size: 48px; }
-  .cd-sep{ display:none; } /* en mobile queda más limpio sin ":" */
+  .cd-free{ gap:16px; }
+  .cd-unit{ min-width: 110px; }
+  .cd-free-num{ font-size: 52px; }
+  .cd-dot{ display:none; } /* en mobile queda limpio sin separadores */
 }
+
 
     /* ===== SECTIONS ===== */
     .section{
@@ -524,12 +525,35 @@
       </div>
 
       <!-- Countdown -->
-    <div class="countdown-free" aria-label="Cuenta regresiva">
+ <div class="countdown-free" aria-label="Cuenta regresiva">
   <div class="cd-free">
     <div class="cd-unit">
-      <div class="cd-free-num" id="cdDays">--</div>
+      <div class="cd-free-num" id="cdDays">00</div>
       <div class="cd-free-label">DÍAS</div>
     </div>
+
+    <div class="cd-dot">·</div>
+
+    <div class="cd-unit">
+      <div class="cd-free-num" id="cdHours">00</div>
+      <div class="cd-free-label">HORAS</div>
+    </div>
+
+    <div class="cd-dot">·</div>
+
+    <div class="cd-unit">
+      <div class="cd-free-num" id="cdMins">00</div>
+      <div class="cd-free-label">MINUTOS</div>
+    </div>
+
+    <div class="cd-dot">·</div>
+
+    <div class="cd-unit">
+      <div class="cd-free-num" id="cdSecs">00</div>
+      <div class="cd-free-label">SEGUNDOS</div>
+    </div>
+  </div>
+</div>
 
     <div class="cd-sep">:</div>
 
