@@ -8,9 +8,7 @@
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Sans (base) + Mono (countdown/nav) + Serif Italic (canchera opcional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -23,9 +21,8 @@
 
       --container:1120px;
 
-      --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: "Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      --serifIt: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif; /* opcional para nombres */
+      --mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans:"Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
@@ -38,7 +35,6 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-
     a{ color:inherit; text-decoration:none; }
     button{ font-family:inherit; }
 
@@ -49,39 +45,37 @@
       padding:0 22px;
     }
 
-    /* ===== HERO SOLO PORTADA (solo nombres + fecha + lugar) ===== */
+    /* ===== HERO (SOLO PORTADA) ===== */
     .hero{
       position:relative;
-      min-height:85vh;             /* portada */
+      min-height:85vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       color:#fff;
       overflow:hidden;
-      padding:90px 0 90px;
-      isolation:isolate;           /* ✅ evita quilombos de z-index */
+      padding:90px 0;
+      isolation:isolate;
     }
 
-    /* Imagen (solo hero) */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:url("images/hero.jpg") center/cover no-repeat;
-      z-index:-2;
       transform:scale(1.02);
-      filter:contrast(1.02);
+      filter:contrast(1.03);
+      z-index:-2;
     }
 
-    /* Overlay suave para legibilidad */
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.55)),
-        linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.52));
+        radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.58)),
+        linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.55));
       z-index:-1;
     }
 
@@ -90,32 +84,25 @@
       z-index:1;
     }
 
-    /* Título */
     .names{
-      margin:0 0 18px;
+      margin:0 0 14px;
       font-size:92px;
       line-height:1.02;
       letter-spacing:-.03em;
-      font-weight:600;
-      /* Opción canchera (cursiva). Si NO la querés, borrá la línea de abajo */
-      font-family:var(--serifIt);
-      font-style:italic;
+      font-weight:700;
     }
 
-    /* Fecha y lugar */
     .hero-meta{
       display:flex;
       flex-direction:column;
       gap:10px;
       align-items:center;
     }
-
     .hero-date{
       font-size:19px;
       font-weight:500;
       color:rgba(255,255,255,.92);
     }
-
     .hero-place{
       font-size:13px;
       letter-spacing:.22em;
@@ -125,76 +112,125 @@
 
     @media (max-width:720px){
       .hero{ min-height:75vh; padding:70px 0; }
-      .names{ font-size:52px; }
+      .names{ font-size:56px; }
       .hero-date{ font-size:16px; }
       .hero-place{ font-size:12px; }
     }
-  </style>
-</head>
 
-    /* ===== COUNTDOWN (gris muy suave minimal) ===== */
+    /* ===== MENÚ (DEBAJO DEL HERO) ===== */
+    .hero-nav--below{
+      background:var(--bg);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      padding:16px 0;
+    }
 
-.countdown-band{
-  margin:32px auto 0;
-  padding:28px 20px;
-  border-radius:20px;
-  border:1px solid #e3e3e3;
-  background:#efefef;          /* gris muy suave */
-  box-shadow:none;
-  text-align:center;
-}
+    .hero-nav--below .container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:14px;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      user-select:none;
+    }
 
-.countdown-free{
-  margin:0;
-  padding:0;
-}
+    .hero-nav--below a{
+      color:rgba(17,17,17,.78);
+      position:relative;
+      padding:6px 2px;
+      transition:color .15s ease;
+    }
+    .hero-nav--below a:hover{ color:#111; }
 
-.cd-free{
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:40px;
-  flex-wrap:wrap;
-}
+    .hero-nav--below a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:2px;
+      height:1px;
+      background:rgba(0,0,0,.25);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .18s ease;
+    }
+    .hero-nav--below a:hover::after{ transform:scaleX(1); }
 
-.cd-unit{
-  text-align:center;
-  min-width:140px;
-}
+    .hero-nav--below .dot{
+      color:rgba(0,0,0,.25);
+      font-family:var(--mono);
+      letter-spacing:0;
+    }
 
-.cd-free-num{
-  font-family:var(--mono);
-  font-size:64px;
-  line-height:1;
-  font-weight:600;
-  letter-spacing:.02em;
-  color:#111;
-}
+    /* ===== COUNTDOWN (gris suave) ===== */
+    .countdown-section{
+      padding:26px 0 6px;
+      background:var(--bg);
+    }
 
-.cd-free-label{
-  margin-top:12px;
-  font-size:11px;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:#6e6e6e;
-  font-weight:500;
-}
+    .countdown-band{
+      margin:0 auto;
+      padding:28px 20px;
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#efefef;
+      box-shadow:none;
+      text-align:center;
+    }
 
-.cd-dot{
-  font-family:var(--mono);
-  font-size:36px;
-  line-height:1;
-  color:#bdbdbd;
-  transform:translateY(-12px);
-}
+    .band-kicker{
+      margin:0 0 12px;
+      color:rgba(0,0,0,.55);
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:500;
+    }
 
-/* ===== Mobile ===== */
-@media (max-width: 720px){
-  .cd-free{ gap:18px; }
-  .cd-unit{ min-width:110px; }
-  .cd-free-num{ font-size:48px; }
-  .cd-dot{ display:none; }
-}
+    .cd-free{
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      gap:40px;
+      flex-wrap:wrap;
+    }
+
+    .cd-unit{ text-align:center; min-width:140px; }
+
+    .cd-free-num{
+      font-family:var(--mono);
+      font-size:64px;
+      line-height:1;
+      font-weight:600;
+      letter-spacing:.02em;
+      color:#111;
+    }
+
+    .cd-free-label{
+      margin-top:12px;
+      font-size:11px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:#6e6e6e;
+      font-weight:500;
+    }
+
+    .cd-dot{
+      font-family:var(--mono);
+      font-size:36px;
+      line-height:1;
+      color:#bdbdbd;
+      transform:translateY(-12px);
+    }
+
+    @media (max-width:720px){
+      .cd-free{ gap:18px; }
+      .cd-unit{ min-width:110px; }
+      .cd-free-num{ font-size:48px; }
+      .cd-dot{ display:none; }
+    }
 
     /* ===== SECTIONS ===== */
     .section{ padding:48px 0 0; }
@@ -297,132 +333,96 @@
       border-color:#111;
     }
 
-    @media (max-width: 920px){
+    @media (max-width:920px){
       .cards{ grid-template-columns:1fr; }
     }
 
     /* ===== ASISTENCIA ===== */
-    .assist-box{
+    .assist-card{
       background:rgba(255,255,255,.9);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:22px;
-      text-align:center;
     }
 
-    .assist-text{
-      margin:0 0 16px;
+    .assist-copy{
+      margin:0 0 18px;
+      max-width:720px;
       color:var(--muted);
       font-size:16px;
       line-height:1.6;
+      text-align:left;
     }
-  /* ===== ASISTENCIA (alineado izquierda) ===== */
-.assist-card{
-  background:rgba(255,255,255,.9);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:22px;
-}
 
-.assist-copy{
-  margin:0 0 18px;
-  max-width:720px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.6;
-  text-align:left; /* 👈 izquierda */
-}
-
-.assist-actions{
-  display:flex;
-  justify-content:flex-start; /* 👈 botón a la izquierda */
-}
+    .assist-actions{
+      display:flex;
+      justify-content:flex-start;
+    }
 
     /* ===== REGALOS ===== */
-    /* ===== REGALOS (todo en un box) ===== */
-.gifts-card{
-  background:rgba(255,255,255,.9);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:22px;
-}
+    .gifts-card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
 
-.gifts-card-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
-  margin-bottom:14px;
-}
+    .gifts-card-copy{
+      margin:0 0 16px;
+      max-width:760px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      text-align:left;
+    }
 
-.gifts-card-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:0;
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:-.01em;
-}
+    .gifts-buttons{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
 
-.gifts-card-copy{
-  margin:0 0 16px;
-  max-width:760px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.6;
-  text-align:left; /* ✅ izquierda */
-}
+    .gift-btn{
+      appearance:none;
+      width:100%;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:18px;
+      padding:16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+      transition:transform .12s ease, border-color .12s ease;
+      min-height:62px;
+    }
+    .gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
+    .gift-btn:active{ transform:translateY(0); }
 
-.gifts-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
+    .gift-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:16px;
+      font-weight:700;
+    }
 
-.gift-btn{
-  appearance:none;
-  width:100%;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:18px;
-  padding:16px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  cursor:pointer;
-  transition:transform .12s ease, border-color .12s ease;
-  min-height:62px;
-}
-.gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
-.gift-btn:active{ transform:translateY(0); }
+    .gift-right{
+      color:rgba(0,0,0,.45);
+      font-size:22px;
+      line-height:1;
+    }
 
-.gift-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:16px;
-  font-weight:700;
-}
+    .gift-btn.full{ grid-column:1 / -1; }
 
-.gift-right{
-  color:rgba(0,0,0,.45);
-  font-size:22px;
-  line-height:1;
-}
+    @media (max-width:920px){
+      .gifts-buttons{ grid-template-columns:1fr; }
+      .gift-btn.full{ grid-column:auto; }
+    }
 
-/* Lista ocupa toda la fila */
-.gift-btn.full{ grid-column:1 / -1; }
-
-@media (max-width: 920px){
-  .gifts-buttons{ grid-template-columns:1fr; }
-  .gift-btn.full{ grid-column:auto; }
-}
-
-    /* ===== MODALS (centradas, NO arriba) ===== */
+    /* ===== MODALS ===== */
     .modal{
       display:none;
       position:fixed;
@@ -436,7 +436,6 @@
       align-items:center;
       justify-content:center;
     }
-
     .modal-card{
       width:100%;
       max-width:620px;
@@ -446,14 +445,12 @@
       box-shadow:0 30px 90px rgba(0,0,0,.22);
       overflow:hidden;
     }
-
     .modal-head{
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding:18px 18px 10px;
     }
-
     .modal-title{
       display:flex;
       align-items:center;
@@ -463,7 +460,6 @@
       margin:0;
       letter-spacing:-.01em;
     }
-
     .modal-close{
       appearance:none;
       background:rgba(0,0,0,.04);
@@ -475,9 +471,7 @@
       font-size:20px;
       line-height:1;
     }
-
     .modal-body{ padding:0 18px 18px; }
-
     .modal-sub{
       margin:0 0 14px;
       color:var(--muted);
@@ -485,12 +479,10 @@
       font-size:15px;
       text-align:center;
     }
-
     .copy-list{
       border-top:1px solid rgba(0,0,0,.07);
       margin-top:8px;
     }
-
     .copy-row{
       display:grid;
       grid-template-columns:120px 1fr auto;
@@ -499,20 +491,16 @@
       padding:14px 0;
       border-bottom:1px solid rgba(0,0,0,.07);
     }
-
     .copy-key{ color:#111; font-weight:600; font-size:15px; }
-
     .copy-val{
       color:#111;
       font-size:15px;
       overflow-wrap:anywhere;
     }
-
     .copy-val.mono{
       font-family:var(--mono);
       letter-spacing:.01em;
     }
-
     .copy-btn{
       appearance:none;
       border:1px solid rgba(0,0,0,.10);
@@ -538,7 +526,7 @@
 
     .spacer{ height:70px; }
 
-    @media (max-width: 520px){
+    @media (max-width:520px){
       .copy-row{ grid-template-columns:1fr; gap:8px; }
       .copy-btn{ justify-self:start; }
       .section-title{ font-size:28px; }
@@ -548,37 +536,33 @@
 
 <body>
   <!-- HERO -->
-<header class="hero" id="top">
-  <div class="container hero-inner">
-    <h1 class="names">Pepe &amp; Jo</h1>
-
-    <div class="hero-meta">
-      <div class="hero-date">Domingo 22 de noviembre 2026</div>
-      <div class="hero-place">Pilar · Buenos Aires</div>
+  <header class="hero" id="top">
+    <div class="container">
+      <h1 class="names">Pepe &amp; Jo</h1>
+      <div class="hero-meta">
+        <div class="hero-date">Domingo 22 de noviembre 2026</div>
+        <div class="hero-place">Pilar · Buenos Aires</div>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-    <!-- MENÚ (debajo del hero) -->
-<nav class="hero-nav hero-nav--below" aria-label="Navegación">
-  <div class="container">
-    <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
-    <a href="#fiesta">Fiesta</a><span class="dot">·</span>
-    <a href="#asistencia">RSVP</a><span class="dot">·</span>
-    <a href="#regalos">Regalos</a><span class="dot">·</span>
-    <a href="#top" id="openCalendarLink">Agendá la fecha</a>
-  </div>
-</nav>
+  <!-- MENÚ (debajo del hero) -->
+  <nav class="hero-nav--below" aria-label="Navegación">
+    <div class="container">
+      <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
+      <a href="#fiesta">Fiesta</a><span class="dot">·</span>
+      <a href="#asistencia">RSVP</a><span class="dot">·</span>
+      <a href="#regalos">Regalos</a><span class="dot">·</span>
+      <a href="#top" id="openCalendarLink">Agendá la fecha</a>
+    </div>
+  </nav>
 
-<!-- COUNTDOWN (debajo del menú) -->
-<section class="countdown-section" aria-label="Cuenta regresiva">
-  <div class="container">
-    <div class="countdown-band">
-      <p class="band-kicker">Faltan</p>
-
-      <div class="countdown-free">
+  <!-- COUNTDOWN -->
+  <section class="countdown-section" aria-label="Cuenta regresiva">
+    <div class="container">
+      <div class="countdown-band">
+        <p class="band-kicker">Faltan</p>
         <div class="cd-free">
-
           <div class="cd-unit">
             <div class="cd-free-num" id="cdDays">00</div>
             <div class="cd-free-label">DÍAS</div>
@@ -604,12 +588,11 @@
             <div class="cd-free-num" id="cdSecs">00</div>
             <div class="cd-free-label">SEGUNDOS</div>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <!-- ¿DÓNDE? -->
   <section class="section" id="donde">
     <div class="container">
@@ -619,7 +602,6 @@
       </div>
 
       <div class="cards">
-        <!-- Ceremonia -->
         <article class="card" id="ceremonia">
           <h3>Ceremonia</h3>
           <p class="place-name">Iglesia Sagrada Familia - Nuestra Señora del Cielo</p>
@@ -631,15 +613,14 @@
           </div>
         </article>
 
-        <!-- Fiesta -->
         <article class="card" id="fiesta">
           <h3>Fiesta</h3>
           <p class="place-name">Espacio Pilar I</p>
           <p class="address">Chile 1963, B1630 La Lonja, Provincia de Buenos Aires</p>
           <p class="meta"><span class="micon">🕓</span><span>18:00 hs</span></p>
           <div class="card-actions">
-            <!-- ⚠️ Reemplazá este link por el link real de Google Maps de la fiesta -->
-            <a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9">Ver en Maps</a>
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9">Ver en Maps</a>
           </div>
         </article>
       </div>
@@ -655,69 +636,52 @@
       </div>
 
       <div class="assist-card">
-
-  <p class="assist-copy">
-    Nos haría muy felices que nos acompañes.
-  </p>
-
-  <div class="assist-actions">
-    <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
-       target="_blank" rel="noopener">
-      <button class="btn btn-primary">Confirmar asistencia →</button>
-    </a>
-  </div>
-
-</div>
-
-<!-- REGALOS -->
-<section class="section" id="regalos">
-  <div class="container">
-
-    <div class="section-head">
-      <h2 class="section-title">Regalos</h2>
-      <p class="section-kicker">Opciones</p>
+        <p class="assist-copy">Nos haría muy felices que nos acompañes.</p>
+        <div class="assist-actions">
+          <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
+             target="_blank" rel="noopener">
+            <button class="btn btn-primary">Confirmar asistencia →</button>
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="gifts-card">
-
-      <p class="gifts-card-copy">
-        Lo más lindo es poder compartir este día con vos.<br>
-        Y si querés hacernos un regalo, te dejamos algunas opciones.
-      </p>
-
-      <div class="gifts-buttons">
-
-        <button class="gift-btn full" id="openList" type="button">
-          <span class="gift-left">
-            <span>🎁</span>
-            <span>Lista de Regalos</span>
-          </span>
-          <span class="gift-right">↗</span>
-        </button>
-
-        <button class="gift-btn" id="openARS" type="button">
-          <span class="gift-left">
-            <span>🇦🇷</span>
-            <span>Cuenta en ARS</span>
-          </span>
-          <span class="gift-right">›</span>
-        </button>
-
-        <button class="gift-btn" id="openUSD" type="button">
-          <span class="gift-left">
-            <span>💵</span>
-            <span>Cuenta en USD</span>
-          </span>
-          <span class="gift-right">›</span>
-        </button>
-
+  <!-- REGALOS -->
+  <section class="section" id="regalos">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Regalos</h2>
+        <p class="section-kicker">Opciones</p>
       </div>
 
-    </div>
-  </div>
-</section>
+      <div class="gifts-card">
+        <p class="gifts-card-copy">
+          Lo más lindo es poder compartir este día con vos.<br>
+          Y si querés hacernos un regalo, te dejamos algunas opciones.
+        </p>
 
-<div class="spacer"></div>
+        <div class="gifts-buttons">
+          <button class="gift-btn full" id="openList" type="button">
+            <span class="gift-left"><span>🎁</span><span>Lista de Regalos</span></span>
+            <span class="gift-right">↗</span>
+          </button>
+
+          <button class="gift-btn" id="openARS" type="button">
+            <span class="gift-left"><span>🇦🇷</span><span>Cuenta en ARS</span></span>
+            <span class="gift-right">›</span>
+          </button>
+
+          <button class="gift-btn" id="openUSD" type="button">
+            <span class="gift-left"><span>💵</span><span>Cuenta en USD</span></span>
+            <span class="gift-right">›</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
 
   <!-- ===== MODAL ARS ===== -->
   <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta en ARS">
@@ -758,7 +722,7 @@
     </div>
   </div>
 
-  <!-- ===== MODAL USD (placeholder) ===== -->
+  <!-- ===== MODAL USD ===== -->
   <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta en USD">
     <div class="modal-card">
       <div class="modal-head">
@@ -766,7 +730,7 @@
         <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <p class="modal-sub">Cuando me pases los datos, lo dejamos igual que ARS (con copiar + “Copiado ✓”).</p>
+        <p class="modal-sub">Cuando me pases los datos, lo dejamos igual que ARS.</p>
 
         <div class="copy-list">
           <div class="copy-row">
@@ -779,7 +743,7 @@
     </div>
   </div>
 
-  <!-- ===== MODAL CALENDARIO (centrada) ===== -->
+  <!-- ===== MODAL CALENDARIO ===== -->
   <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Guardá la fecha">
     <div class="modal-card">
       <div class="modal-head">
@@ -790,7 +754,6 @@
         <p class="modal-sub">Elegí tu calendario:</p>
 
         <div class="modal-actions">
-          <!-- ✅ Google: ES UN LINK REAL (href) -->
           <a id="googleCalLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">Google Calendar</a>
           <button class="btn" id="downloadICS" type="button">Apple Calendar (.ics)</button>
         </div>
@@ -806,9 +769,7 @@
     // ===== CONFIG =====
     const EVENT = {
       title: "Casamiento Pepe & Jo",
-      // Ceremonia 16:00 AR (-03:00)
       startISO: "2026-11-22T16:00:00-03:00",
-      // Duración sugerida 2 horas (ajustable)
       endISO:   "2026-11-22T18:00:00-03:00",
       location: "Pilar, Buenos Aires",
       description: "Ceremonia: Iglesia Sagrada Familia - Nuestra Señora del Cielo. Fiesta: Espacio Pilar I."
@@ -828,19 +789,13 @@
       m.setAttribute("aria-hidden", "true");
     }
 
-    // Close on overlay click
     document.querySelectorAll(".modal").forEach(m => {
-      m.addEventListener("click", (e) => {
-        if (e.target === m) closeModal(m.id);
-      });
+      m.addEventListener("click", (e) => { if (e.target === m) closeModal(m.id); });
     });
-
-    // Close buttons
     document.querySelectorAll("[data-close]").forEach(btn => {
       btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
     });
 
-    // Open buttons
     document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
     document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
     document.getElementById("openCalendarLink").addEventListener("click", (e) => {
@@ -848,14 +803,12 @@
       openModal("modalCAL");
     });
 
-    // Lista de regalos (pegá tu link real)
     document.getElementById("openList").addEventListener("click", () => {
-      // ✅ Reemplazá este link por tu lista real
       const url = "https://example.com/lista-de-regalos";
       window.open(url, "_blank", "noopener");
     });
 
-    // ===== Copy + Copiado ✓ =====
+    // ===== Copy =====
     async function copyToClipboard(text){
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(text);
@@ -868,31 +821,23 @@
       document.body.appendChild(ta);
       ta.focus();
       ta.select();
-      try {
-        document.execCommand("copy");
-        return true;
-      } catch {
-        return false;
-      } finally {
-        document.body.removeChild(ta);
-      }
+      try { document.execCommand("copy"); return true; }
+      catch { return false; }
+      finally { document.body.removeChild(ta); }
     }
 
     document.querySelectorAll("[data-copy]").forEach(btn => {
       btn.addEventListener("click", async () => {
         const val = btn.getAttribute("data-copy");
         const prev = btn.textContent;
-
         const ok = await copyToClipboard(val);
         btn.textContent = ok ? "Copiado ✓" : "Error";
-
         setTimeout(() => btn.textContent = prev, 1000);
       });
     });
 
     // ===== Countdown =====
     const target = new Date(EVENT.startISO).getTime();
-
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function tick(){
@@ -935,10 +880,8 @@
     gUrl.searchParams.set("details", EVENT.description);
     gUrl.searchParams.set("location", EVENT.location);
 
-    // ✅ esto hace que el botón "Google Calendar" lleve a algún lado
     document.getElementById("googleCalLink").href = gUrl.toString();
 
-    // Apple / .ics download
     function icsEscape(s){
       return String(s)
         .replace(/\\/g, "\\\\")
