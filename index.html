@@ -168,58 +168,69 @@
       letter-spacing:0;
     }
 
-    /* ===== COUNTDOWN (suelto, horizontal) ===== */
-    .countdown-free{
-      margin:18px auto 0;
-      padding:6px 0 0;
-    }
+    /* ===== COUNTDOWN (gris muy suave minimal) ===== */
 
-    .cd-free{
-      display:flex;
-      justify-content:center;
-      align-items:flex-end;
-      gap:34px;
-      flex-wrap:wrap;
-    }
+.countdown-band{
+  margin:32px auto 0;
+  padding:28px 20px;
+  border-radius:20px;
+  border:1px solid #e3e3e3;
+  background:#efefef;          /* gris muy suave */
+  box-shadow:none;
+  text-align:center;
+}
 
-    .cd-unit{
-      text-align:center;
-      min-width:140px;
-    }
+.countdown-free{
+  margin:0;
+  padding:0;
+}
 
-    .cd-free-num{
-      font-family:var(--mono);
-      font-size:64px;
-      line-height:1;
-      font-weight:600;
-      letter-spacing:.01em;
-    }
+.cd-free{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:40px;
+  flex-wrap:wrap;
+}
 
-    .cd-free-label{
-      margin-top:10px;
-      font-size:12px;
-      letter-spacing:.26em;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:500;
-    }
+.cd-unit{
+  text-align:center;
+  min-width:140px;
+}
 
-    .cd-dot{
-      font-family:var(--mono);
-      font-size:46px;
-      line-height:1;
-      color:rgba(0,0,0,.16);
-      transform:translateY(-10px);
-    }
+.cd-free-num{
+  font-family:var(--mono);
+  font-size:64px;
+  line-height:1;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:#111;
+}
 
-    @media (max-width: 720px){
-      .names{ font-size:52px; }
-      .subcopy{ font-size:16px; }
-      .cd-free{ gap:16px; }
-      .cd-unit{ min-width:120px; }
-      .cd-free-num{ font-size:52px; }
-      .cd-dot{ display:none; }
-    }
+.cd-free-label{
+  margin-top:12px;
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#6e6e6e;
+  font-weight:500;
+}
+
+.cd-dot{
+  font-family:var(--mono);
+  font-size:36px;
+  line-height:1;
+  color:#bdbdbd;
+  transform:translateY(-12px);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 720px){
+  .cd-free{ gap:18px; }
+  .cd-unit{ min-width:110px; }
+  .cd-free-num{ font-size:48px; }
+  .cd-dot{ display:none; }
+}
 
     /* ===== SECTIONS ===== */
     .section{ padding:48px 0 0; }
@@ -594,38 +605,40 @@
         <a href="#top" id="openCalendarLink">Guardá la fecha</a>
       </nav>
 
-      <!-- Countdown -->
-      <div class="countdown-free" aria-label="Cuenta regresiva">
-        <div class="cd-free">
-          <div class="cd-unit">
-            <div class="cd-free-num" id="cdDays">00</div>
-            <div class="cd-free-label">DÍAS</div>
-          </div>
+     <!-- Countdown -->
+<div class="countdown-band" aria-label="Cuenta regresiva">
+  <div class="countdown-free">
+    <div class="cd-free">
 
-          <div class="cd-dot">·</div>
-
-          <div class="cd-unit">
-            <div class="cd-free-num" id="cdHours">00</div>
-            <div class="cd-free-label">HORAS</div>
-          </div>
-
-          <div class="cd-dot">·</div>
-
-          <div class="cd-unit">
-            <div class="cd-free-num" id="cdMins">00</div>
-            <div class="cd-free-label">MINUTOS</div>
-          </div>
-
-          <div class="cd-dot">·</div>
-
-          <div class="cd-unit">
-            <div class="cd-free-num" id="cdSecs">00</div>
-            <div class="cd-free-label">SEGUNDOS</div>
-          </div>
-        </div>
+      <div class="cd-unit">
+        <div class="cd-free-num" id="cdDays">00</div>
+        <div class="cd-free-label">DÍAS</div>
       </div>
+
+      <div class="cd-dot">·</div>
+
+      <div class="cd-unit">
+        <div class="cd-free-num" id="cdHours">00</div>
+        <div class="cd-free-label">HORAS</div>
+      </div>
+
+      <div class="cd-dot">·</div>
+
+      <div class="cd-unit">
+        <div class="cd-free-num" id="cdMins">00</div>
+        <div class="cd-free-label">MINUTOS</div>
+      </div>
+
+      <div class="cd-dot">·</div>
+
+      <div class="cd-unit">
+        <div class="cd-free-num" id="cdSecs">00</div>
+        <div class="cd-free-label">SEGUNDOS</div>
+      </div>
+
     </div>
-  </header>
+  </div>
+</div>
 
   <!-- ¿DÓNDE? -->
   <section class="section" id="donde">
