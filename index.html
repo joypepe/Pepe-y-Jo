@@ -1,535 +1,929 @@
 <!doctype html>
-<html lang="es-AR">
+<html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pepe & Jo — Se viene el casorio</title>
-  <meta name="description" content="Invitación al casorio de Pepe & Jo — 22 de noviembre de 2026" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pepe & Jo — 22.11.2026</title>
 
-  <!-- Fonts (estética muy similar al ejemplo: serif editorial + sans espaciada) -->
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#fbfaf8;
-      --paper:#ffffff;
-      --text:#121212;
-      --muted:#6d6d6d;
+      --bg:#fbf8f4;
+      --surface:#ffffff;
+      --text:#111111;
+      --muted:#6f6f6f;
       --line:rgba(0,0,0,.10);
-      --shadow: 0 14px 30px rgba(0,0,0,.06);
-      --radius:22px;
-      --serif:"Cormorant Garamond", ui-serif, Georgia, serif;
-      --sans:"Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --shadow:0 18px 50px rgba(0,0,0,.08);
+      --radius:20px;
+      --radius-sm:14px;
+
+      --container:1120px;
+      --gap:18px;
+
+      --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: "Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    *{ box-sizing:border-box; }
     body{
       margin:0;
-      background: radial-gradient(1200px 600px at 50% -100px, rgba(0,0,0,.06), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      font-family:var(--serif);
-    }
-    a{color:inherit}
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 90px}
-    .topbar{
-      display:flex;align-items:center;justify-content:center;
-      gap:12px;padding:12px 0 8px;color:var(--muted);
-      font-family:var(--sans);font-size:12px;letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-    .hero{
-      text-align:center;
-      padding:34px 0 14px;
-    }
-    .hero h1{
-      margin:10px 0 10px;
-      font-size:64px;
-      line-height:.92;
-      font-weight:600;
-      letter-spacing:.01em;
-    }
-    @media (max-width:540px){
-      .hero h1{font-size:46px}
-    }
-    .subtitle{
-      margin:0 auto;
-      max-width:620px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.65;
-    }
-
-    .metaRow{
-      display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
-      margin-top:18px;
       font-family:var(--sans);
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .chip{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.65);
-      padding:10px 14px;border-radius:999px;
-      font-size:13px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.04);
-    }
-    .chip strong{font-weight:500}
 
-    .card{
-      background:var(--paper);
+    a{ color:inherit; text-decoration:none; }
+    button{ font-family:inherit; }
+
+    .container{
+      width:100%;
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 22px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      padding:64px 0 24px;
+      text-align:center;
+    }
+
+    .names{
+      font-size:64px;
+      line-height:1.05;
+      letter-spacing:-.02em;
+      margin:0 0 10px;
+      font-weight:500;
+    }
+
+    .subcopy{
+      margin:0 auto 22px;
+      max-width:740px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.55;
+      font-weight:400;
+    }
+
+    .chips{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      font-size:15px;
+      color:#1a1a1a;
+    }
+    .chip .icon{ opacity:.9; }
+
+    /* ===== NAV BUTTONS ROW ===== */
+    .navrow{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:10px auto 18px;
+      max-width:var(--container);
+    }
+
+    .navbtn{
+      appearance:none;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.8);
+      padding:12px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:500;
+      color:#111;
+      cursor:pointer;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+      box-shadow:0 12px 30px rgba(0,0,0,.05);
+    }
+    .navbtn:hover{ transform:translateY(-1px); background:#fff; border-color:rgba(0,0,0,.14); }
+    .navbtn:active{ transform:translateY(0px); }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown-wrap{
+      margin:0 auto 40px;
+      background:rgba(255,255,255,.75);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
+      padding:16px;
     }
 
-    .countWrap{
-      margin:22px auto 0;
-      max-width:740px;
-      padding:14px;
-    }
-    .countGrid{
+    .countdown-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:10px;
-    }
-    .countBox{
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:14px 10px;
-      text-align:center;
-      background:rgba(255,255,255,.7);
-    }
-    .num{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1}
-    .lab{
-      margin-top:6px;
-      font-family:var(--sans);
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .countNote{
-      margin-top:10px;
-      text-align:center;
-      color:var(--muted);
-      font-family:var(--sans);
-      font-size:12px;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+      margin-bottom:10px;
     }
 
-    .section{margin-top:26px}
-    .sectionHeader{
-      display:flex;align-items:baseline;justify-content:space-between;
-      margin:0 0 10px;
-      gap:12px;
+    .cd-card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:16px 14px;
+      text-align:center;
     }
-    .sectionHeader h2{
+
+    .cd-num{
+      font-family:var(--mono);
+      font-size:34px;
+      letter-spacing:-.02em;
       margin:0;
-      font-size:28px;
       font-weight:600;
     }
-    .sectionHeader .tag{
-      font-family:var(--sans);
+
+    .cd-label{
+      margin:6px 0 0;
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
       color:var(--muted);
+      font-weight:500;
     }
 
-    .grid2{
-      display:grid;grid-template-columns:1fr;gap:14px;
-    }
-    @media(min-width:780px){.grid2{grid-template-columns:1fr 1fr}}
-
-    .placeCard{padding:18px}
-    .placeTitle{
-      margin:0 0 10px;
-      font-size:26px;font-weight:600;
-    }
-    .placeName{font-family:var(--serif);font-size:20px;font-weight:600;margin:0}
-    .placeMeta{
-      margin-top:10px;
+    .countdown-foot{
+      font-size:14px;
       color:var(--muted);
-      font-family:var(--sans);
+      text-align:center;
+      margin:0;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section{
+      padding:38px 0 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin:0;
+      letter-spacing:-.02em;
+      font-weight:500;
+    }
+
+    .section-kicker{
       font-size:13px;
-      line-height:1.55;
-    }
-    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:11px 14px;border-radius:14px;
-      border:1px solid var(--line);
-      background:#fff;text-decoration:none;
-      font-family:var(--sans);font-size:13px;
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.06)}
-    .btn.primary{
-      background:#111;color:#fff;border-color:#111;
-    }
-
-    .rsvpCard{padding:18px}
-    .rsvpText{
-      color:var(--muted);
-      font-family:var(--sans);
-      font-size:13px;line-height:1.6;margin:0;
-    }
-
-    .timeline{display:grid;gap:10px}
-    .step{
-      padding:14px 16px;
-      display:grid;grid-template-columns:110px 1fr;
-      gap:12px;align-items:start;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(255,255,255,.75);
-    }
-    .time{
-      font-family:var(--sans);
-      letter-spacing:.14em;
+      letter-spacing:.22em;
       text-transform:uppercase;
-      font-size:12px;
       color:var(--muted);
-    }
-    .stepTitle{margin:0;font-size:18px;font-weight:600}
-    .stepDesc{
-      margin-top:4px;
-      font-family:var(--sans);
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
+      margin:0;
+      font-weight:500;
     }
 
-    .gallery{
+    .cards{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      min-height:240px; /* coherencia de altura */
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:28px;
+      font-weight:500;
+      letter-spacing:-.01em;
+    }
+
+    .place-name{
+      font-size:18px;
+      margin:0 0 10px;
+      color:#1a1a1a;
+      font-weight:500;
+    }
+
+    .address{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#333;
+      font-size:15px;
+      margin:0 0 18px;
+    }
+
+    .meta .micon{ opacity:.75; }
+
+    .card-actions{
+      margin-top:auto; /* empuja el botón al fondo para coherencia */
+      display:flex;
       gap:10px;
     }
-    @media(min-width:780px){.gallery{grid-template-columns:repeat(3,1fr)}}
-    .imgBox{
-      overflow:hidden;
-      border-radius:18px;
+
+    .btn{
+      appearance:none;
       border:1px solid var(--line);
       background:#fff;
-      aspect-ratio:4/5;
-      position:relative;
+      padding:12px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:500;
+      transition:transform .12s ease, border-color .12s ease;
     }
-    .imgBox img{
-      width:100%;height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-    }
-    .imgPh{
-      width:100%;height:100%;
-      display:flex;align-items:center;justify-content:center;
-      font-family:var(--sans);
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:.06em;
-      text-align:center;
-      padding:12px;
-      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.00));
+    .btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
+    .btn:active{ transform:translateY(0); }
+
+    .btn-primary{
+      background:#111;
+      color:#fff;
+      border-color:#111;
     }
 
-    .gifts{padding:18px}
-    .gifts p{
+    /* ===== RSVP ===== */
+    .rsvp-box{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .rsvp-text{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width:820px;
+    }
+
+    /* ===== GIFTS ===== */
+    .gifts-top{
+      text-align:center;
+      margin-bottom:16px;
+    }
+
+    .gift-icon{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      margin:0 auto 12px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.8);
+      box-shadow:0 12px 30px rgba(0,0,0,.05);
+      font-size:26px;
+    }
+
+    .gifts-text{
+      margin:0 auto;
+      max-width:760px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .gift-buttons{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .gift-btn{
+      appearance:none;
+      width:100%;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      border-radius:var(--radius);
+      padding:16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+      min-height:62px;
+    }
+    .gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); background:#fff; }
+    .gift-btn:active{ transform:translateY(0); }
+
+    .gift-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:500;
+    }
+
+    .gift-right{
+      color:rgba(0,0,0,.45);
+      font-size:22px;
+      line-height:1;
+    }
+
+    /* Lista ocupa todo en desktop en la primera fila */
+    .gift-btn.full{
+      grid-column:1 / -1;
+    }
+
+    /* ===== MODALS ===== */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.38);
+      z-index:2000;
+      padding:18px;
+    }
+    .modal.open{ display:block; }
+
+    .modal-card{
+      width:100%;
+      max-width:620px;
+      margin:10vh auto 0;
+      background:#fff;
+      border-radius:22px;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow:0 30px 90px rgba(0,0,0,.22);
+      overflow:hidden;
+    }
+
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 18px 10px;
+    }
+
+    .modal-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:20px;
+      font-weight:600;
       margin:0;
-      font-family:var(--sans);
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.65;
+      letter-spacing:-.01em;
     }
 
-    footer{
-      margin-top:36px;
-      text-align:center;
+    .modal-close{
+      appearance:none;
+      background:rgba(0,0,0,.04);
+      border:1px solid rgba(0,0,0,.08);
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:20px;
+      line-height:1;
+    }
+
+    .modal-body{
+      padding:0 18px 18px;
+    }
+
+    .modal-sub{
+      margin:0 0 14px;
       color:var(--muted);
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .copy-list{
+      border-top:1px solid rgba(0,0,0,.07);
+      margin-top:8px;
+    }
+
+    .copy-row{
+      display:grid;
+      grid-template-columns:120px 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:14px 0;
+      border-bottom:1px solid rgba(0,0,0,.07);
+    }
+
+    .copy-key{
+      color:#111;
+      font-weight:500;
+      font-size:15px;
+    }
+
+    .copy-val{
+      color:#111;
+      font-size:15px;
+      overflow-wrap:anywhere;
+    }
+
+    .copy-val.mono{
+      font-family:var(--mono);
+      letter-spacing:.01em;
+    }
+
+    .copy-btn{
+      appearance:none;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(0,0,0,.03);
+      border-radius:12px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+      min-width:92px;
+      transition:transform .12s ease, background .12s ease;
+    }
+    .copy-btn:hover{ transform:translateY(-1px); background:rgba(0,0,0,.05); }
+    .copy-btn:active{ transform:translateY(0); }
+
+    .modal-actions{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+
+    /* ===== FOOT SPACE ===== */
+    .spacer{ height:54px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px){
+      .names{ font-size:52px; }
+      .cards{ grid-template-columns:1fr; }
+      .countdown-grid{ grid-template-columns:repeat(2, 1fr); }
+      .gift-buttons{ grid-template-columns:1fr; }
+      .gift-btn.full{ grid-column:auto; }
+    }
+
+    @media (max-width: 520px){
+      .names{ font-size:44px; }
+      .subcopy{ font-size:16px; }
+      .chip{ font-size:14px; }
+      .section-title{ font-size:28px; }
+      .copy-row{ grid-template-columns:1fr; gap:8px; }
+      .copy-btn{ justify-self:start; }
     }
   </style>
 </head>
 
-  <div id="modal-ars" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('ars')">&times;</span>
-    <h3>🇦🇷 Cuenta en ARS</h3>
-    <p>Si querés colaborar por esta vía, podés copiar los datos desde acá.</p>
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="names">Pepe &amp; Jo</h1>
 
-    <div class="copy-row">
-      <strong>Banco:</strong> Mercado Pago
-      <button onclick="copyText('Mercado Pago', this)">📋</button>
+      <p class="subcopy">¡Deslizá para conocer todos los detalles y compartirlo juntos!</p>
+
+      <div class="chips" aria-label="Fecha y lugar">
+        <div class="chip"><span class="icon">📅</span><span>Domingo 22 de noviembre de 2026</span></div>
+        <div class="chip"><span class="icon">📍</span><span>Pilar · Buenos Aires</span></div>
+      </div>
+
+      <!-- Botones navegación -->
+      <div class="navrow" aria-label="Navegación rápida">
+        <button class="navbtn" data-scroll="#ceremonia">Ceremonia</button>
+        <button class="navbtn" data-scroll="#fiesta">Fiesta</button>
+        <button class="navbtn" data-scroll="#rsvp">Confirmá</button>
+        <button class="navbtn" data-scroll="#regalos">Regalos</button>
+        <button class="navbtn" id="openCalendar">Agendar evento</button>
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown-wrap" aria-label="Cuenta regresiva">
+        <div class="countdown-grid">
+          <div class="cd-card">
+            <p class="cd-num" id="cdDays">--</p>
+            <p class="cd-label">Días</p>
+          </div>
+          <div class="cd-card">
+            <p class="cd-num" id="cdHours">--</p>
+            <p class="cd-label">Horas</p>
+          </div>
+          <div class="cd-card">
+            <p class="cd-num" id="cdMins">--</p>
+            <p class="cd-label">Min</p>
+          </div>
+          <div class="cd-card">
+            <p class="cd-num" id="cdSecs">--</p>
+            <p class="cd-label">Seg</p>
+          </div>
+        </div>
+        <p class="countdown-foot" id="cdFoot">Faltan…</p>
+      </div>
     </div>
+  </header>
 
-    <div class="copy-row">
-      <strong>Alias:</strong> casoriopyj
-      <button onclick="copyText('casoriopyj', this)">📋</button>
+  <!-- LUGARES -->
+  <section class="section" id="lugares">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Lugares</h2>
+        <p class="section-kicker">Ceremonia &amp; Fiesta</p>
+      </div>
+
+      <div class="cards">
+        <!-- Ceremonia -->
+        <article class="card" id="ceremonia">
+          <h3>Ceremonia</h3>
+          <p class="place-name">Iglesia Sagrada Familia - Nuestra Señora del Cielo</p>
+          <p class="address">Pedro Pico 1686, La Lonja, Provincia de Buenos Aires</p>
+          <p class="meta"><span class="micon">🕓</span><span>16:00 hs</span></p>
+          <div class="card-actions">
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://share.google/uZ9OZMf8dtavHU2fZ">Ver en Maps</a>
+          </div>
+        </article>
+
+        <!-- Fiesta -->
+        <article class="card" id="fiesta">
+          <h3>Fiesta</h3>
+          <p class="place-name">Espacio Pilar I</p>
+          <p class="address">Chile 1963, B1630 La Lonja, Provincia de Buenos Aires</p>
+          <p class="meta"><span class="micon">🕓</span><span>18:00 hs</span></p>
+          <div class="card-actions">
+            <!-- Pegá tu link real de Google Maps acá -->
+            <a class="btn" target="_blank" rel="noopener" href="https://share.google/q">Ver en Maps</a>
+          </div>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="copy-row">
-      <strong>CBU:</strong> 0000003100031594279802
-      <button onclick="copyText('0000003100031594279802', this)">📋</button>
+  <!-- RSVP -->
+  <section class="section" id="rsvp">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Confirmación</h2>
+        <p class="section-kicker">RSVP</p>
+      </div>
+
+      <div class="rsvp-box">
+        <p class="rsvp-text">
+          Gracias por acompañarnos en este momento tan importante.<br>
+          Nos haría muy felices poder compartir este día con vos.
+        </p>
+
+        <!-- Google Form (usar viewform, no preview) -->
+        <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
+           target="_blank" rel="noopener">
+          <button class="btn btn-primary">Confirmar asistencia →</button>
+        </a>
+      </div>
     </div>
+  </section>
 
-    <div class="copy-row">
-      <strong>Titular:</strong> Josefina Serra
-      <button onclick="copyText('Josefina Serra', this)">📋</button>
+  <!-- REGALOS -->
+  <section class="section" id="regalos">
+    <div class="container">
+      <div class="gifts-top">
+        <div class="gift-icon">🎁</div>
+        <p class="gifts-text">
+          Lo más lindo es poder compartir este día con vos.<br>
+          Y si querés hacernos un regalo, te dejamos algunas opciones:
+        </p>
+      </div>
+
+      <div class="gift-buttons">
+        <button class="gift-btn full" id="openList">
+          <span class="gift-left"><span>🎁</span> <span>Lista de Regalos</span></span>
+          <span class="gift-right">↗</span>
+        </button>
+
+        <button class="gift-btn" id="openARS">
+          <span class="gift-left"><span>🇦🇷</span> <span>Cuenta en ARS</span></span>
+          <span class="gift-right">›</span>
+        </button>
+
+        <button class="gift-btn" id="openUSD">
+          <span class="gift-left"><span>💵</span> <span>Cuenta en USD</span></span>
+          <span class="gift-right">›</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <!-- ===== MODAL ARS ===== -->
+  <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta en ARS">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span>🎁</span> <span>Cuenta en ARS</span></h3>
+        <button class="modal-close" data-close="modalARS" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-sub">Si querés colaborar por esta vía, podés copiar los datos desde acá.</p>
+
+        <div class="copy-list">
+          <div class="copy-row">
+            <div class="copy-key">Banco</div>
+            <div class="copy-val">Mercado Pago</div>
+            <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">Alias</div>
+            <div class="copy-val mono">casoriopyj</div>
+            <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">CBU</div>
+            <div class="copy-val mono">0000003100031594279802</div>
+            <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">Titular</div>
+            <div class="copy-val">Josefina Serra</div>
+            <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-  
-<body>
-  <div class="wrap">
-    <div class="topbar">Se viene el casorio</div>
 
-    <header class="hero">
-      <h1>Pepe &amp; Jo</h1>
-      <p class="subtitle">Guardate la fecha. Más abajo tenés ceremonia, fiesta, itinerario y confirmación.</p>
-
-      <div class="metaRow">
-        <div class="chip">📅 <strong id="fechaTexto">22 de noviembre de 2026</strong></div>
-        <div class="chip">📍 <strong id="ciudadTexto">La Lonja, Pilar</strong></div>
+  <!-- ===== MODAL USD (placeholder hasta que pases datos) ===== -->
+  <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta en USD">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span>💵</span> <span>Cuenta en USD</span></h3>
+        <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
       </div>
+      <div class="modal-body">
+        <p class="modal-sub">Cuando nos pases los datos, los dejamos iguales a la cuenta en ARS (con copiar + “Copiado ✓”).</p>
 
-      <div class="countWrap card" aria-label="contador">
-        <div class="countGrid">
-          <div class="countBox"><div class="num" id="d">—</div><div class="lab">Días</div></div>
-          <div class="countBox"><div class="num" id="h">—</div><div class="lab">Horas</div></div>
-          <div class="countBox"><div class="num" id="m">—</div><div class="lab">Min</div></div>
-          <div class="countBox"><div class="num" id="s">—</div><div class="lab">Seg</div></div>
-        </div>
-        <div class="countNote">Faltan <span id="targetPretty"></span></div>
-      </div>
-    </header>
-
-    <section class="section" id="lugares">
-      <div class="sectionHeader">
-        <h2>Lugares</h2>
-        <div class="tag">Ceremonia &amp; Fiesta</div>
-      </div>
-
-      <div class="grid2">
-        <div class="card placeCard">
-          <div class="placeTitle">Ceremonia</div>
-          <p class="placeName" id="cerNom"></p>
-          <div class="placeMeta" id="cerDet"></div>
-          <div class="placeMeta">🕒 <span id="cerHora"></span></div>
-          <div class="btnRow">
-            <a class="btn" id="cerMap" href="#" target="_blank" rel="noreferrer">Ver en Maps</a>
-          </div>
-        </div>
-
-        <div class="card placeCard">
-          <div class="placeTitle">Fiesta</div>
-          <p class="placeName" id="fisNom"></p>
-          <div class="placeMeta" id="fisDet"></div>
-          <div class="placeMeta">🕒 <span id="fisHora"></span></div>
-          <div class="btnRow">
-            <a class="btn" id="fisMap" href="#" target="_blank" rel="noreferrer">Ver en Maps</a>
+        <div class="copy-list">
+          <div class="copy-row">
+            <div class="copy-key">Datos</div>
+            <div class="copy-val">Pendientes</div>
+            <button class="copy-btn" data-copy="Pendiente">Copiar</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="section" id="rsvpSection">
-      <div class="sectionHeader">
-        <h2>Confirmación</h2>
-        <div class="tag">RSVP</div>
+  <!-- ===== MODAL CALENDARIO (Google + Apple .ics) ===== -->
+  <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Agendar evento">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span>🗓️</span> <span>Agendar evento</span></h3>
+        <button class="modal-close" data-close="modalCAL" aria-label="Cerrar">×</button>
       </div>
+      <div class="modal-body">
+        <p class="modal-sub">Elegí tu calendario:</p>
 
-      <div class="card rsvpCard">
-        <p class="rsvpText">Porfa confirmá asistencia. Ideal: un formulario por persona.</p>
-        <div class="btnRow" style="margin-top:12px">
-          <a class="btn primary" id="rsvpBtn" href="#" target="_blank" rel="noreferrer">Confirmar asistencia</a>
+        <div class="modal-actions">
+          <a id="googleCalLink" class="btn btn-primary" target="_blank" rel="noopener">Google Calendar</a>
+          <button class="btn" id="downloadICS">Apple Calendar (.ics)</button>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="itinerario">
-      <div class="sectionHeader">
-        <h2>Itinerario</h2>
-        <div class="tag">Horarios</div>
+        <p class="modal-sub" style="margin-top:14px;">
+          (El evento se agenda para <span style="font-family:var(--mono)">22/11/2026 16:00</span> en Argentina.)
+        </p>
       </div>
-      <div class="timeline" id="timeline"></div>
-    </section>
-
-    <section class="section" id="galeria">
-      <div class="sectionHeader">
-        <h2>Ilustraciones</h2>
-        <div class="tag">Galería</div>
-      </div>
-      <div class="gallery" id="gallery"></div>
-    </section>
-
-    <section class="section" id="regalos">
-      <div class="sectionHeader">
-        <h2>Regalos</h2>
-        <div class="tag">Opcional</div>
-      </div>
-      <div class="card gifts">
-        <p id="regalosTexto"></p>
-      </div>
-    </section>
-
-    <footer>Pepe &amp; Jo — <span id="anio"></span></footer>
+    </div>
   </div>
 
   <script>
-    // =========================
-    // DATOS (ya cargados con lo tuyo)
-    // =========================
-    const DATA = {
-      fechaTexto: "Domingo 22 de noviembre de 2026",
-      ciudadTexto: "La Lonja, Pilar, Buenos Aires",
-
-      // Fecha objetivo del contador (hora de la ceremonia)
-      // IMPORTANTE: zona horaria Argentina -03:00
-      fechaISO: "2026-11-22T16:00:00-03:00",
-
-      ceremonia: {
-        nombre: "Iglesia Sagrada Familia - Nuestra Señora del Cielo",
-        detalle: "Pedro Pico 1686, La Lonja, Provincia de Buenos Aires",
-        hora: "16:00 hs",
-        maps: "https://maps.app.goo.gl/wyiCAV1Q4S6Jjm9r8"
-      },
-
-      fiesta: {
-        nombre: "Espacio Pilar I",
-        detalle: "Chile 1963, B1630 La Lonja, Provincia de Buenos Aires",
-        hora: "18:00 hs",
-        maps: "https://maps.app.goo.gl/45bm6M7ihEpHa9Mf7"
-      },
-
-      // Pegás acá tu Google Form cuando lo tengas
-      rsvpUrl: "#",
-
-      itinerario: [
-        { hora: "16:00", titulo: "Ceremonia", detalle: "Iglesia Sagrada Familia" },
-        { hora: "18:00", titulo: "Recepción", detalle: "Espacio Pilar I" },
-        { hora: "19:45", titulo: "Cena", detalle: "A brindar y disfrutar 🍷" },
-        { hora: "22:00", titulo: "Fiesta", detalle: "Se picó mal 💃🕺" }
-      ],
-
-      // GALERÍA:
-      // Opción A (rápido): deja placeholders con nombres.
-      // Opción B (cuando tengas imágenes): subilas a /images y listalas acá.
-      galleryImages: [
-        // Ejemplo:
-        // { src: "/images/ilustracion-1.jpg", alt: "Ilustración 1" },
-        // { src: "/images/ilustracion-2.jpg", alt: "Ilustración 2" },
-      ],
-      galleryPlaceholders: 6,
-
-      regalosTexto: "Tu presencia es lo más importante. Si querés hacernos un regalito, pronto dejamos acá los datos 💛"
+    // ===== CONFIG =====
+    const EVENT = {
+      title: "Casamiento Pepe & Jo",
+      // Ceremonia 16:00 AR (-03:00)
+      startISO: "2026-11-22T16:00:00-03:00",
+      // Duración sugerida 2 horas (ajustable)
+      endISO:   "2026-11-22T18:00:00-03:00",
+      location: "Pilar, Buenos Aires",
+      description: "Ceremonia: Iglesia Sagrada Familia - Nuestra Señora del Cielo. Fiesta: Espacio Pilar I."
     };
 
-    // =========================
-    // RENDER
-    // =========================
-    document.getElementById("fechaTexto").textContent = DATA.fechaTexto;
-    document.getElementById("ciudadTexto").textContent = DATA.ciudadTexto;
-
-    document.getElementById("cerNom").textContent = DATA.ceremonia.nombre;
-    document.getElementById("cerDet").textContent = DATA.ceremonia.detalle;
-    document.getElementById("cerHora").textContent = DATA.ceremonia.hora;
-    document.getElementById("cerMap").href = DATA.ceremonia.maps;
-
-    document.getElementById("fisNom").textContent = DATA.fiesta.nombre;
-    document.getElementById("fisDet").textContent = DATA.fiesta.detalle;
-    document.getElementById("fisHora").textContent = DATA.fiesta.hora;
-    document.getElementById("fisMap").href = DATA.fiesta.maps;
-
-    document.getElementById("rsvpBtn").href = DATA.rsvpUrl;
-    document.getElementById("regalosTexto").textContent = DATA.regalosTexto;
-    document.getElementById("anio").textContent = new Date().getFullYear();
-
-    // Timeline
-    const timeline = document.getElementById("timeline");
-    timeline.innerHTML = "";
-    DATA.itinerario.forEach(item => {
-      const el = document.createElement("div");
-      el.className = "step";
-      el.innerHTML = `
-        <div class="time">${item.hora}</div>
-        <div>
-          <div class="stepTitle">${item.titulo}</div>
-          <div class="stepDesc">${item.detalle}</div>
-        </div>
-      `;
-      timeline.appendChild(el);
+    // ===== Smooth scroll from nav buttons =====
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const sel = btn.getAttribute("data-scroll");
+        const el = document.querySelector(sel);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
 
-    // Gallery
-    const gallery = document.getElementById("gallery");
-    gallery.innerHTML = "";
+    // ===== Modals =====
+    function openModal(id){
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.add("open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(id){
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.remove("open");
+      m.setAttribute("aria-hidden", "true");
+    }
 
-    if (DATA.galleryImages && DATA.galleryImages.length) {
-      DATA.galleryImages.forEach(img => {
-        const box = document.createElement("div");
-        box.className = "imgBox";
-        box.innerHTML = `<img src="${img.src}" alt="${img.alt || ""}">`;
-        gallery.appendChild(box);
+    // Close on overlay click
+    document.querySelectorAll(".modal").forEach(m => {
+      m.addEventListener("click", (e) => {
+        if (e.target === m) closeModal(m.id);
       });
-    } else {
-      for (let i=1;i<=DATA.galleryPlaceholders;i++){
-        const box = document.createElement("div");
-        box.className = "imgBox";
-        const ph = document.createElement("div");
-        ph.className = "imgPh";
-        ph.textContent = `Ilustración ${i} (subir imagen)`;
-        box.appendChild(ph);
-        gallery.appendChild(box);
+    });
+
+    // Close buttons
+    document.querySelectorAll("[data-close]").forEach(btn => {
+      btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
+    });
+
+    // Open buttons
+    document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
+    document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
+    document.getElementById("openCalendar").addEventListener("click", () => openModal("modalCAL"));
+
+    // Lista de regalos (pegá tu link real)
+    document.getElementById("openList").addEventListener("click", () => {
+      // Reemplazá este link por tu lista real
+      const url = "https://example.com/lista-de-regalos";
+      window.open(url, "_blank", "noopener");
+    });
+
+    // ===== Copy + Copiado ✓ =====
+    async function copyToClipboard(text){
+      // navigator.clipboard requiere https o localhost
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      // Fallback
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand("copy");
+        return true;
+      } catch {
+        return false;
+      } finally {
+        document.body.removeChild(ta);
       }
     }
 
-    // =========================
-    // COUNTDOWN (bien hecho, con timezone)
-    // =========================
-    const target = new Date(DATA.fechaISO);
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const val = btn.getAttribute("data-copy");
+        const prev = btn.textContent;
 
-    function pad2(n){ return String(n).padStart(2,"0"); }
+        const ok = await copyToClipboard(val);
+        btn.textContent = ok ? "Copiado ✓" : "Error";
 
-    function prettyTarget(d){
-      try{
-        return d.toLocaleString("es-AR", {
-          weekday:"long", day:"2-digit", month:"long", year:"numeric",
-          hour:"2-digit", minute:"2-digit"
-        });
-      } catch(e){
-        return d.toString();
-      }
+        setTimeout(() => btn.textContent = prev, 1000);
+      });
+    });
+
+    // ===== Countdown =====
+    const target = new Date(EVENT.startISO).getTime();
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function formatFoot(){
+      // Texto de apoyo (simple)
+      // Nota: mostramos "Faltan..." sin p.m./a.m., más prolijo
+      return "Faltan para el domingo 22 de noviembre de 2026, 16:00 hs.";
     }
-    document.getElementById("targetPretty").textContent = prettyTarget(target);
+
+    document.getElementById("cdFoot").textContent = formatFoot();
 
     function tick(){
-      const now = new Date();
-      const diffMs = target.getTime() - now.getTime();
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
 
-      if (diffMs <= 0){
-        document.getElementById("d").textContent = "0";
-        document.getElementById("h").textContent = "00";
-        document.getElementById("m").textContent = "00";
-        document.getElementById("s").textContent = "00";
-        return;
-      }
+      const sec = Math.floor(diff / 1000);
+      const days = Math.floor(sec / (3600 * 24));
+      const hours = Math.floor((sec % (3600 * 24)) / 3600);
+      const mins = Math.floor((sec % 3600) / 60);
+      const secs = sec % 60;
 
-      const totalSec = Math.floor(diffMs / 1000);
-      const days = Math.floor(totalSec / (3600*24));
-      const hours = Math.floor((totalSec % (3600*24)) / 3600);
-      const mins = Math.floor((totalSec % 3600) / 60);
-      const secs = totalSec % 60;
-
-      document.getElementById("d").textContent = String(days);
-      document.getElementById("h").textContent = pad2(hours);
-      document.getElementById("m").textContent = pad2(mins);
-      document.getElementById("s").textContent = pad2(secs);
+      document.getElementById("cdDays").textContent = String(days);
+      document.getElementById("cdHours").textContent = pad2(hours);
+      document.getElementById("cdMins").textContent = pad2(mins);
+      document.getElementById("cdSecs").textContent = pad2(secs);
     }
-
     tick();
     setInterval(tick, 1000);
+
+    // ===== Calendar links =====
+    // Google Calendar URL builder (UTC format yyyymmddThhmmssZ)
+    function toGoogleUTC(iso){
+      const d = new Date(iso);
+      const y = d.getUTCFullYear();
+      const m = pad2(d.getUTCMonth() + 1);
+      const day = pad2(d.getUTCDate());
+      const hh = pad2(d.getUTCHours());
+      const mm = pad2(d.getUTCMinutes());
+      const ss = pad2(d.getUTCSeconds());
+      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
+    }
+
+    const gStart = toGoogleUTC(EVENT.startISO);
+    const gEnd   = toGoogleUTC(EVENT.endISO);
+
+    const gUrl = new URL("https://calendar.google.com/calendar/render");
+    gUrl.searchParams.set("action", "TEMPLATE");
+    gUrl.searchParams.set("text", EVENT.title);
+    gUrl.searchParams.set("dates", `${gStart}/${gEnd}`);
+    gUrl.searchParams.set("details", EVENT.description);
+    gUrl.searchParams.set("location", EVENT.location);
+
+    document.getElementById("googleCalLink").href = gUrl.toString();
+
+    // Apple / .ics download
+    function icsEscape(s){
+      return String(s)
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/,/g, "\\,")
+        .replace(/;/g, "\\;");
+    }
+
+    function toICSDateUTC(iso){
+      const d = new Date(iso);
+      const y = d.getUTCFullYear();
+      const m = pad2(d.getUTCMonth() + 1);
+      const day = pad2(d.getUTCDate());
+      const hh = pad2(d.getUTCHours());
+      const mm = pad2(d.getUTCMinutes());
+      const ss = pad2(d.getUTCSeconds());
+      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
+    }
+
+    document.getElementById("downloadICS").addEventListener("click", () => {
+      const dtstamp = toICSDateUTC(new Date().toISOString());
+      const dtstart = toICSDateUTC(EVENT.startISO);
+      const dtend   = toICSDateUTC(EVENT.endISO);
+
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Pepe&Jo//Casamiento//ES",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${Date.now()}@pepe-jo`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART:${dtstart}`,
+        `DTEND:${dtend}`,
+        `SUMMARY:${icsEscape(EVENT.title)}`,
+        `DESCRIPTION:${icsEscape(EVENT.description)}`,
+        `LOCATION:${icsEscape(EVENT.location)}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Pepe-y-Jo.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
   </script>
 </body>
 </html>
