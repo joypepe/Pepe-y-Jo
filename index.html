@@ -344,76 +344,86 @@
     }
 
     /* ===== REGALOS ===== */
-    .gifts-top{
-      text-align:center;
-      margin-bottom:16px;
-    }
+    /* ===== REGALOS (todo en un box) ===== */
+.gifts-card{
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
+}
 
-    .gift-icon{
-      width:56px;
-      height:56px;
-      border-radius:16px;
-      margin:0 auto 12px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.82);
-      box-shadow:0 12px 30px rgba(0,0,0,.05);
-      font-size:26px;
-    }
+.gifts-card-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+}
 
-    .gifts-text{
-      margin:0 auto;
-      max-width:760px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-    }
+.gifts-card-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
 
-    .gift-buttons{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:18px;
-    }
+.gifts-card-copy{
+  margin:0 0 16px;
+  max-width:760px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+  text-align:left; /* ✅ izquierda */
+}
 
-    .gift-btn{
-      appearance:none;
-      width:100%;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.9);
-      border-radius:var(--radius);
-      padding:16px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-      transition:transform .12s ease, border-color .12s ease, background .12s ease;
-      min-height:62px;
-    }
-    .gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); background:#fff; }
-    .gift-btn:active{ transform:translateY(0); }
+.gifts-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
 
-    .gift-left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:18px;
-      font-weight:600;
-    }
-    .gift-right{
-      color:rgba(0,0,0,.45);
-      font-size:22px;
-      line-height:1;
-    }
+.gift-btn{
+  appearance:none;
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:18px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease;
+  min-height:62px;
+}
+.gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
+.gift-btn:active{ transform:translateY(0); }
 
-    .gift-btn.full{ grid-column:1 / -1; }
+.gift-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:16px;
+  font-weight:700;
+}
 
-    @media (max-width: 920px){
-      .gift-buttons{ grid-template-columns:1fr; }
-      .gift-btn.full{ grid-column:auto; }
-    }
+.gift-right{
+  color:rgba(0,0,0,.45);
+  font-size:22px;
+  line-height:1;
+}
+
+/* Lista ocupa toda la fila */
+.gift-btn.full{ grid-column:1 / -1; }
+
+@media (max-width: 920px){
+  .gifts-buttons{ grid-template-columns:1fr; }
+  .gift-btn.full{ grid-column:auto; }
+}
 
     /* ===== MODALS (centradas, NO arriba) ===== */
     .modal{
@@ -650,42 +660,60 @@
     </div>
   </section>
 
-  <!-- REGALOS -->
-  <section class="section" id="regalos">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Regalos</h2>
-        <p class="section-kicker">Opciones</p>
-      </div>
+<!-- REGALOS -->
+<section class="section" id="regalos">
+  <div class="container">
 
-      <div class="gifts-top">
-        <div class="gift-icon">🎁</div>
-        <p class="gifts-text">
-          Lo más lindo es poder compartir este día con vos.<br>
-          Y si querés hacernos un regalo, te dejamos algunas opciones.
-        </p>
-      </div>
+    <div class="section-head">
+      <h2 class="section-title">Regalos</h2>
+      <p class="section-kicker">Opciones</p>
+    </div>
 
-      <div class="gift-buttons">
-        <button class="gift-btn full" id="openList">
-          <span class="gift-left"><span>🎁</span> <span>Lista de Regalos</span></span>
+    <div class="gifts-card">
+
+      <h3 class="gifts-card-title">
+        <span>🎁</span>
+        <span>Opciones de regalo</span>
+      </h3>
+
+      <p class="gifts-card-copy">
+        Lo más lindo es poder compartir este día con vos.<br>
+        Y si querés hacernos un regalo, te dejamos algunas opciones.
+      </p>
+
+      <div class="gifts-buttons">
+
+        <button class="gift-btn full" id="openList" type="button">
+          <span class="gift-left">
+            <span>🎁</span>
+            <span>Lista de Regalos</span>
+          </span>
           <span class="gift-right">↗</span>
         </button>
 
-        <button class="gift-btn" id="openARS">
-          <span class="gift-left"><span>🇦🇷</span> <span>Cuenta en ARS</span></span>
+        <button class="gift-btn" id="openARS" type="button">
+          <span class="gift-left">
+            <span>🇦🇷</span>
+            <span>Cuenta en ARS</span>
+          </span>
           <span class="gift-right">›</span>
         </button>
 
-        <button class="gift-btn" id="openUSD">
-          <span class="gift-left"><span>💵</span> <span>Cuenta en USD</span></span>
+        <button class="gift-btn" id="openUSD" type="button">
+          <span class="gift-left">
+            <span>💵</span>
+            <span>Cuenta en USD</span>
+          </span>
           <span class="gift-right">›</span>
         </button>
+
       </div>
-    </div>
-  </section>
 
-  <div class="spacer"></div>
+    </div>
+  </div>
+</section>
+
+<div class="spacer"></div>
 
   <!-- ===== MODAL ARS ===== -->
   <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta en ARS">
