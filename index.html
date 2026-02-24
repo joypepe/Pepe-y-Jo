@@ -8,7 +8,9 @@
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+  <!-- Sans (base) + Mono (countdown/nav) + Serif Italic (canchera opcional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -23,6 +25,7 @@
 
       --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: "Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      --serifIt: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif; /* opcional para nombres */
     }
 
     *{ box-sizing:border-box; }
@@ -45,80 +48,89 @@
       margin:0 auto;
       padding:0 22px;
     }
-/* ===== HERO SOLO PORTADA (solo nombres + fecha + lugar) ===== */
-.hero{
-  position:relative;
-  min-height:85vh;              /* un poco menos que 100vh, más elegante */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-  overflow:hidden;
-  padding:90px 0 90px;
-}
 
-/* Imagen */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("images/hero.jpg") center/cover no-repeat;
-  z-index:0;
-  transform:scale(1.02);
-  filter:contrast(1.02);
-}
+    /* ===== HERO SOLO PORTADA (solo nombres + fecha + lugar) ===== */
+    .hero{
+      position:relative;
+      min-height:85vh;             /* portada */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      overflow:hidden;
+      padding:90px 0 90px;
+      isolation:isolate;           /* ✅ evita quilombos de z-index */
+    }
 
-/* Overlay más liviano (antes estaba muy oscuro) */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.38);   /* más suave */
-  z-index:1;
-}
+    /* Imagen (solo hero) */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("images/hero.jpg") center/cover no-repeat;
+      z-index:-2;
+      transform:scale(1.02);
+      filter:contrast(1.02);
+    }
 
-.hero .container{
-  position:relative;
-  z-index:2;
-}
+    /* Overlay suave para legibilidad */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.55)),
+        linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.52));
+      z-index:-1;
+    }
 
-/* Título */
-.names{
-  margin:0 0 20px;
-  font-size:96px;
-  line-height:1.02;
-  letter-spacing:-.03em;
-  font-weight:600;
-}
+    .hero .container{
+      position:relative;
+      z-index:1;
+    }
 
-/* Fecha y lugar */
-.hero-meta{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
-}
+    /* Título */
+    .names{
+      margin:0 0 18px;
+      font-size:92px;
+      line-height:1.02;
+      letter-spacing:-.03em;
+      font-weight:600;
+      /* Opción canchera (cursiva). Si NO la querés, borrá la línea de abajo */
+      font-family:var(--serifIt);
+      font-style:italic;
+    }
 
-.hero-date{
-  font-size:19px;
-  font-weight:500;
-  color:rgba(255,255,255,.92);
-}
+    /* Fecha y lugar */
+    .hero-meta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:center;
+    }
 
-.hero-place{
-  font-size:13px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.70);
-}
+    .hero-date{
+      font-size:19px;
+      font-weight:500;
+      color:rgba(255,255,255,.92);
+    }
 
-@media (max-width:720px){
-  .hero{ min-height:75vh; padding:70px 0; }
-  .names{ font-size:48px; }
-  .hero-date{ font-size:16px; }
-  .hero-place{ font-size:12px; }
-}
+    .hero-place{
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+    }
+
+    @media (max-width:720px){
+      .hero{ min-height:75vh; padding:70px 0; }
+      .names{ font-size:52px; }
+      .hero-date{ font-size:16px; }
+      .hero-place{ font-size:12px; }
+    }
+  </style>
+</head>
 
     /* ===== COUNTDOWN (gris muy suave minimal) ===== */
 
