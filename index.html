@@ -126,15 +126,14 @@
 
 /* Fecha y lugar: mismos estilos */
 .hero-meta{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:40px;   /* 👈 controlás qué tan abajo está */
-
+.hero-meta{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
   align-items:center;
+
+  /* ✅ SOLO baja fecha + lugar (sin mover Pepe & Jo) */
+  transform:translateY(44px);
 }
 .hero-date,
 .hero-place{
