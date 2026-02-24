@@ -13,22 +13,20 @@
   <style>
     :root{
       --bg:#fbf8f4;
-      --surface:#ffffff;
       --text:#111111;
       --muted:#6f6f6f;
       --line:rgba(0,0,0,.10);
       --shadow:0 18px 50px rgba(0,0,0,.08);
       --radius:20px;
-      --radius-sm:14px;
 
       --container:1120px;
-      --gap:18px;
 
       --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: "Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family:var(--sans);
@@ -48,134 +46,183 @@
       padding:0 22px;
     }
 
-    /* ===== HERO ===== */
+    /* ===== HERO (con foto de fondo) ===== */
     .hero{
-      padding:64px 0 24px;
+      position:relative;
+      padding:68px 0 34px;
       text-align:center;
+      overflow:hidden;
+    }
+
+    /* ✅ FOTO DE FONDO:
+       1) Guardá tu imagen como "hero.jpg" en la misma carpeta que este HTML
+       2) Si querés otro nombre, cambiá el url(...) acá abajo
+    */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:url("hero.jpg");
+      background-size:cover;
+      background-position:center;
+      opacity:.22;                 /* <-- opacidad de la foto */
+      transform:scale(1.02);
+      filter:contrast(1.05);
+      z-index:0;
+    }
+
+    /* capa suave para que se lea todo */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        to bottom,
+        rgba(251,248,244,.88),
+        rgba(251,248,244,.72) 45%,
+        rgba(251,248,244,.92)
+      );
+      z-index:0;
+    }
+
+    .hero .container{
+      position:relative;
+      z-index:1;
     }
 
     .names{
-      font-size:64px;
-      line-height:1.05;
-      letter-spacing:-.02em;
-      margin:0 0 10px;
-      font-weight:500;
+      font-size:72px;
+      line-height:1.02;
+      letter-spacing:-.03em;
+      margin:0 0 12px;
+      font-weight:600;
     }
 
     .subcopy{
-      margin:0 auto 22px;
-      max-width:740px;
+      margin:0 auto 18px;
+      max-width:820px;
       color:var(--muted);
       font-size:18px;
       line-height:1.55;
       font-weight:400;
     }
 
-    .chips{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:18px;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,.72);
-      border:1px solid var(--line);
-      backdrop-filter: blur(6px);
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      font-size:15px;
-      color:#1a1a1a;
-    }
-    .chip .icon{ opacity:.9; }
-
-    /* ===== NAV BUTTONS ROW ===== */
-    .navrow{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
+    /* Fecha / lugar editorial (sin pills) */
+    .hero-meta{
       margin:10px auto 18px;
-      max-width:var(--container);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:center;
     }
-
-    .navbtn{
-      appearance:none;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.8);
-      padding:12px 16px;
-      border-radius:999px;
-      font-size:14px;
+    .hero-date{
+      font-size:18px;
       font-weight:500;
-      color:#111;
-      cursor:pointer;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      box-shadow:0 12px 30px rgba(0,0,0,.05);
+      letter-spacing:-.01em;
     }
-    .navbtn:hover{ transform:translateY(-1px); background:#fff; border-color:rgba(0,0,0,.14); }
-    .navbtn:active{ transform:translateY(0px); }
+    .hero-place{
+      font-size:15px;
+      color:var(--muted);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
 
-    /* ===== COUNTDOWN ===== */
-   .countdown-free{
-  margin: 10px auto 36px;
-  padding: 10px 0;
-}
+    /* Nav editorial (sin botones redondos) */
+    .hero-nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:10px 0 22px;
+      font-size:14px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#111;
+      user-select:none;
+    }
+    .hero-nav a{
+      color:#111;
+      opacity:.85;
+      position:relative;
+      padding:6px 2px;
+      transition:opacity .15s ease;
+    }
+    .hero-nav a:hover{ opacity:1; }
+    .hero-nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:2px;
+      height:1px;
+      background:rgba(0,0,0,.25);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .18s ease;
+    }
+    .hero-nav a:hover::after{ transform:scaleX(1); }
+    .hero-nav .dot{
+      color:rgba(0,0,0,.25);
+      font-family:var(--mono);
+      letter-spacing:0;
+    }
 
-.cd-free{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  gap:26px;
-  flex-wrap:wrap;
-}
+    /* ===== COUNTDOWN (suelto, horizontal) ===== */
+    .countdown-free{
+      margin:18px auto 0;
+      padding:6px 0 0;
+    }
 
-.cd-unit{
-  text-align:center;
-  min-width:120px;
-}
+    .cd-free{
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      gap:34px;
+      flex-wrap:wrap;
+    }
 
-.cd-free-num{
-  font-family: var(--mono);
-  font-size: 64px;
-  line-height: 1;
-  font-weight: 600;
-  letter-spacing: .01em;
-}
+    .cd-unit{
+      text-align:center;
+      min-width:140px;
+    }
 
-.cd-free-label{
-  margin-top: 10px;
-  font-size: 12px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
+    .cd-free-num{
+      font-family:var(--mono);
+      font-size:64px;
+      line-height:1;
+      font-weight:600;
+      letter-spacing:.01em;
+    }
 
-.cd-dot{
-  font-family: var(--mono);
-  font-size: 48px;
-  line-height: 1;
-  color: rgba(0,0,0,.18);
-  transform: translateY(-10px);
-}
+    .cd-free-label{
+      margin-top:10px;
+      font-size:12px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:500;
+    }
 
-@media (max-width: 720px){
-  .cd-free{ gap:16px; }
-  .cd-unit{ min-width: 110px; }
-  .cd-free-num{ font-size: 52px; }
-  .cd-dot{ display:none; } /* en mobile queda limpio sin separadores */
-}
+    .cd-dot{
+      font-family:var(--mono);
+      font-size:46px;
+      line-height:1;
+      color:rgba(0,0,0,.16);
+      transform:translateY(-10px);
+    }
 
+    @media (max-width: 720px){
+      .names{ font-size:52px; }
+      .subcopy{ font-size:16px; }
+      .cd-free{ gap:16px; }
+      .cd-unit{ min-width:120px; }
+      .cd-free-num{ font-size:52px; }
+      .cd-dot{ display:none; }
+    }
 
     /* ===== SECTIONS ===== */
-    .section{
-      padding:38px 0 0;
-    }
+    .section{ padding:48px 0 0; }
 
     .section-head{
       display:flex;
@@ -189,7 +236,7 @@
       font-size:34px;
       margin:0;
       letter-spacing:-.02em;
-      font-weight:500;
+      font-weight:600;
     }
 
     .section-kicker{
@@ -215,13 +262,13 @@
       padding:22px;
       display:flex;
       flex-direction:column;
-      min-height:240px; /* coherencia de altura */
+      min-height:240px;
     }
 
     .card h3{
       margin:0 0 10px;
-      font-size:28px;
-      font-weight:500;
+      font-size:26px;
+      font-weight:600;
       letter-spacing:-.01em;
     }
 
@@ -251,7 +298,7 @@
     .meta .micon{ opacity:.75; }
 
     .card-actions{
-      margin-top:auto; /* empuja el botón al fondo para coherencia */
+      margin-top:auto;
       display:flex;
       gap:10px;
     }
@@ -264,36 +311,39 @@
       border-radius:999px;
       cursor:pointer;
       font-size:14px;
-      font-weight:500;
-      transition:transform .12s ease, border-color .12s ease;
+      font-weight:600;
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
     }
     .btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
     .btn:active{ transform:translateY(0); }
-
     .btn-primary{
       background:#111;
       color:#fff;
       border-color:#111;
     }
 
-    /* ===== RSVP ===== */
-    .rsvp-box{
+    @media (max-width: 920px){
+      .cards{ grid-template-columns:1fr; }
+    }
+
+    /* ===== ASISTENCIA ===== */
+    .assist-box{
       background:rgba(255,255,255,.9);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:22px;
+      text-align:center;
     }
 
-    .rsvp-text{
+    .assist-text{
       margin:0 0 16px;
       color:var(--muted);
       font-size:16px;
       line-height:1.6;
-      max-width:820px;
     }
 
-    /* ===== GIFTS ===== */
+    /* ===== REGALOS ===== */
     .gifts-top{
       text-align:center;
       margin-bottom:16px;
@@ -307,7 +357,7 @@
       display:grid;
       place-items:center;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.8);
+      background:rgba(255,255,255,.82);
       box-shadow:0 12px 30px rgba(0,0,0,.05);
       font-size:26px;
     }
@@ -350,35 +400,39 @@
       align-items:center;
       gap:12px;
       font-size:18px;
-      font-weight:500;
+      font-weight:600;
     }
-
     .gift-right{
       color:rgba(0,0,0,.45);
       font-size:22px;
       line-height:1;
     }
 
-    /* Lista ocupa todo en desktop en la primera fila */
-    .gift-btn.full{
-      grid-column:1 / -1;
+    .gift-btn.full{ grid-column:1 / -1; }
+
+    @media (max-width: 920px){
+      .gift-buttons{ grid-template-columns:1fr; }
+      .gift-btn.full{ grid-column:auto; }
     }
 
-    /* ===== MODALS ===== */
+    /* ===== MODALS (centradas, NO arriba) ===== */
     .modal{
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.38);
+      background:rgba(0,0,0,.42);
       z-index:2000;
       padding:18px;
     }
-    .modal.open{ display:block; }
+    .modal.open{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
     .modal-card{
       width:100%;
       max-width:620px;
-      margin:10vh auto 0;
       background:#fff;
       border-radius:22px;
       border:1px solid rgba(0,0,0,.10);
@@ -397,8 +451,8 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-size:20px;
-      font-weight:600;
+      font-size:18px;
+      font-weight:700;
       margin:0;
       letter-spacing:-.01em;
     }
@@ -415,15 +469,14 @@
       line-height:1;
     }
 
-    .modal-body{
-      padding:0 18px 18px;
-    }
+    .modal-body{ padding:0 18px 18px; }
 
     .modal-sub{
       margin:0 0 14px;
       color:var(--muted);
       line-height:1.55;
       font-size:15px;
+      text-align:center;
     }
 
     .copy-list{
@@ -440,11 +493,7 @@
       border-bottom:1px solid rgba(0,0,0,.07);
     }
 
-    .copy-key{
-      color:#111;
-      font-weight:500;
-      font-size:15px;
-    }
+    .copy-key{ color:#111; font-weight:600; font-size:15px; }
 
     .copy-val{
       color:#111;
@@ -464,7 +513,7 @@
       border-radius:12px;
       padding:10px 12px;
       cursor:pointer;
-      font-weight:600;
+      font-weight:700;
       font-size:13px;
       min-width:92px;
       transition:transform .12s ease, background .12s ease;
@@ -474,115 +523,83 @@
 
     .modal-actions{
       display:flex;
-      gap:10px;
-      margin-top:14px;
+      gap:12px;
+      justify-content:center;
       flex-wrap:wrap;
+      margin-top:8px;
     }
 
-    /* ===== FOOT SPACE ===== */
-    .spacer{ height:54px; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 920px){
-      .names{ font-size:52px; }
-      .cards{ grid-template-columns:1fr; }
-      .countdown-grid{ grid-template-columns:repeat(2, 1fr); }
-      .gift-buttons{ grid-template-columns:1fr; }
-      .gift-btn.full{ grid-column:auto; }
-    }
+    .spacer{ height:70px; }
 
     @media (max-width: 520px){
-      .names{ font-size:44px; }
-      .subcopy{ font-size:16px; }
-      .chip{ font-size:14px; }
-      .section-title{ font-size:28px; }
       .copy-row{ grid-template-columns:1fr; gap:8px; }
       .copy-btn{ justify-self:start; }
+      .section-title{ font-size:28px; }
     }
   </style>
 </head>
 
 <body>
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="container">
       <h1 class="names">Pepe &amp; Jo</h1>
 
       <p class="subcopy">¡Deslizá para conocer todos los detalles y compartirlo juntos!</p>
 
-      <div class="chips" aria-label="Fecha y lugar">
-        <div class="chip"><span class="icon">📅</span><span>Domingo 22 de noviembre de 2026</span></div>
-        <div class="chip"><span class="icon">📍</span><span>Pilar · Buenos Aires</span></div>
+      <!-- Fecha / lugar editorial (sin pills) -->
+      <div class="hero-meta">
+        <div class="hero-date">Domingo 22 de noviembre de 2026</div>
+        <div class="hero-place">Pilar · Buenos Aires</div>
       </div>
 
-      <!-- Botones navegación -->
-      <div class="navrow" aria-label="Navegación rápida">
-        <button class="navbtn" data-scroll="#ceremonia">Ceremonia</button>
-        <button class="navbtn" data-scroll="#fiesta">Fiesta</button>
-        <button class="navbtn" data-scroll="#rsvp">Confirmá</button>
-        <button class="navbtn" data-scroll="#regalos">Regalos</button>
-        <button class="navbtn" id="openCalendar">Agendar evento</button>
-      </div>
+      <!-- Menú editorial -->
+      <nav class="hero-nav" aria-label="Navegación">
+        <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
+        <a href="#fiesta">Fiesta</a><span class="dot">·</span>
+        <a href="#asistencia">Confirmá</a><span class="dot">·</span>
+        <a href="#regalos">Regalos</a><span class="dot">·</span>
+        <a href="#top" id="openCalendarLink">Guardá la fecha</a>
+      </nav>
 
       <!-- Countdown -->
- <div class="countdown-free" aria-label="Cuenta regresiva">
-  <div class="cd-free">
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdDays">00</div>
-      <div class="cd-free-label">DÍAS</div>
+      <div class="countdown-free" aria-label="Cuenta regresiva">
+        <div class="cd-free">
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdDays">00</div>
+            <div class="cd-free-label">DÍAS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdHours">00</div>
+            <div class="cd-free-label">HORAS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdMins">00</div>
+            <div class="cd-free-label">MINUTOS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdSecs">00</div>
+            <div class="cd-free-label">SEGUNDOS</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="cd-dot">·</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdHours">00</div>
-      <div class="cd-free-label">HORAS</div>
-    </div>
-
-    <div class="cd-dot">·</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdMins">00</div>
-      <div class="cd-free-label">MINUTOS</div>
-    </div>
-
-    <div class="cd-dot">·</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdSecs">00</div>
-      <div class="cd-free-label">SEGUNDOS</div>
-    </div>
-  </div>
-</div>
-
-    <div class="cd-sep">:</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdHours">--</div>
-      <div class="cd-free-label">HORAS</div>
-    </div>
-
-    <div class="cd-sep">:</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdMins">--</div>
-      <div class="cd-free-label">MINUTOS</div>
-    </div>
-
-    <div class="cd-sep">:</div>
-
-    <div class="cd-unit">
-      <div class="cd-free-num" id="cdSecs">--</div>
-      <div class="cd-free-label">SEGUNDOS</div>
-    </div>
-  </div>
-</div>
-
-  <!-- LUGARES -->
-  <section class="section" id="lugares">
+  <!-- ¿DÓNDE? -->
+  <section class="section" id="donde">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Lugares</h2>
+        <h2 class="section-title">¿Dónde?</h2>
         <p class="section-kicker">Ceremonia &amp; Fiesta</p>
       </div>
 
@@ -606,7 +623,7 @@
           <p class="address">Chile 1963, B1630 La Lonja, Provincia de Buenos Aires</p>
           <p class="meta"><span class="micon">🕓</span><span>18:00 hs</span></p>
           <div class="card-actions">
-            <!-- Pegá tu link real de Google Maps acá -->
+            <!-- ⚠️ Reemplazá este link por el link real de Google Maps de la fiesta -->
             <a class="btn" target="_blank" rel="noopener" href="https://share.google/q">Ver en Maps</a>
           </div>
         </article>
@@ -614,21 +631,17 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section class="section" id="rsvp">
+  <!-- ASISTENCIA -->
+  <section class="section" id="asistencia">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">Confirmación</h2>
+        <h2 class="section-title">Asistencia</h2>
         <p class="section-kicker">RSVP</p>
       </div>
 
-      <div class="rsvp-box">
-        <p class="rsvp-text">
-          Gracias por acompañarnos en este momento tan importante.<br>
-          Nos haría muy felices poder compartir este día con vos.
-        </p>
+      <div class="assist-box">
+        <p class="assist-text">Nos haría muy felices que nos acompañes.</p>
 
-        <!-- Google Form (usar viewform, no preview) -->
         <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
            target="_blank" rel="noopener">
           <button class="btn btn-primary">Confirmar asistencia →</button>
@@ -640,11 +653,16 @@
   <!-- REGALOS -->
   <section class="section" id="regalos">
     <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Regalos</h2>
+        <p class="section-kicker">Opciones</p>
+      </div>
+
       <div class="gifts-top">
         <div class="gift-icon">🎁</div>
         <p class="gifts-text">
           Lo más lindo es poder compartir este día con vos.<br>
-          Y si querés hacernos un regalo, te dejamos algunas opciones:
+          Y si querés hacernos un regalo, te dejamos algunas opciones.
         </p>
       </div>
 
@@ -677,7 +695,7 @@
         <button class="modal-close" data-close="modalARS" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <p class="modal-sub">Si querés colaborar por esta vía, podés copiar los datos desde acá.</p>
+        <p class="modal-sub">Podés copiar los datos desde acá.</p>
 
         <div class="copy-list">
           <div class="copy-row">
@@ -708,7 +726,7 @@
     </div>
   </div>
 
-  <!-- ===== MODAL USD (placeholder hasta que pases datos) ===== -->
+  <!-- ===== MODAL USD (placeholder) ===== -->
   <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta en USD">
     <div class="modal-card">
       <div class="modal-head">
@@ -716,7 +734,7 @@
         <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <p class="modal-sub">Cuando nos pases los datos, los dejamos iguales a la cuenta en ARS (con copiar + “Copiado ✓”).</p>
+        <p class="modal-sub">Cuando me pases los datos, lo dejamos igual que ARS (con copiar + “Copiado ✓”).</p>
 
         <div class="copy-list">
           <div class="copy-row">
@@ -729,23 +747,24 @@
     </div>
   </div>
 
-  <!-- ===== MODAL CALENDARIO (Google + Apple .ics) ===== -->
-  <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Agendar evento">
+  <!-- ===== MODAL CALENDARIO (centrada) ===== -->
+  <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Guardá la fecha">
     <div class="modal-card">
       <div class="modal-head">
-        <h3 class="modal-title"><span>🗓️</span> <span>Agendar evento</span></h3>
+        <h3 class="modal-title"><span>🗓️</span> <span>Guardá la fecha</span></h3>
         <button class="modal-close" data-close="modalCAL" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
         <p class="modal-sub">Elegí tu calendario:</p>
 
         <div class="modal-actions">
-          <a id="googleCalLink" class="btn btn-primary" target="_blank" rel="noopener">Google Calendar</a>
-          <button class="btn" id="downloadICS">Apple Calendar (.ics)</button>
+          <!-- ✅ Google: ES UN LINK REAL (href) -->
+          <a id="googleCalLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">Google Calendar</a>
+          <button class="btn" id="downloadICS" type="button">Apple Calendar (.ics)</button>
         </div>
 
         <p class="modal-sub" style="margin-top:14px;">
-          (El evento se agenda para <span style="font-family:var(--mono)">22/11/2026 16:00</span> en Argentina.)
+          (Se agenda para <span style="font-family:var(--mono)">22/11/2026 16:00</span> en Argentina.)
         </p>
       </div>
     </div>
@@ -762,15 +781,6 @@
       location: "Pilar, Buenos Aires",
       description: "Ceremonia: Iglesia Sagrada Familia - Nuestra Señora del Cielo. Fiesta: Espacio Pilar I."
     };
-
-    // ===== Smooth scroll from nav buttons =====
-    document.querySelectorAll("[data-scroll]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const sel = btn.getAttribute("data-scroll");
-        const el = document.querySelector(sel);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
 
     // ===== Modals =====
     function openModal(id){
@@ -801,23 +811,24 @@
     // Open buttons
     document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
     document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
-    document.getElementById("openCalendar").addEventListener("click", () => openModal("modalCAL"));
+    document.getElementById("openCalendarLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal("modalCAL");
+    });
 
     // Lista de regalos (pegá tu link real)
     document.getElementById("openList").addEventListener("click", () => {
-      // Reemplazá este link por tu lista real
+      // ✅ Reemplazá este link por tu lista real
       const url = "https://example.com/lista-de-regalos";
       window.open(url, "_blank", "noopener");
     });
 
     // ===== Copy + Copiado ✓ =====
     async function copyToClipboard(text){
-      // navigator.clipboard requiere https o localhost
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(text);
         return true;
       }
-      // Fallback
       const ta = document.createElement("textarea");
       ta.value = text;
       ta.style.position = "fixed";
@@ -852,14 +863,6 @@
 
     function pad2(n){ return String(n).padStart(2, "0"); }
 
-    function formatFoot(){
-      // Texto de apoyo (simple)
-      // Nota: mostramos "Faltan..." sin p.m./a.m., más prolijo
-      return "Faltan para el domingo 22 de noviembre de 2026, 16:00 hs.";
-    }
-
-    document.getElementById("cdFoot").textContent = formatFoot();
-
     function tick(){
       const now = Date.now();
       let diff = Math.max(0, target - now);
@@ -879,7 +882,6 @@
     setInterval(tick, 1000);
 
     // ===== Calendar links =====
-    // Google Calendar URL builder (UTC format yyyymmddThhmmssZ)
     function toGoogleUTC(iso){
       const d = new Date(iso);
       const y = d.getUTCFullYear();
@@ -901,6 +903,7 @@
     gUrl.searchParams.set("details", EVENT.description);
     gUrl.searchParams.set("location", EVENT.location);
 
+    // ✅ esto hace que el botón "Google Calendar" lleve a algún lado
     document.getElementById("googleCalLink").href = gUrl.toString();
 
     // Apple / .ics download
