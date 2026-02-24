@@ -45,11 +45,11 @@
       margin:0 auto;
       padding:0 22px;
     }
-
-   /* ===== HERO SOLO ARRIBA (pantalla completa) ===== */
+/* ===== HERO SOLO ARRIBA (pantalla completa) ===== */
 .hero{
   position:relative;
-  height:100vh;          /* ocupa toda la pantalla */
+  min-height:100vh;
+  padding:70px 0 46px;     /* deja lugar para titulo + nav + countdown */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -64,7 +64,8 @@
   position:absolute;
   inset:0;
   background:url("images/hero.jpg") center/cover no-repeat;
-  z-index:-2;
+  opacity:.28;             /* baja la fuerza de la foto */
+  z-index:0;
 }
 
 /* Overlay oscuro elegante */
@@ -72,8 +73,8 @@
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:-1;
+  background:rgba(0,0,0,0.55);  /* overlay */
+  z-index:1;
 }
 
 /* Contenido */
@@ -82,66 +83,68 @@
   z-index:2;
 }
 
-    /* Fecha / lugar editorial (sin pills) */
-    .hero-meta{
-      margin:10px auto 18px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      align-items:center;
-    }
-    .hero-date{
-      font-size:18px;
-      font-weight:500;
-      letter-spacing:-.01em;
-    }
-    .hero-place{
-      font-size:15px;
-      color:var(--muted);
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
+/* Fecha / lugar editorial (sin pills) */
+.hero-meta{
+  margin:10px auto 18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  align-items:center;
+}
+.hero-date{
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:-.01em;
+  color:rgba(255,255,255,.92);
+}
+.hero-place{
+  font-size:13px;
+  color:rgba(255,255,255,.70);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
 
-    /* Nav editorial (sin botones redondos) */
-    .hero-nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:10px 0 22px;
-      font-size:14px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:#111;
-      user-select:none;
-    }
-    .hero-nav a{
-      color:#111;
-      opacity:.85;
-      position:relative;
-      padding:6px 2px;
-      transition:opacity .15s ease;
-    }
-    .hero-nav a:hover{ opacity:1; }
-    .hero-nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:2px;
-      height:1px;
-      background:rgba(0,0,0,.25);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .18s ease;
-    }
-    .hero-nav a:hover::after{ transform:scaleX(1); }
-    .hero-nav .dot{
-      color:rgba(0,0,0,.25);
-      font-family:var(--mono);
-      letter-spacing:0;
-    }
+/* Nav editorial (sin botones redondos) */
+.hero-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin:10px 0 22px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  user-select:none;
+}
+.hero-nav a{
+  color:rgba(255,255,255,.78);  /* ✅ antes estaba negro */
+  opacity:1;
+  position:relative;
+  padding:6px 2px;
+  transition:color .15s ease;
+  text-decoration:none;
+}
+.hero-nav a:hover{ color:#fff; }
+.hero-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:2px;
+  height:1px;
+  background:rgba(255,255,255,.35); /* ✅ antes negro */
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .18s ease;
+}
+.hero-nav a:hover::after{ transform:scaleX(1); }
+
+.hero-nav .dot{
+  color:rgba(255,255,255,.35);
+  font-family:var(--mono);
+  letter-spacing:0;
+}
 
     /* ===== COUNTDOWN (gris muy suave minimal) ===== */
 
@@ -575,7 +578,7 @@
         <a href="#fiesta">Fiesta</a><span class="dot">·</span>
         <a href="#asistencia">Confirmá</a><span class="dot">·</span>
         <a href="#regalos">Regalos</a><span class="dot">·</span>
-        <a href="#top" id="openCalendarLink">Guardá la fecha</a>
+        <a href="#top" id="openCalendarLink">Agenda la fecha</a>
       </nav>
 
      <!-- Countdown -->
