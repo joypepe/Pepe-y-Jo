@@ -49,40 +49,44 @@
 .hero{
   position:relative;
   min-height:100vh;
-  padding:70px 0 46px;     /* deja lugar para titulo + nav + countdown */
+  padding:70px 0 46px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
   overflow:hidden;
+
+  isolation:isolate; /* ✅ clave: evita mezclas raras de z-index con el resto */
 }
 
-/* Imagen */
+/* Imagen de fondo SOLO del hero */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:url("images/hero.jpg") center/cover no-repeat;
-  opacity:.28;             /* baja la fuerza de la foto */
-  z-index:0;
+  opacity:.65;                 /* foto visible */
+  transform:scale(1.02);
+  filter:contrast(1.05);
+  z-index:-2;                  /* ✅ atrás de TODO dentro del hero */
 }
 
-/* Overlay oscuro elegante */
+/* Overlay para que se lea el texto */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.55);  /* overlay */
-  z-index:1;
+  background:
+    radial-gradient(1100px 520px at 50% 35%, rgba(0,0,0,.20), rgba(0,0,0,.62)),
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.65));
+  z-index:-1;                  /* encima de la foto, debajo del contenido */
 }
 
-/* Contenido */
 .hero .container{
   position:relative;
-  z-index:2;
+  z-index:1;                   /* ✅ texto arriba de todo */
 }
-
 /* Fecha / lugar editorial (sin pills) */
 .hero-meta{
   margin:10px auto 18px;
@@ -568,7 +572,7 @@
 
       <!-- Fecha / lugar editorial (sin pills) -->
       <div class="hero-meta">
-        <div class="hero-date">Domingo 22 de noviembre de 2026</div>
+        <div class="hero-date">Domingo 22 de noviembre 2026</div>
         <div class="hero-place">Pilar · Buenos Aires</div>
       </div>
 
@@ -578,7 +582,7 @@
         <a href="#fiesta">Fiesta</a><span class="dot">·</span>
         <a href="#asistencia">RSVP</a><span class="dot">·</span>
         <a href="#regalos">Regalos</a><span class="dot">·</span>
-        <a href="#top" id="openCalendarLink">Agenda la fecha</a>
+        <a href="#top" id="openCalendarLink">Agendá la fecha</a>
       </nav>
 
      <!-- Countdown -->
