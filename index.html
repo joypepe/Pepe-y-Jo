@@ -69,80 +69,96 @@
       padding:0 22px;
     }
 
-    /* ===== HERO (SOLO PORTADA) ===== */
+/* ===== HERO SOLO PORTADA ===== */
 .hero{
   position:relative;
   min-height:90vh;
   display:flex;
-  flex-direction:column;
-  justify-content:space-between; /* 👈 separa arriba y abajo */
   align-items:center;
+  justify-content:center;
   text-align:center;
   color:#fff;
   overflow:hidden;
-  padding:140px 0 60px; /* 👈 espacio arriba y abajo */
+  padding:90px 0 90px;
+  isolation:isolate;
 }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url("images/hero.jpg") center/cover no-repeat;
-      transform:scale(1.02);
-      filter:contrast(1.03);
-      z-index:-2;
-    }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.58)),
-        linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.55));
-      z-index:-1;
-    }
+/* Imagen */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("images/hero.jpg") center/cover no-repeat;
+  z-index:-2;
+  transform:scale(1.02);
+  filter:contrast(1.02);
+}
 
-    .hero .container{
-      position:relative;
-      z-index:1;
-    }
+/* Overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.55)),
+    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.52));
+  z-index:-1;
+}
 
+.hero .container{
+  position:relative;
+  z-index:1;
+}
+
+/* Nombres (bajan para no tapar caras) */
 .names{
-  margin-top:120px; /* 👈 baja el nombre */
-  margin-bottom:0;
+  margin:0;
   font-family:"Meddon", cursive;
-  font-size:82px;
-  line-height:1.1;
   font-weight:400;
+  font-size:92px;
+  line-height:1.05;
 
-  color:rgba(255,255,255,.78);
-  text-shadow:0 12px 40px rgba(0,0,0,.5);
+  /* 👇 esto lo baja */
+  transform:translateY(55px);
+
+  /* 👇 más sutil */
+  color:rgba(255,255,255,.72);
+  text-shadow:0 14px 60px rgba(0,0,0,.55);
 }
- .hero-meta{
+
+/* Fecha + lugar abajo del hero, centrados */
+.hero-meta{
+  position:absolute;
+  left:50%;
+  bottom:54px;                 /* 👈 los baja al fondo */
+  transform:translateX(-50%);
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:12px;
   align-items:center;
-  margin-bottom:20px; /* 👈 los pega abajo */
+  width:100%;
+  padding:0 22px;
 }
 
-/* 👇 Ahora fecha y lugar iguales */
+/* 👇 Fecha y lugar IGUALES */
 .hero-date,
 .hero-place{
+  font-family:var(--mono);
   font-size:12px;
   letter-spacing:.28em;
   text-transform:uppercase;
   font-weight:400;
-  color:rgba(255,255,255,.65);
+  color:rgba(255,255,255,.62);
 }
 
-    @media (max-width:720px){
-      .hero{ min-height:75vh; padding:70px 0; }
-      .names{ font-size:56px; }
-      .hero-date{ font-size:16px; }
-      .hero-place{ font-size:12px; }
-    }
-
+/* Mobile */
+@media (max-width:720px){
+  .hero{ min-height:78vh; padding:70px 0 70px; }
+  .names{ font-size:58px; transform:translateY(35px); }
+  .hero-meta{ bottom:34px; gap:10px; }
+  .hero-date,.hero-place{ font-size:11px; }
+}
+    
     /* ===== MENÚ (DEBAJO DEL HERO) ===== */
     .hero-nav--below{
       background:var(--bg);
