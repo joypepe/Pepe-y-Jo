@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&family=Meddon&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@300&display=swap" rel="stylesheet">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
@@ -115,24 +116,25 @@
 /* Nombres */
 .names{
   margin:0 0 18px;
-  font-family:"Meddon", cursive;
-  font-weight:400;
+  font-family:"Playwrite NZ", cursive;
+  font-weight:300;
   font-size:92px;
   line-height:1.05;
-
-  /* ✅ más sutil */
-  color:rgba(255,255,255,.68);
+  color:rgba(255,255,255,.70);
   text-shadow:0 14px 60px rgba(0,0,0,.55);
 }
 
 /* Fecha y lugar: mismos estilos */
 .hero-meta{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:70px;   /* 👈 controlás qué tan abajo está */
+
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:12px;
   align-items:center;
-
-  margin-top:40px;   /* 👈 esto los baja */
 }
 .hero-date,
 .hero-place{
