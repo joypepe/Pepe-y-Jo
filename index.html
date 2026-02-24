@@ -79,7 +79,7 @@
   text-align:center;
   color:#fff;
   overflow:hidden;
-  padding:90px 0 90px;
+  padding:90px 0;
   isolation:isolate;
 }
 
@@ -108,39 +108,31 @@
 .hero .container{
   position:relative;
   z-index:1;
+  /* ✅ esto baja TODO el bloque (nombres + meta) para que no tape caras */
+  transform:translateY(90px);
 }
 
-/* Nombres (bajan para no tapar caras) */
+/* Nombres */
 .names{
-  margin:0;
+  margin:0 0 18px;
   font-family:"Meddon", cursive;
   font-weight:400;
   font-size:92px;
   line-height:1.05;
 
-  /* 👇 esto lo baja */
-  transform:translateY(55px);
-
-  /* 👇 más sutil */
-  color:rgba(255,255,255,.72);
+  /* ✅ más sutil */
+  color:rgba(255,255,255,.68);
   text-shadow:0 14px 60px rgba(0,0,0,.55);
 }
 
-/* Fecha + lugar abajo del hero, centrados */
+/* Fecha y lugar: mismos estilos */
 .hero-meta{
-  position:absolute;
-  left:50%;
-  bottom:54px;                 /* 👈 los baja al fondo */
-  transform:translateX(-50%);
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
   align-items:center;
-  width:100%;
-  padding:0 22px;
 }
 
-/* 👇 Fecha y lugar IGUALES */
 .hero-date,
 .hero-place{
   font-family:var(--mono);
@@ -153,9 +145,9 @@
 
 /* Mobile */
 @media (max-width:720px){
-  .hero{ min-height:78vh; padding:70px 0 70px; }
-  .names{ font-size:58px; transform:translateY(35px); }
-  .hero-meta{ bottom:34px; gap:10px; }
+  .hero{ min-height:78vh; padding:70px 0; }
+  .hero .container{ transform:translateY(55px); }
+  .names{ font-size:58px; }
   .hero-date,.hero-place{ font-size:11px; }
 }
     
