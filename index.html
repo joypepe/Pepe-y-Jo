@@ -566,60 +566,68 @@
 
 <body>
   <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="container">
-      <h1 class="names">Pepe &amp; Jo</h1>
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <h1 class="names">Pepe &amp; Jo</h1>
 
-      <!-- Fecha / lugar editorial (sin pills) -->
-      <div class="hero-meta">
-        <div class="hero-date">Domingo 22 de noviembre 2026</div>
-        <div class="hero-place">Pilar · Buenos Aires</div>
-      </div>
-
-      <!-- Menú editorial -->
-      <nav class="hero-nav" aria-label="Navegación">
-        <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
-        <a href="#fiesta">Fiesta</a><span class="dot">·</span>
-        <a href="#asistencia">RSVP</a><span class="dot">·</span>
-        <a href="#regalos">Regalos</a><span class="dot">·</span>
-        <a href="#top" id="openCalendarLink">Agendá la fecha</a>
-      </nav>
-
-     <!-- Countdown -->
-<div class="countdown-band" aria-label="Cuenta regresiva">
-  <div class="countdown-free">
-    <div class="cd-free">
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdDays">00</div>
-        <div class="cd-free-label">DÍAS</div>
-      </div>
-
-      <div class="cd-dot">·</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdHours">00</div>
-        <div class="cd-free-label">HORAS</div>
-      </div>
-
-      <div class="cd-dot">·</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdMins">00</div>
-        <div class="cd-free-label">MINUTOS</div>
-      </div>
-
-      <div class="cd-dot">·</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdSecs">00</div>
-        <div class="cd-free-label">SEGUNDOS</div>
-      </div>
-
+    <div class="hero-meta">
+      <div class="hero-date">Domingo 22 de noviembre 2026</div>
+      <div class="hero-place">Pilar · Buenos Aires</div>
     </div>
   </div>
-</div>
+</header>
 
+    <!-- MENÚ (debajo del hero) -->
+<nav class="hero-nav hero-nav--below" aria-label="Navegación">
+  <div class="container">
+    <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
+    <a href="#fiesta">Fiesta</a><span class="dot">·</span>
+    <a href="#asistencia">RSVP</a><span class="dot">·</span>
+    <a href="#regalos">Regalos</a><span class="dot">·</span>
+    <a href="#top" id="openCalendarLink">Agendá la fecha</a>
+  </div>
+</nav>
+
+<!-- COUNTDOWN (debajo del menú) -->
+<section class="countdown-section" aria-label="Cuenta regresiva">
+  <div class="container">
+    <div class="countdown-band">
+      <p class="band-kicker">Faltan</p>
+
+      <div class="countdown-free">
+        <div class="cd-free">
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdDays">00</div>
+            <div class="cd-free-label">DÍAS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdHours">00</div>
+            <div class="cd-free-label">HORAS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdMins">00</div>
+            <div class="cd-free-label">MINUTOS</div>
+          </div>
+
+          <div class="cd-dot">·</div>
+
+          <div class="cd-unit">
+            <div class="cd-free-num" id="cdSecs">00</div>
+            <div class="cd-free-label">SEGUNDOS</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   <!-- ¿DÓNDE? -->
   <section class="section" id="donde">
     <div class="container">
