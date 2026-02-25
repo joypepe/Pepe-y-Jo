@@ -346,10 +346,13 @@
 
     .meta .micon{ opacity:.75; }
 
-    .card-actions{
+/* ===== ACCIONES DE LAS CARDS (botón abajo a la derecha) ===== */
+.card-actions{
   margin-top:auto;
   display:flex;
   justify-content:flex-end;
+  align-items:center;
+  gap:10px;
 }
 
 /* ===== BOTONES (base) ===== */
@@ -367,12 +370,13 @@
   align-items:center;
   gap:10px;
   line-height:1;
+  white-space:nowrap;
 }
 
 .btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.22); }
 .btn:active{ transform:translateY(0); }
 
-/* ===== Botón principal (RSVP / acciones importantes) ===== */
+/* ===== Botón principal (RSVP) ===== */
 .btn-primary{
   background:#111;
   color:#fff;
@@ -380,7 +384,7 @@
 }
 .btn-primary:hover{ background:#0f0f0f; border-color:#0f0f0f; }
 
-/* ===== Botón “Mapa” (outline editorial) ===== */
+/* ===== Botón MAPA (outline, minimal) ===== */
 .btn-map{
   background:transparent;
   border-color:rgba(0,0,0,.18);
@@ -389,10 +393,19 @@
   letter-spacing:.22em;
   text-transform:uppercase;
   padding:12px 18px;
+  color:#111;
 }
 .btn-map:hover{
   background:rgba(0,0,0,.02);
   border-color:rgba(0,0,0,.28);
+}
+
+/* Icono del botón mapa (monocromo, NO emoji) */
+.btn-map .ico{
+  width:14px;
+  height:14px;
+  display:inline-block;
+  opacity:.55;
 }
     @media (max-width:920px){
       .cards{ grid-template-columns:1fr; }
