@@ -217,74 +217,74 @@ button{ font-family:inherit; }
       letter-spacing:0;
     }
 
-    /* ===== COUNTDOWN (gris suave) ===== */
-    .countdown-section{
-      padding:26px 0 6px;
-      background:var(--bg);
-    }
+    /* ===== COUNTDOWN (mismo sistema que las cards) ===== */
+.countdown-section{
+  padding:40px 0 10px;
+  background:var(--bg);
+}
 
-    .countdown-band{
+.countdown-band{
   margin:0 auto;
-  padding:22px 20px;            /* antes 28px */
-  border-radius:18px;           /* apenas más sutil */
-  border:1px solid rgba(255,255,255,.9);
-  background:#f2f2f2;           /* un poco más liviano */
-  box-shadow:none;
+  padding:40px 30px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.9);
+  box-shadow:var(--shadow);
   text-align:center;
 }
 
-    .band-kicker{
-      margin:0 0 12px;
-      color:rgba(0,0,0,.55);
-      font-size:14px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-weight:500;
-    }
+/* fila principal */
+.cd-free{
+  display:flex;
+  justify-content:center;
+  align-items:center;     /* centrado perfecto vertical */
+  gap:48px;
+  flex-wrap:wrap;
+}
 
-    .cd-free{
-      display:flex;
-      justify-content:center;
-      align-items:flex-end;
-      gap:40px;
-      flex-wrap:wrap;
-    }
+.cd-unit{
+  text-align:center;
+  min-width:140px;
+}
 
-    .cd-unit{ text-align:center; min-width:140px; }
+/* números */
+.cd-free-num{
+  font-family:var(--mono);
+  font-size:60px;
+  line-height:1;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:#111;
+}
 
-    .cd-free-num{
-      font-family:var(--mono);
-      font-size:56px;
-      line-height:1;
-      font-weight:600;
-      letter-spacing:.02em;
-      color:#111;
-    }
+/* labels */
+.cd-free-label{
+  margin-top:14px;
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:500;
+}
 
-    .cd-free-label{
-      margin-top:12px;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      color:#6e6e6e;
-      font-weight:500;
-    }
+/* separadores */
+.cd-dot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--mono);
+  font-size:34px;
+  line-height:1;
+  color:rgba(0,0,0,.25);
+}
 
-    .cd-dot{
-      font-family:var(--mono);
-      font-size:36px;
-      line-height:1;
-      color:#bdbdbd;
-      transform:translateY(-12px);
-    }
-
-    @media (max-width:720px){
-      .cd-free{ gap:18px; }
-      .cd-unit{ min-width:110px; }
-      .cd-free-num{ font-size:48px; }
-      .cd-dot{ display:none; }
-    }
-
+/* responsive */
+@media (max-width:720px){
+  .cd-free{ gap:22px; }
+  .cd-unit{ min-width:110px; }
+  .cd-free-num{ font-size:48px; }
+  .cd-dot{ display:none; }
+}
     /* ===== SECTIONS ===== */
     .section{ padding:48px 0 0; }
 
