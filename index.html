@@ -723,28 +723,26 @@ button{ font-family:inherit; }
       .copy-btn{ justify-self:start; }
       .section-title{ font-size:28px; }
     }
-   /* === FIX: COUNTDOWN centrado dentro de su sección (aire igual arriba/abajo) === */
+  /* === COUNTDOWN: tamaño chico + centrado óptico === */
 section.countdown-section{
-  padding:120px 0 !important;   /* mismo aire arriba y abajo */
+  /* sección más chica */
+  padding:70px 0 !important;     /* mismo arriba/abajo */
   background:transparent;
 }
 
-/* centrado vertical real del contenido dentro del bloque */
+/* no uses flex-centering en el container (eso te deformó el layout) */
 section.countdown-section > .container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display:block !important;
 }
 
-/* si tu countdown-band existe, que no meta márgenes raros */
-section.countdown-section .countdown-band{
-  width:100%;
-  margin:0;
-}
-
-/* ajuste óptico leve (porque los labels “pesan” abajo) */
+/* centrado óptico: subimos apenas el bloque (labels “pesan” abajo) */
 section.countdown-section .cd-free{
-  transform:translateY(-6px);
+  transform:translateY(-10px);
+}
+
+/* por si algún style viejo agrega márgenes */
+section.countdown-section .countdown-band{
+  margin:0 auto !important;
 }
   </style>
 </head>
