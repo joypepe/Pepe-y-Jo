@@ -241,31 +241,23 @@ button{ font-family:inherit; }
       letter-spacing:0;
     }
 
-    /* ===== COUNTDOWN (mismo sistema que las cards) ===== */
-.countdown-section{
-  padding:40px 0 10px;
-  background:var(--bg);
-}
+/* ===== COUNTDOWN (editorial, sin card) ===== */
 
-.countdown-band{
-  margin:0 auto;
-  padding:40px 30px;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.9);
-  box-shadow:var(--shadow);
-  text-align:center;
+.countdown-section{
+  /* El padding vertical lo maneja .section */
+  background:transparent;
 }
 
 /* fila principal */
 .cd-free{
   display:flex;
   justify-content:center;
-  align-items:center;     /* centrado perfecto vertical */
-  gap:48px;
+  align-items:center;        /* centra los ":" perfectamente */
+  gap:56px;
   flex-wrap:wrap;
 }
 
+/* cada bloque */
 .cd-unit{
   text-align:center;
   min-width:140px;
@@ -274,7 +266,7 @@ button{ font-family:inherit; }
 /* números */
 .cd-free-num{
   font-family:var(--mono);
-  font-size:60px;
+  font-size:64px;
   line-height:1;
   font-weight:600;
   letter-spacing:.02em;
@@ -283,9 +275,9 @@ button{ font-family:inherit; }
 
 /* labels */
 .cd-free-label{
-  margin-top:14px;
+  margin-top:16px;
   font-size:11px;
-  letter-spacing:.28em;
+  letter-spacing:.32em;
   text-transform:uppercase;
   color:var(--muted);
   font-weight:500;
@@ -297,14 +289,14 @@ button{ font-family:inherit; }
   align-items:center;
   justify-content:center;
   font-family:var(--mono);
-  font-size:34px;
+  font-size:36px;
   line-height:1;
-  color:rgba(0,0,0,.25);
+  color:rgba(0,0,0,.20);
 }
 
 /* responsive */
 @media (max-width:720px){
-  .cd-free{ gap:22px; }
+  .cd-free{ gap:24px; }
   .cd-unit{ min-width:110px; }
   .cd-free-num{ font-size:48px; }
   .cd-dot{ display:none; }
