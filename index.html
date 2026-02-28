@@ -90,8 +90,9 @@ button{ font-family:inherit; }
   background:var(--bg-alt);
 }
 
-/* Separador sutil arriba de cada sección (menos la primera) */
-.section + .section::before{
+/* Separador sutil arriba de cada sección 
+   (menos la primera y menos el countdown) */
+.section + .section:not(.countdown-section)::before{
   content:"";
   position:absolute;
   top:0;
@@ -102,7 +103,7 @@ button{ font-family:inherit; }
 }
 
 /* cuando hay cambio de fondo, el separador se siente más editorial */
-.section-alt::before{
+.section-alt:not(.countdown-section)::before{
   background:rgba(0,0,0,.04);
 }
 
@@ -110,7 +111,7 @@ button{ font-family:inherit; }
 .section:first-of-type{
   padding-top:0;
 }
-
+    
 /* ===== HERO SOLO PORTADA ===== */
 .hero{
   position:relative;
