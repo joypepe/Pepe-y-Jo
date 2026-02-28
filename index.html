@@ -36,39 +36,56 @@
 </svg>">
   
   <style>
-    :root{
-      --bg:#fbf8f4;
-      --text:#111111;
-      --muted:#6f6f6f;
-      --line:rgba(0,0,0,.10);
-      --shadow:0 18px 50px rgba(0,0,0,.08);
-      --radius:20px;
+   :root{
+  --bg:#fbf8f4;
+  --text:#111111;
+  --muted:#6f6f6f;
+  --line:rgba(0,0,0,.10);
+  --shadow:0 18px 50px rgba(0,0,0,.08);
+  --radius:20px;
 
-      --container:1120px;
+  /* Layout */
+  --container:1120px;
+  --container-padding:40px;
+  --section-space:120px;
 
-      --mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans:"Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-    }
+  --mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans:"Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    a{ color:inherit; text-decoration:none; }
-    button{ font-family:inherit; }
+*{ box-sizing:border-box; }
 
-    .container{
-      width:100%;
-      max-width:var(--container);
-      margin:0 auto;
-      padding:0 22px;
-    }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; }
+
+/* CONTAINER GLOBAL (alineado perfecto en toda la web) */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 var(--container-padding);
+}
+
+/* ESPACIADO UNIFORME ENTRE SECCIONES */
+.section{
+  padding:var(--section-space) 0;
+}
+
+/* Opcional: primera sección sin espacio arriba */
+.section:first-of-type{
+  padding-top:0;
+}
 
 /* ===== HERO SOLO PORTADA ===== */
 .hero{
@@ -312,8 +329,9 @@
       min-height:240px;
     }
 
-   .card h3{
-  margin:0 0 10px;
+/* ===== TITULO CARD + NOMBRE/ADDRESS ===== */
+.card-title{
+  margin:0 0 18px;
   font-size:12px;
   font-weight:500;
   letter-spacing:.22em;
@@ -321,30 +339,38 @@
   color:rgba(0,0,0,.55);
 }
 
-    .place-name{
-      font-size:18px;
-      margin:0 0 10px;
-      color:#1a1a1a;
-      font-weight:500;
-    }
+.place-name{
+  font-size:18px;
+  margin:0 0 10px;
+  color:#1a1a1a;
+  font-weight:500;
+}
 
-    .address{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:15px;
-    }
+.address{
+  margin:0 0 14px;
+  color:var(--muted);
+  line-height:1.55;
+  font-size:15px;
+}
 
-    .meta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:#333;
-      font-size:15px;
-      margin:0 0 18px;
-    }
+.meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#333;
+  font-size:15px;
+  margin:0;
+}
+.meta .micon{ opacity:.75; }
 
-    .meta .micon{ opacity:.75; }
+/* ===== fila final (hora + mapa alineados) ===== */
+.card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:18px;
+}
 
 /* ===== ACCIONES DE LAS CARDS (botón abajo a la derecha) ===== */
 .card-actions{
@@ -664,53 +690,81 @@
     </div>
   </section>
 
-  <!-- ¿DÓNDE? -->
-  <section class="section" id="donde">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">¿Dónde?</h2>
-        <p class="section-kicker">Ceremonia &amp; Fiesta</p>
-      </div>
+ <!-- ¿DÓNDE? -->
+<section class="section" id="donde">
+  <div class="container">
 
-<div class="cards">
-
-  <!-- Ceremonia -->
-  <article class="card" id="ceremonia">
-    <h3>Ceremonia</h3>
-    <p class="place-name">Iglesia Sagrada Familia - Nuestra Señora del Cielo</p>
-    <p class="address">Pedro Pico 1686, La Lonja, Provincia de Buenos Aires</p>
-    <p class="meta"><span class="micon">🕓</span><span>16:00 hs</span></p>
-
-    <div class="card-actions">
-      <a class="btn btn-map" target="_blank" rel="noopener"
-         href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-        </svg>
-        <span>Mapa</span>
-      </a>
+    <div class="section-head">
+      <h2 class="section-title">¿Dónde?</h2>
+      <p class="section-kicker">CEREMONIA & FIESTA</p>
     </div>
-  </article>
 
-  <!-- Fiesta -->
-  <article class="card" id="fiesta">
-    <h3>Fiesta</h3>
-    <p class="place-name">Espacio Pilar I</p>
-    <p class="address">Chile 1963, B1630 La Lonja, Provincia de Buenos Aires</p>
-    <p class="meta"><span class="micon">🕓</span><span>18:00 hs</span></p>
+    <div class="cards">
 
-    <div class="card-actions">
-      <a class="btn btn-map" target="_blank" rel="noopener"
-         href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-        </svg>
-        <span>Mapa</span>
-      </a>
-    </div>
-  </article>
+      <!-- CEREMONIA -->
+      <article class="card" id="ceremonia">
+        <h3 class="card-title">CEREMONIA</h3>
 
-</div>
+        <p class="place-name">
+          Iglesia Sagrada Familia - Nuestra Señora del Cielo
+        </p>
+
+        <p class="address">
+          Pedro Pico 1686, La Lonja, Provincia de Buenos Aires
+        </p>
+
+        <div class="card-footer">
+          <div class="meta">
+            <span class="micon">🕓</span>
+            <span>16:00 hs</span>
+          </div>
+
+          <a class="btn btn-map"
+             href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
+             target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+            </svg>
+            <span>Mapa</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- FIESTA -->
+      <article class="card" id="fiesta">
+        <h3 class="card-title">FIESTA</h3>
+
+        <p class="place-name">
+          Espacio Pilar I
+        </p>
+
+        <p class="address">
+          Chile 1963, B1630 La Lonja, Provincia de Buenos Aires
+        </p>
+
+        <div class="card-footer">
+          <div class="meta">
+            <span class="micon">🕓</span>
+            <span>18:00 hs</span>
+          </div>
+
+          <a class="btn btn-map"
+             href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
+             target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+            </svg>
+            <span>Mapa</span>
+          </a>
+        </div>
+      </article>
+
+    </div> <!-- /cards -->
+
+  </div> <!-- /container -->
+</section> <!-- /#donde -->
       
   <!-- ASISTENCIA -->
   <section class="section" id="asistencia">
@@ -788,7 +842,7 @@
           <div class="copy-row">
             <div class="copy-key">Alias</div>
             <div class="copy-val mono">casoriopyj</div>
-            <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
+            <button class="copy-btn" data-copy="casoriopyj.ars">Copiar</button>
           </div>
 
           <div class="copy-row">
@@ -815,13 +869,31 @@
         <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <p class="modal-sub">Cuando me pases los datos, lo dejamos igual que ARS.</p>
+        <p class="modal-sub">Podés copiar los datos desde acá.</p>
 
         <div class="copy-list">
           <div class="copy-row">
-            <div class="copy-key">Datos</div>
-            <div class="copy-val">Pendientes</div>
-            <button class="copy-btn" data-copy="Pendiente">Copiar</button>
+            <div class="copy-key">Banco</div>
+            <div class="copy-val">Galicia</div>
+            <button class="copy-btn" data-copy="Galicia">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">Alias</div>
+            <div class="copy-val mono">casoriopyj.usd</div>
+            <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">CBU</div>
+            <div class="copy-val mono">00701026-31004008485973</div>
+            <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
+          </div>
+
+          <div class="copy-row">
+            <div class="copy-key">Titular</div>
+            <div class="copy-val">Jose Maria de la Torre</div>
+            <button class="copy-btn" data-copy="Jose Maria de la Torre">Copiar</button>
           </div>
         </div>
       </div>
