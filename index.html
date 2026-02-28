@@ -195,11 +195,12 @@ button{ font-family:inherit; }
 }
     
     /* ===== MENÚ (DEBAJO DEL HERO) ===== */
-    .hero-nav--below{
-      background:var(--bg);
-      border-bottom:1px solid rgba(0,0,0,.08);
-      padding:16px 0;
-    }
+   .hero-nav--below{
+  background:var(--bg);
+  border-bottom:1px solid rgba(0,0,0,.08);
+  padding:22px 0;
+  margin-bottom:24px; /* 👈 esto crea separación real hacia el countdown */
+}
 
     .hero-nav--below .container{
       display:flex;
@@ -244,7 +245,7 @@ button{ font-family:inherit; }
 /* ===== COUNTDOWN (editorial, sin card) ===== */
 
 .countdown-section{
-  /* El padding vertical lo maneja .section */
+  padding:28px 0 40px; /* arriba / abajo */
   background:transparent;
 }
 
