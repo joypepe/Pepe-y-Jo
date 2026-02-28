@@ -434,29 +434,75 @@ button{ font-family:inherit; }
       .cards{ grid-template-columns:1fr; }
     }
 
-    /* ===== ASISTENCIA ===== */
-    .assist-card{
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
+  /* ===== RSVP EDITORIAL ===== */
 
-    .assist-copy{
-      margin:0 0 18px;
-      max-width:720px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      text-align:left;
-    }
+.rsvp-section{
+  padding:120px 0 140px;
+}
 
-    .assist-actions{
-      display:flex;
-      justify-content:flex-start;
-    }
+.rsvp-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
 
+.rsvp-title{
+  font-size:clamp(48px, 9vw, 120px);
+  line-height:0.95;
+  letter-spacing:-.03em;
+  margin:0 0 60px;
+  font-weight:800;
+}
+
+.rsvp-actions{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.rsvp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px 48px;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  border:2px solid #111;
+  transition:all .25s ease;
+  cursor:pointer;
+}
+
+.rsvp-btn.primary{
+  background:#111;
+  color:#fff;
+}
+
+.rsvp-btn.primary:hover{
+  background:#000;
+  transform:translateY(-2px);
+}
+
+.rsvp-btn.secondary{
+  background:transparent;
+  color:#111;
+}
+
+.rsvp-btn.secondary:hover{
+  background:#111;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+@media (max-width:768px){
+  .rsvp-actions{
+    flex-direction:column;
+    gap:18px;
+  }
+}
     /* ===== REGALOS ===== */
     .gifts-card{
       background:rgba(255,255,255,.9);
@@ -765,25 +811,28 @@ button{ font-family:inherit; }
   </div> <!-- /container -->
 </section> <!-- /#donde -->
       
-  <!-- ASISTENCIA -->
-  <section class="section" id="asistencia">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Asistencia</h2>
-        <p class="section-kicker">RSVP</p>
-      </div>
+<!-- ASISTENCIA -->
+<section class="section rsvp-section" id="asistencia">
+  <div class="container rsvp-wrap">
 
-      <div class="assist-card">
-        <p class="assist-copy">Nos haría muy felices que nos acompañes.</p>
-        <div class="assist-actions">
-          <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
-             target="_blank" rel="noopener">
-            <button class="btn btn-primary">Confirmar asistencia →</button>
-          </a>
-        </div>
-      </div>
+    <h2 class="rsvp-title">
+      Confirmar<br>Asistencia
+    </h2>
+
+    <div class="rsvp-actions">
+      <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
+         target="_blank" rel="noopener"
+         class="rsvp-btn primary">
+        Confirmar aquí
+      </a>
+
+      <button class="rsvp-btn secondary" id="openCalendarLink">
+        Agendá la fecha
+      </button>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- REGALOS -->
   <section class="section" id="regalos">
