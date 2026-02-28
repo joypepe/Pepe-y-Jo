@@ -723,10 +723,28 @@ button{ font-family:inherit; }
       .copy-btn{ justify-self:start; }
       .section-title{ font-size:28px; }
     }
-    /* === OVERRIDE COUNTDOWN (PEGAR AL FINAL DEL CSS) === */
+   /* === FIX: COUNTDOWN centrado dentro de su sección (aire igual arriba/abajo) === */
 section.countdown-section{
-  padding-top:60px !important;    /* más aire arriba */
-  padding-bottom:60px !important;  /* menos aire abajo */
+  padding:120px 0 !important;   /* mismo aire arriba y abajo */
+  background:transparent;
+}
+
+/* centrado vertical real del contenido dentro del bloque */
+section.countdown-section > .container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* si tu countdown-band existe, que no meta márgenes raros */
+section.countdown-section .countdown-band{
+  width:100%;
+  margin:0;
+}
+
+/* ajuste óptico leve (porque los labels “pesan” abajo) */
+section.countdown-section .cd-free{
+  transform:translateY(-6px);
 }
   </style>
 </head>
