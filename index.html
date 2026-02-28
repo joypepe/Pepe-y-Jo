@@ -38,6 +38,7 @@
   <style>
    :root{
   --bg:#fbf8f4;
+  --bg-alt:#f6f3ee;   
   --text:#111111;
   --muted:#6f6f6f;
   --line:rgba(0,0,0,.10);
@@ -80,6 +81,11 @@ button{ font-family:inherit; }
 /* ESPACIADO UNIFORME ENTRE SECCIONES */
 .section{
   padding:var(--section-space) 0;
+}
+
+/* Fondo alternado */
+.section-alt{
+  background:var(--bg-alt);
 }
 
 /* Opcional: primera sección sin espacio arriba */
@@ -736,7 +742,7 @@ button{ font-family:inherit; }
   </section>
 
  <!-- ¿DÓNDE? -->
-<section class="section" id="donde">
+<section class="section section-alt" id="donde">
   <div class="container">
 
     <div class="section-head">
@@ -836,7 +842,7 @@ button{ font-family:inherit; }
 </section>
 
   <!-- REGALOS -->
-  <section class="section" id="regalos">
+<section class="section section-alt" id="regalos">
     <div class="container">
       <div class="section-head">
         <h2 class="section-title">REGALOS</h2>
