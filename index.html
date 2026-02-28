@@ -79,13 +79,31 @@ button{ font-family:inherit; }
 }
 
 /* ESPACIADO UNIFORME ENTRE SECCIONES */
+/* SECCIÓN BASE */
 .section{
   padding:var(--section-space) 0;
+  position:relative;
 }
 
-/* Fondo alternado */
+/* SECCIÓN ALTERNADA */
 .section-alt{
   background:var(--bg-alt);
+}
+
+/* Separador sutil arriba de cada sección (menos la primera) */
+.section + .section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background:rgba(0,0,0,.05);
+}
+
+/* cuando hay cambio de fondo, el separador se siente más editorial */
+.section-alt::before{
+  background:rgba(0,0,0,.04);
 }
 
 /* Opcional: primera sección sin espacio arriba */
@@ -291,49 +309,79 @@ button{ font-family:inherit; }
   .cd-free-num{ font-size:48px; }
   .cd-dot{ display:none; }
 }
-    /* ===== SECTIONS ===== */
-    .section{ padding:48px 0 0; }
+   /* ===== SECTIONS (GLOBAL) ===== */
+.section{
+  padding:var(--section-space) 0;
+  position:relative;
+}
 
-    .section-head{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:14px;
-    }
+/* primera sección (si querés) sin padding arriba */
+.section:first-of-type{
+  padding-top:0;
+}
 
-    .section-title{
-      font-size:34px;
-      margin:0;
-      letter-spacing:-.02em;
-      font-weight:600;
-    }
+/* sección alternada */
+.section-alt{
+  background:var(--bg-alt);
+}
 
-    .section-kicker{
-      font-size:13px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin:0;
-      font-weight:500;
-    }
+/* separador sutil entre secciones */
+.section + .section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background:rgba(0,0,0,.05);
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
+/* ===== SECTION HEAD ===== */
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:28px; /* más aire */
+}
 
-   .card{
+.section-title{
+  font-size:34px;
+  margin:0;
+  letter-spacing:-.02em;
+  font-weight:600;
+}
+
+.section-kicker{
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0;
+  font-weight:500;
+}
+
+/* ===== CARDS GRID ===== */
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+@media (max-width:920px){
+  .cards{ grid-template-columns:1fr; }
+}
+
+/* ===== CARD ===== */
+.card{
   background:rgba(255,255,255,.9);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:28px;          /* mismo aire arriba y abajo */
+  padding:28px;
   display:flex;
   flex-direction:column;
 }
-
 /* ===== TITULO CARD + NOMBRE/ADDRESS ===== */
 .card-title{
   margin:0 0 18px;
