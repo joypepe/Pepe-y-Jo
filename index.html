@@ -552,67 +552,106 @@ button{ font-family:inherit; }
     gap:18px;
   }
 }
-    /* ===== REGALOS ===== */
-    .gifts-card{
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
+    /* ===== REGALOS (VOGUE) ===== */
+.gifts-card{
+  background:transparent;                 /* más editorial */
+  border:0;
+  box-shadow:none;
+  padding:0;
+}
 
-    .gifts-card-copy{
-      margin:0 0 16px;
-      max-width:760px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      text-align:left;
-    }
+.gifts-wrap{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:48px;
+  align-items:start;
+}
 
-    .gifts-buttons{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
+.gifts-left h2{
+  margin:0 0 16px;
+  font-size:56px;
+  letter-spacing:-.03em;
+  line-height:.95;
+}
 
-    .gift-btn{
-      appearance:none;
-      width:100%;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:18px;
-      padding:16px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      cursor:pointer;
-      transition:transform .12s ease, border-color .12s ease;
-      min-height:62px;
-    }
-    .gift-btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.16); }
-    .gift-btn:active{ transform:translateY(0); }
+.gifts-card-copy{
+  margin:0;
+  max-width:520px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.8;
+  font-family:var(--mono);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
 
-    .gift-left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:16px;
-      font-weight:700;
-    }
+.gifts-right{
+  display:grid;
+  gap:18px;
+}
 
-    .gift-right{
-      color:rgba(0,0,0,.45);
-      font-size:22px;
-      line-height:1;
-    }
+.gifts-tile{
+  width:100%;
+  text-align:left;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(0,0,0,.16);
+  border-radius:18px;
+  padding:26px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  min-height:96px;
+  box-shadow:var(--shadow);
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
 
-    .gift-btn.full{ grid-column:1 / -1; }
+.gifts-tile:hover{
+  transform:translateY(-1px);
+  border-color:rgba(0,0,0,.26);
+  background:#fff;
+}
 
-    @media (max-width:920px){
-      .gifts-buttons{ grid-template-columns:1fr; }
-      .gift-btn.full{ grid-column:auto; }
-    }
+.gifts-tile-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:0;
+}
+
+.gifts-emoji{
+  font-size:22px;
+  line-height:1;
+  opacity:.85;
+  transform:translateY(-1px);
+}
+
+.gifts-tile-main{
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.gifts-tile-cta{
+  font-family:var(--mono);
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.35);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+@media (max-width:980px){
+  .gifts-wrap{ grid-template-columns:1fr; gap:22px; }
+  .gifts-left h2{ font-size:44px; }
+  .gifts-tile-main{ font-size:26px; }
+  .gifts-emoji{ font-size:20px; }
+}
 
     /* ===== MODALS ===== */
     .modal{
@@ -904,41 +943,55 @@ section.countdown-section .countdown-band{
   </div>
 </section>
 
-  <!-- REGALOS -->
+<!-- REGALOS -->
 <section class="section section-alt" id="regalos">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">REGALOS</h2>
-        <p class="section-kicker">Opciones</p>
-      </div>
+  <div class="container">
+    <div class="gifts-wrap">
+      <!-- Columna izquierda -->
+      <div class="gifts-left">
+        <h2>REGALOS</h2>
 
-      <div class="gifts-card">
         <p class="gifts-card-copy">
-          Lo más lindo es poder compartir este día con vos.<br>
-          Y si querés hacernos un regalo, te dejamos algunas opciones.
+          LO MÁS LINDO ES PODER COMPARTIR<br />
+          ESTE DÍA CON VOS.<br /><br />
+          Y SI QUERÉS HACERNOS UN REGALO, TE<br />
+          DEJAMOS ALGUNAS OPCIONES.
         </p>
 
-        <div class="gifts-buttons">
-          <button class="gift-btn full" id="openList" type="button">
-            <span class="gift-left"><span>🎁</span><span>Lista de Regalos</span></span>
-            <span class="gift-right">↗</span>
-          </button>
+        <p class="gifts-foot mono">* LISTA DE REGALOS: YA DISPONIBLE.</p>
+      </div>
 
-          <button class="gift-btn" id="openARS" type="button">
-            <span class="gift-left"><span>🇦🇷</span><span>Cuenta en ARS</span></span>
-            <span class="gift-right">›</span>
-          </button>
+      <!-- Columna derecha -->
+      <div class="gifts-right">
+        <button class="gifts-tile" id="openList" type="button">
+          <span class="gifts-tile-left">
+            <span class="gifts-emoji" aria-hidden="true">🎁</span>
+            <span class="gifts-tile-main">LISTA DE REGALOS</span>
+          </span>
+          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+        </button>
 
-          <button class="gift-btn" id="openUSD" type="button">
-            <span class="gift-left"><span>💵</span><span>Cuenta en USD</span></span>
-            <span class="gift-right">›</span>
-          </button>
-        </div>
+        <button class="gifts-tile" id="openARS" type="button">
+          <span class="gifts-tile-left">
+            <span class="gifts-emoji" aria-hidden="true">🇦🇷</span>
+            <span class="gifts-tile-main">CUENTA ARS</span>
+          </span>
+          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+        </button>
+
+        <button class="gifts-tile" id="openUSD" type="button">
+          <span class="gifts-tile-left">
+            <span class="gifts-emoji" aria-hidden="true">💵</span>
+            <span class="gifts-tile-main">CUENTA USD</span>
+          </span>
+          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+        </button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="spacer"></div>
+<div class="spacer"></div>
 
   <!-- ===== MODAL ARS ===== -->
   <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta en ARS">
