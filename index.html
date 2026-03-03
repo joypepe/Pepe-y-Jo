@@ -825,7 +825,39 @@ button{ font-family:inherit; }
   .gifts-tile{ padding:16px 16px; }
   .gifts-tile-main{ font-size:24px; }
 }    
-    
+/* === FIX CTA "VER DATOS" que se pisa (Regalos) === */
+.gifts-tile{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.gifts-tile-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;          /* CLAVE: permite que el título se recorte */
+  flex:1 1 auto;
+}
+
+.gifts-tile-main{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.gifts-tile-cta{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  white-space:nowrap;
+  text-align:right;
+}    
     /* ===== MODALS ===== */
     .modal{
       display:none;
@@ -935,6 +967,135 @@ button{ font-family:inherit; }
       .copy-btn{ justify-self:start; }
       .section-title{ font-size:28px; }
     }
+  /* === MODALS: look editorial + alineado izquierda === */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  display:none;
+  padding:22px;
+  z-index:9999;
+}
+.modal.open{ display:flex; align-items:center; justify-content:center; }
+
+.modal-card{
+  width:min(640px, 100%);
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+
+.modal-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 20px 12px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.modal-title{
+  margin:0;
+  font-size:16px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:700;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.modal-close{
+  appearance:none;
+  border:0;
+  background:transparent;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  opacity:.55;
+}
+.modal-close:hover{ opacity:.9; }
+
+.modal-body{
+  padding:16px 20px 22px;
+  text-align:left; /* CLAVE: no centrado */
+}
+
+.modal-sub{
+  margin:0 0 14px;
+  color:rgba(0,0,0,.55);
+  font-size:13px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.copy-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.copy-row{
+  display:grid;
+  grid-template-columns:120px 1fr 92px; /* key / value / copy */
+  gap:12px;
+  align-items:center;
+  padding:14px 14px;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+.copy-row:first-child{ border-top:0; }
+
+.copy-key{
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.45);
+  font-weight:600;
+}
+
+.copy-val{
+  font-size:15px;
+  color:#111;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.copy-val.mono{
+  font-family:var(--mono);
+  letter-spacing:.02em;
+}
+
+.copy-btn{
+  justify-self:end;
+  appearance:none;
+  border:1px solid rgba(0,0,0,.14);
+  background:rgba(0,0,0,.04);
+  padding:10px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.copy-btn:hover{ background:rgba(0,0,0,.07); border-color:rgba(0,0,0,.22); }
+
+@media (max-width:520px){
+  .copy-row{
+    grid-template-columns:1fr; /* stack */
+    gap:8px;
+    align-items:flex-start;
+  }
+  .copy-btn{ justify-self:start; }
+  .copy-val{ white-space:normal; }
+}  
   /* === COUNTDOWN: tamaño chico + centrado óptico === */
 section.countdown-section{
   /* sección más chica */
@@ -1166,83 +1327,67 @@ section.countdown-section .countdown-band{
 <div class="spacer"></div>
 
   <!-- ===== MODAL ARS ===== -->
-  <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta en ARS">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h3 class="modal-title"><span>🇦🇷</span> <span>Cuenta en ARS</span></h3>
-        <button class="modal-close" data-close="modalARS" aria-label="Cerrar">×</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-sub">Podés copiar los datos desde acá.</p>
+  <div class="modal-body">
+  <p class="modal-sub">Copiá los datos de la cuenta</p>
 
-        <div class="copy-list">
-          <div class="copy-row">
-            <div class="copy-key">Banco</div>
-            <div class="copy-val">Mercado Pago</div>
-            <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
-          </div>
+  <div class="copy-list">
+    <div class="copy-row">
+      <div class="copy-key">Banco</div>
+      <div class="copy-val">Mercado Pago</div>
+      <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">Alias</div>
-            <div class="copy-val mono">casoriopyj</div>
-            <button class="copy-btn" data-copy="casoriopyj.ars">Copiar</button>
-          </div>
+    <div class="copy-row">
+      <div class="copy-key">Alias</div>
+      <div class="copy-val mono">casoriopyj</div>
+      <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">CBU</div>
-            <div class="copy-val mono">0000003100031594279802</div>
-            <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
-          </div>
+    <div class="copy-row">
+      <div class="copy-key">CBU</div>
+      <div class="copy-val mono">0000003100031594279802</div>
+      <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">Titular</div>
-            <div class="copy-val">Josefina Serra</div>
-            <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
-          </div>
-        </div>
-      </div>
+    <div class="copy-row">
+      <div class="copy-key">Titular</div>
+      <div class="copy-val">Josefina Serra</div>
+      <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
     </div>
   </div>
+</div>
 
   <!-- ===== MODAL USD ===== -->
-  <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta en USD">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h3 class="modal-title"><span>💵</span> <span>Cuenta en USD</span></h3>
-        <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-sub">Podés copiar los datos desde acá.</p>
+  <div class="modal-body">
+  <p class="modal-sub">Copiá los datos de la cuenta</p>
 
-        <div class="copy-list">
-          <div class="copy-row">
-            <div class="copy-key">Banco</div>
-            <div class="copy-val">Galicia</div>
-            <button class="copy-btn" data-copy="Galicia">Copiar</button>
-          </div>
+  <div class="copy-list">
+    <div class="copy-row">
+      <div class="copy-key">Banco</div>
+      <div class="copy-val">Galicia</div>
+      <button class="copy-btn" data-copy="Galicia">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">Alias</div>
-            <div class="copy-val mono">casoriopyj.usd</div>
-            <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
-          </div>
+    <div class="copy-row">
+      <div class="copy-key">Alias</div>
+      <div class="copy-val mono">casoriopyj.usd</div>
+      <button class="copy-btn" data-copy="casoriopyj.usd">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">CBU</div>
-            <div class="copy-val mono">00701026-31004008485973</div>
-            <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
-          </div>
+    <div class="copy-row">
+      <div class="copy-key">CBU</div>
+      <div class="copy-val mono">00701026-31004008485973</div>
+      <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
+    </div>
 
-          <div class="copy-row">
-            <div class="copy-key">Titular</div>
-            <div class="copy-val">Jose Maria de la Torre</div>
-            <button class="copy-btn" data-copy="Jose Maria de la Torre">Copiar</button>
-          </div>
-        </div>
-      </div>
+    <div class="copy-row">
+      <div class="copy-key">Titular</div>
+      <div class="copy-val">JOSE MARIA DE LA TORRE</div>
+      <button class="copy-btn" data-copy="JOSE MARIA DE LA TORRE">Copiar</button>
     </div>
   </div>
-
+</div>
+  
   <!-- ===== MODAL CALENDARIO ===== -->
   <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Guardá la fecha">
     <div class="modal-card">
