@@ -1,24 +1,27 @@
 <!doctype html>
 <html lang="es">
-<!-- ===== WhatsApp Preview ===== -->
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Open Graph / WhatsApp preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pepe & Jo — 22.11.2026">
 <meta property="og:description" content="Save the date • Pilar, Buenos Aires">
 <meta property="og:url" content="https://pepe-y-jo.vercel.app/">
-<meta property="og:image" content="https://i.postimg.cc/7YBwtpJK/herok.jpg">
+<meta property="og:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pepe & Jo — 22.11.2026">
 <meta name="twitter:description" content="Save the date • Pilar, Buenos Aires">
-<meta name="twitter:image" content="https://i.postimg.cc/k5fCysx4/og.jpg">
+<meta name="twitter:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
   
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pepe & Jo — 22.11.2026</title>
-
+<title>Pepe & Jo — 22.11.2026</title>
+</head>
+  
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,7 +129,7 @@ button{ font-family:inherit; }
   isolation:isolate;
 }
 
-/* Imagen */
+/* Imagen desktop */
 .hero::before{
   content:"";
   position:absolute;
@@ -148,33 +151,19 @@ button{ font-family:inherit; }
   z-index:-1;
 }
 
+/* Baja SOLO la meta (fecha/lugar) para no tapar la foto */
 .hero .container{
   position:relative;
   z-index:1;
-  /* ✅ esto baja TODO el bloque (nombres + meta) para que no tape caras */
-  transform:translateY(90px);
+  transform:translateY(110px);
 }
 
-/* Nombres */
-.names{
-  margin:0 0 18px;
-  font-family:"Playwrite NZ", cursive;
-  font-weight:300;
-  font-size:92px;
-  line-height:1.05;
-  color:rgba(255,255,255,.70);
-  text-shadow:0 14px 60px rgba(0,0,0,.55);
-}
-
-/* Fecha y lugar: mismos estilos */
 /* Fecha y lugar */
 .hero-meta{
   display:flex;
   flex-direction:column;
   gap:10px;
   align-items:center;
-
-  margin-top:80px;   /* 👈 esto los baja */
 }
 
 .hero-date,
@@ -187,11 +176,15 @@ button{ font-family:inherit; }
   color:rgba(255,255,255,.62);
 }
 
-/* Mobile */
+/* Mobile: cambia imagen a Heromobile.png */
 @media (max-width:720px){
   .hero{ min-height:78vh; padding:70px 0; }
-  .hero .container{ transform:translateY(55px); }
-  .names{ font-size:58px; }
+
+  .hero::before{
+    background:url("images/Heromobile.png") center/cover no-repeat;
+  }
+
+  .hero .container{ transform:translateY(75px); }
   .hero-date,.hero-place{ font-size:11px; }
 }
     
@@ -1121,16 +1114,15 @@ section.countdown-section .countdown-band{
 </head>
 
 <body>
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="container">
-      <h1 class="names">Pepe &amp; Jo</h1>
-      <div class="hero-meta">
-        <div class="hero-date">Domingo 22 de noviembre 2026</div>
-        <div class="hero-place">Pilar · Buenos Aires</div>
-      </div>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-meta">
+      <div class="hero-date">Domingo 22 de noviembre 2026</div>
+      <div class="hero-place">Pilar · Buenos Aires</div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- MENÚ (debajo del hero) -->
   <nav class="hero-nav--below" aria-label="Navegación">
