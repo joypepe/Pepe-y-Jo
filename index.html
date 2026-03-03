@@ -696,6 +696,136 @@ button{ font-family:inherit; }
     padding:18px 18px !important;
   }
 }
+/* === REGALOS: ALINEACIÓN CON TÍTULO (mobile) === */
+@media (max-width: 900px){
+  .container{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .gifts-layout{
+    padding:0 !important;
+    margin:0 !important;
+  }
+
+  .gifts-left, .gifts-right{
+    padding:0 !important;
+    margin:0 !important;
+  }
+}   
+/* === REGALOS: BOTONES UNIFORMES (icono / título / cta) === */
+.gifts-tile{
+  display:grid !important;
+  grid-template-columns: 34px 1fr auto; /* icono | título | cta */
+  align-items:center;
+  gap:14px;
+  padding:18px 18px;
+}
+
+/* icono (emoji o svg) */
+.gifts-tile .gifts-ico{
+  width:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  line-height:1;
+}
+
+/* título */
+.gifts-tile-main{
+  font-size:28px;          /* un toque más chico */
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.05;
+}
+
+/* cta derecha SIEMPRE igual */
+.gifts-tile-cta{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.45) !important;
+  white-space:nowrap;
+}
+
+/* el + siempre alineado */
+.gifts-tile-cta .plus{
+  font-size:18px;
+  letter-spacing:0;
+  color:rgba(0,0,0,.55);
+}
+
+/* Mobile: bajar apenas los títulos para que respiren */
+@media (max-width: 900px){
+  .gifts-tile-main{ font-size:26px; }
+}
+/* === REGALOS: botones alineados (misma estructura que tu HTML) === */
+.gifts-tile{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* empuja CTA a la derecha siempre */
+  gap:16px;
+  padding:18px 18px;
+  border-radius:22px;
+}
+
+.gifts-tile-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0; /* permite que el texto haga ellipsis si hace falta */
+}
+
+.gifts-emoji{
+  width:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  line-height:1;
+  flex:0 0 32px;
+}
+
+.gifts-tile-main{
+  font-size:26px;     /* un toque más chico */
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  color:#111;
+  white-space:nowrap; /* evita cortes raros */
+}
+
+.gifts-tile-cta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.45);
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+
+/* el + siempre en el mismo lugar visual */
+.gifts-tile-cta span[aria-hidden="true"]{
+  font-size:18px;
+  letter-spacing:0;
+  color:rgba(0,0,0,.55);
+}
+
+/* Mobile: baja apenas el título para que respire */
+@media (max-width: 480px){
+  .gifts-tile{ padding:16px 16px; }
+  .gifts-tile-main{ font-size:24px; }
+}    
+    
     /* ===== MODALS ===== */
     .modal{
       display:none;
@@ -997,11 +1127,10 @@ section.countdown-section .countdown-band{
         <p class="gifts-card-copy">
           LO MÁS LINDO ES PODER COMPARTIR<br />
           ESTE DÍA CON VOS.<br /><br />
-          Y SI QUERÉS HACERNOS UN REGALO, TE<br />
-          DEJAMOS ALGUNAS OPCIONES.
+          Y SI QUERÉS HACERNOS UN REGALO, <br />
+          TE DEJAMOS ALGUNAS OPCIONES.
         </p>
 
-        <p class="gifts-foot mono">* LISTA DE REGALOS: YA DISPONIBLE.</p>
       </div>
 
       <!-- Columna derecha -->
