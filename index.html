@@ -652,7 +652,50 @@ button{ font-family:inherit; }
   .gifts-tile-main{ font-size:26px; }
   .gifts-emoji{ font-size:20px; }
 }
+/* === REGALOS: FIX iOS (azul) + padding mobile + texto sin cortar === */
 
+/* 1) Asegurar que NUNCA se pinte azul */
+.gifts-tile,
+.gifts-tile *{
+  color: var(--text) !important;
+  -webkit-text-fill-color: var(--text) !important;
+}
+
+/* 2) Quitar look nativo iOS y highlight */
+.gifts-tile{
+  appearance:none;
+  -webkit-appearance:none;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:22px;
+  width:100%;
+  text-align:left;
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 3) Que el texto NO se corte en mobile (LISTA DE REG...) */
+.gifts-tile-main{
+  white-space:normal;
+  overflow:visible;
+  text-overflow:unset;
+}
+
+/* 4) Más “aire” y que no quede pegado al borde en mobile */
+@media (max-width: 900px){
+  .container{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .gifts-right{
+    padding-right:0 !important;
+  }
+
+  .gifts-tile{
+    padding:18px 18px !important;
+  }
+}
     /* ===== MODALS ===== */
     .modal{
       display:none;
