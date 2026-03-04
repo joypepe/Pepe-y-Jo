@@ -115,82 +115,62 @@ button{ font-family:inherit; }
   padding-top:0;
 }
     
-/* ===== HERO SOLO PORTADA ===== */
+/* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
 .hero{
   position:relative;
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-  overflow:hidden;
-  padding:90px 0;
-}
-
-/* Imagen */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
+  width:100%;
+  min-height:90vh;               /* altura portada */
+  background-color:#0b0b0b;      /* fallback */
   background-image:url("https://i.postimg.cc/LX1QMZsD/herodesktop.jpg");
-  background-position:center;
-  background-size:cover;
   background-repeat:no-repeat;
-  z-index:-1;
+  background-size:cover;
+  background-position:center 48%; /* ajusta encuadre en desktop */
+  overflow:hidden;
 }
 
-.hero .container{
-  position:relative;
-  z-index:1;
-  transform:translateY(240px);
-}
-
-  /* ↓ baja la fecha debajo de los nombres */
-  transform:translateY(140px);
-}
-
-/* Fecha y lugar */
+/* Meta (fecha/lugar) */
 .hero-meta{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:64px;                   /* BAJA la fecha/lugar */
+  text-align:center;
   display:flex;
   flex-direction:column;
   gap:10px;
-  align-items:center;
+  pointer-events:none;           /* no molesta al scroll/click */
 }
 
 .hero-date,
 .hero-place{
   font-family:var(--mono);
-  font-size:16px;
+  font-size:14px;
   letter-spacing:.28em;
   text-transform:uppercase;
   font-weight:400;
-  color:white;
+  color:rgba(255,255,255,.72);
 }
 
-/* Mobile */
-@media (max-width:720px){
-
+/* ===== MOBILE: usa la imagen mobile para web + mejor encuadre ===== */
+@media (max-width: 720px){
   .hero{
     min-height:78vh;
-    padding:70px 0;
-  }
-
-  .hero::before{
     background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
+    background-position:center 40%;
   }
 
-  .hero .container{
-    transform:translateY(100px);
+  .hero-meta{
+    bottom:44px;
+    gap:8px;
   }
 
   .hero-date,
   .hero-place{
-    font-size:11px;
+    font-size:18px;
+    letter-spacing:.28em;
+    color:rgba(255,255,255,.70);
   }
-
-}
-    
+}    
     /* ===== MENÚ (DEBAJO DEL HERO) ===== */
    .hero-nav--below{
   background:var(--bg);
