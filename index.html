@@ -92,7 +92,7 @@
       :root{ --container-padding:22px; --section-space:96px; }
     }
 
-    /* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
+        /* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
     .hero{
       position:relative;
       width:100%;
@@ -103,6 +103,19 @@
       background-size:cover;
       background-position:center 48%;
       overflow:hidden;
+    }
+
+    /* Fecha/lugar: más arriba, más aire (referencia Nico&Vic) */
+    .hero-meta{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:120px;      /* BAJÁ/ SUBÍ desde acá */
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:14px;          /* aire entre fecha y lugar */
+      pointer-events:none;
     }
 
     .hero-date,
@@ -125,7 +138,12 @@
         bottom:90px;
         gap:12px;
       }
+      .hero-date, .hero-place{
+        font-size:13px;
+        letter-spacing:.28em;
+      }
     }
+
 
     /* ===== MENÚ (debajo del HERO) ===== */
     .hero-nav--below{
