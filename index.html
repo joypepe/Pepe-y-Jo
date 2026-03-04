@@ -225,7 +225,23 @@
       .cd-free-num{ font-size:48px; }
       .cd-dot{ display:none; }
     }
-
+    /* === COUNTDOWN: mobile en 1 sola línea (4 columnas) === */
+@media (max-width: 720px){
+  .cd-free{
+    flex-wrap:nowrap !important;
+    gap:18px !important;
+  }
+  .cd-unit{
+    min-width:0 !important;
+    flex:1 1 0 !important;
+  }
+  .cd-free-num{ font-size:40px !important; }
+  .cd-free-label{
+    font-size:10px !important;
+    letter-spacing:.26em !important;
+    margin-top:12px !important;
+  }
+}
     /* ===== SECCION HEAD + CARDS ===== */
     .section-head{
       display:flex;
