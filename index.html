@@ -546,6 +546,16 @@
       .gifts-tile-main{ font-size:24px; }
     }
 
+    /* === REGALOS: que NO se recorte a la derecha en mobile === */
+@media (max-width: 900px){
+  #regalos .gifts-right{ overflow:visible !important; }
+  #regalos .gifts-tile{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+
     /* ===== MODALS (editorial, alineado izquierda) ===== */
     .modal{
       position:fixed;
