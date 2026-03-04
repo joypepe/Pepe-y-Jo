@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pepe & Jo — 22.11.2026</title>
 
   <!-- Open Graph / WhatsApp preview -->
   <meta property="og:type" content="website">
@@ -18,6 +17,8 @@
   <meta name="twitter:title" content="Pepe & Jo — 22.11.2026">
   <meta name="twitter:description" content="Save the date • Pilar, Buenos Aires">
   <meta name="twitter:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
+
+  <title>Pepe & Jo — 22.11.2026</title>
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +51,7 @@
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family:var(--sans);
@@ -58,6 +60,7 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
+
     a{ color:inherit; text-decoration:none; }
     button{ font-family:inherit; }
 
@@ -72,6 +75,7 @@
       padding:var(--section-space) 0;
       position:relative;
     }
+
     .section-alt{ background:var(--bg-alt); }
 
     .section + .section:not(.countdown-section)::before{
@@ -81,6 +85,8 @@
       height:1px;
       background:rgba(0,0,0,.05);
     }
+
+    .section:first-of-type{ padding-top:0; }
 
     @media (max-width:900px){
       :root{ --container-padding:22px; --section-space:96px; }
@@ -99,16 +105,16 @@
       overflow:hidden;
     }
 
-    /* Fecha / lugar: estilo tipo Nico&Vic */
+    /* Fecha/lugar: más arriba, más aire (referencia Nico&Vic) */
     .hero-meta{
       position:absolute;
       left:50%;
       transform:translateX(-50%);
-      bottom:110px;               /* más arriba que antes */
+      bottom:120px;      /* BAJÁ/ SUBÍ desde acá */
       text-align:center;
       display:flex;
       flex-direction:column;
-      gap:14px;                   /* más aire entre fecha y lugar */
+      gap:14px;          /* aire entre fecha y lugar */
       pointer-events:none;
     }
 
@@ -129,7 +135,7 @@
         background-position:center 42%;
       }
       .hero-meta{
-        bottom:84px;
+        bottom:90px;
         gap:12px;
       }
       .hero-date, .hero-place{
@@ -138,13 +144,14 @@
       }
     }
 
-    /* ===== MENÚ debajo del hero ===== */
+    /* ===== MENÚ (debajo del HERO) ===== */
     .hero-nav--below{
       background:var(--bg);
       border-bottom:1px solid rgba(0,0,0,.08);
       padding:22px 0;
       margin-bottom:24px;
     }
+
     .hero-nav--below .container{
       display:flex;
       justify-content:center;
@@ -156,6 +163,7 @@
       text-transform:uppercase;
       user-select:none;
     }
+
     .hero-nav--below a{
       color:rgba(17,17,17,.78);
       position:relative;
@@ -163,14 +171,33 @@
       transition:color .15s ease;
     }
     .hero-nav--below a:hover{ color:#111; }
-    .hero-nav--below .dot{ color:rgba(0,0,0,.25); font-family:var(--mono); letter-spacing:0; }
+
+    .hero-nav--below a::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      bottom:2px;
+      height:1px;
+      background:rgba(0,0,0,.25);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .18s ease;
+    }
+    .hero-nav--below a:hover::after{ transform:scaleX(1); }
+
+    .hero-nav--below .dot{
+      color:rgba(0,0,0,.25);
+      font-family:var(--mono);
+      letter-spacing:0;
+    }
 
     /* ===== COUNTDOWN ===== */
-    section.countdown-section{
+    .countdown-section{
       padding:70px 0 !important;
       background:transparent;
     }
-    section.countdown-section .cd-free{
+
+    .cd-free{
       display:flex;
       justify-content:center;
       align-items:center;
@@ -178,7 +205,9 @@
       flex-wrap:wrap;
       transform:translateY(-20px);
     }
+
     .cd-unit{ text-align:center; min-width:140px; }
+
     .cd-free-num{
       font-family:var(--mono);
       font-size:64px;
@@ -187,6 +216,7 @@
       letter-spacing:.02em;
       color:#111;
     }
+
     .cd-free-label{
       margin-top:16px;
       font-size:11px;
@@ -195,6 +225,7 @@
       color:var(--muted);
       font-weight:500;
     }
+
     .cd-dot{
       display:flex;
       align-items:center;
@@ -204,26 +235,223 @@
       line-height:1;
       color:rgba(0,0,0,.20);
     }
+
     @media (max-width:720px){
-      section.countdown-section .cd-free{ gap:24px; }
+      .cd-free{ gap:24px; }
       .cd-unit{ min-width:110px; }
       .cd-free-num{ font-size:48px; }
       .cd-dot{ display:none; }
     }
 
-    /* ===== REGALOS (limpio y alineado) ===== */
+    /* ===== SECCION HEAD + CARDS ===== */
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin:0;
+      letter-spacing:-.02em;
+      font-weight:600;
+    }
+
+    .section-kicker{
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0;
+      font-weight:500;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    @media (max-width:920px){
+      .cards{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .card-title{
+      margin:0 0 18px;
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.55);
+    }
+
+    .place-name{
+      font-size:18px;
+      margin:0 0 10px;
+      color:#1a1a1a;
+      font-weight:500;
+    }
+
+    .address{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#333;
+      font-size:15px;
+      margin:0;
+    }
+    .meta .micon{ opacity:.75; }
+
+    .card-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid rgba(0,0,0,.14);
+      background:#fff;
+      padding:12px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.22); }
+    .btn:active{ transform:translateY(0); }
+
+    .btn-primary{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+    .btn-primary:hover{ background:#0f0f0f; border-color:#0f0f0f; }
+
+    .btn-map{
+      background:rgba(0,0,0,.05);
+      border:1px solid rgba(0,0,0,.10);
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      padding:10px 18px;
+      color:#111;
+    }
+    .btn-map:hover{
+      background:rgba(0,0,0,.08);
+      border-color:rgba(0,0,0,.16);
+    }
+    .btn-map .ico{
+      width:13px;
+      height:13px;
+      opacity:.45;
+    }
+
+    /* ===== RSVP ===== */
+    .rsvp-section{ padding:120px 0 140px; }
+
+    .rsvp-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+
+    .rsvp-title{
+      font-size:clamp(48px, 9vw, 120px);
+      line-height:0.95;
+      letter-spacing:-.03em;
+      margin:0 0 60px;
+      font-weight:800;
+    }
+
+    .rsvp-actions{
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .rsvp-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px 48px;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      border:2px solid #111;
+      transition:all .25s ease;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    .rsvp-btn.primary{
+      background:#111;
+      color:#fff;
+    }
+    .rsvp-btn.primary:hover{
+      background:#000;
+      transform:translateY(-2px);
+    }
+
+    .rsvp-btn.secondary{
+      background:transparent;
+      color:#111;
+    }
+    .rsvp-btn.secondary:hover{
+      background:#111;
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    @media (max-width:768px){
+      .rsvp-actions{ flex-direction:column; gap:18px; }
+    }
+
+    /* ===== REGALOS ===== */
     .gifts-wrap{
       display:grid;
       grid-template-columns:1fr 1.2fr;
       gap:48px;
       align-items:start;
     }
+
     .gifts-left h2{
       margin:0 0 16px;
       font-size:56px;
       letter-spacing:-.03em;
       line-height:.95;
     }
+
     .gifts-copy{
       margin:0;
       max-width:520px;
@@ -257,6 +485,7 @@
       -webkit-tap-highlight-color: transparent;
       color:var(--text);
     }
+
     .gifts-tile:hover{
       transform:translateY(-1px);
       border-color:rgba(0,0,0,.22);
@@ -270,6 +499,7 @@
       min-width:0;
       flex:1 1 auto;
     }
+
     .gifts-emoji{
       width:32px;
       flex:0 0 32px;
@@ -280,6 +510,7 @@
       line-height:1;
       opacity:.9;
     }
+
     .gifts-tile-main{
       font-size:26px;
       font-weight:800;
@@ -290,6 +521,7 @@
       text-overflow:ellipsis;
       white-space:nowrap;
     }
+
     .gifts-tile-cta{
       flex:0 0 auto;
       display:flex;
@@ -302,6 +534,7 @@
       color:rgba(0,0,0,.45);
       white-space:nowrap;
     }
+
     .gifts-tile-cta span[aria-hidden="true"]{
       font-size:18px;
       letter-spacing:0;
@@ -333,6 +566,7 @@
       box-shadow:0 20px 60px rgba(0,0,0,.18);
       overflow:hidden;
     }
+
     .modal-head{
       display:flex;
       align-items:flex-start;
@@ -341,6 +575,7 @@
       padding:18px 20px 12px;
       border-bottom:1px solid rgba(0,0,0,.08);
     }
+
     .modal-title{
       margin:0;
       font-size:16px;
@@ -351,6 +586,7 @@
       gap:10px;
       align-items:center;
     }
+
     .modal-close{
       appearance:none;
       border:0;
@@ -366,6 +602,7 @@
       padding:16px 20px 22px;
       text-align:left;
     }
+
     .modal-sub{
       margin:0 0 14px;
       color:rgba(0,0,0,.55);
@@ -382,6 +619,7 @@
       overflow:hidden;
       background:#fff;
     }
+
     .copy-row{
       display:grid;
       grid-template-columns:120px 1fr 92px;
@@ -391,6 +629,7 @@
       border-top:1px solid rgba(0,0,0,.08);
     }
     .copy-row:first-child{ border-top:0; }
+
     .copy-key{
       font-size:12px;
       letter-spacing:.22em;
@@ -398,6 +637,7 @@
       color:rgba(0,0,0,.45);
       font-weight:600;
     }
+
     .copy-val{
       font-size:15px;
       color:#111;
@@ -422,6 +662,14 @@
     .copy-btn:hover{ background:rgba(0,0,0,.07); border-color:rgba(0,0,0,.22); transform:translateY(-1px); }
     .copy-btn:active{ transform:translateY(0); }
 
+    .modal-actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
     @media (max-width:520px){
       .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
       .copy-btn{ justify-self:start; }
@@ -433,14 +681,14 @@
 
 <body>
   <!-- HERO -->
-  <header class="hero" id="top" aria-label="Portada">
+  <header class="hero" id="top">
     <div class="hero-meta">
       <div class="hero-date">Domingo 22 de noviembre 2026</div>
       <div class="hero-place">Pilar · Buenos Aires</div>
     </div>
   </header>
 
-  <!-- MENÚ -->
+  <!-- MENÚ (debajo del hero) -->
   <nav class="hero-nav--below" aria-label="Navegación">
     <div class="container">
       <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
@@ -484,6 +732,95 @@
     </div>
   </section>
 
+  <!-- ¿DÓNDE? -->
+  <section class="section section-alt" id="donde">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">¿DONDE?</h2>
+        <p class="section-kicker">CEREMONIA &amp; FIESTA</p>
+      </div>
+
+      <div class="cards">
+        <!-- CEREMONIA -->
+        <article class="card" id="ceremonia">
+          <h3 class="card-title">CEREMONIA</h3>
+
+          <p class="place-name">
+            Iglesia Sagrada Familia - Nuestra Señora del Cielo
+          </p>
+
+          <p class="address">
+            Pedro Pico 1686, La Lonja, Provincia de Buenos Aires
+          </p>
+
+          <div class="card-footer">
+            <div class="meta">
+              <span class="micon">🕓</span>
+              <span>16:00 hs</span>
+            </div>
+
+            <a class="btn btn-map"
+               href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
+               target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+              </svg>
+              <span>Mapa</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- FIESTA -->
+        <article class="card" id="fiesta">
+          <h3 class="card-title">FIESTA</h3>
+
+          <p class="place-name">Espacio Pilar I</p>
+
+          <p class="address">
+            Chile 1963, B1630 La Lonja, Provincia de Buenos Aires
+          </p>
+
+          <div class="card-footer">
+            <div class="meta">
+              <span class="micon">🕓</span>
+              <span>18:00 hs</span>
+            </div>
+
+            <a class="btn btn-map"
+               href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
+               target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+              </svg>
+              <span>Mapa</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASISTENCIA -->
+  <section class="section rsvp-section" id="asistencia">
+    <div class="container rsvp-wrap">
+      <h2 class="rsvp-title">CONFIRMAR<br>ASISTENCIA</h2>
+
+      <div class="rsvp-actions">
+        <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
+           target="_blank" rel="noopener"
+           class="rsvp-btn primary">
+          Confirmar acá
+        </a>
+
+        <a class="rsvp-btn secondary" id="googleCalendarBtn" href="#" target="_blank" rel="noopener">
+          Agendá la fecha
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- REGALOS -->
   <section class="section section-alt" id="regalos">
     <div class="container">
@@ -491,9 +828,9 @@
         <div class="gifts-left">
           <h2>REGALOS</h2>
           <p class="gifts-copy">
-            LO MÁS LINDO ES PODER COMPARTIR<br>
-            ESTE DÍA CON VOS.<br><br>
-            Y SI QUERÉS HACERNOS UN REGALO,<br>
+            LO MÁS LINDO ES PODER COMPARTIR<br />
+            ESTE DÍA CON VOS.<br /><br />
+            Y SI QUERÉS HACERNOS UN REGALO,<br />
             TE DEJAMOS ALGUNAS OPCIONES.
           </p>
         </div>
@@ -529,24 +866,6 @@
 
   <div class="spacer"></div>
 
-  <!-- ===== MODAL LISTA ===== -->
-  <div class="modal" id="modalLIST" aria-hidden="true" role="dialog" aria-label="Lista de regalos">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h3 class="modal-title"><span aria-hidden="true">🎁</span> <span>Lista de regalos</span></h3>
-        <button class="modal-close" data-close="modalLIST" aria-label="Cerrar">×</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-sub">Abrí la lista para ver opciones</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="copy-btn" id="giftListLink" href="#" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
-            Abrir lista ↗
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ===== MODAL ARS ===== -->
   <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta ARS">
     <div class="modal-card">
@@ -563,16 +882,19 @@
             <div class="copy-val">Mercado Pago</div>
             <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">Alias</div>
             <div class="copy-val mono">casoriopyj</div>
             <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">CBU</div>
             <div class="copy-val mono">0000003100031594279802</div>
             <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">Titular</div>
             <div class="copy-val">Josefina Serra</div>
@@ -599,22 +921,47 @@
             <div class="copy-val">Galicia</div>
             <button class="copy-btn" data-copy="Galicia">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">Alias</div>
             <div class="copy-val mono">casoriopyj.usd</div>
             <button class="copy-btn" data-copy="casoriopyj.usd">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">CBU</div>
             <div class="copy-val mono">00701026-31004008485973</div>
             <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
           </div>
+
           <div class="copy-row">
             <div class="copy-key">Titular</div>
             <div class="copy-val">JOSE MARIA DE LA TORRE</div>
             <button class="copy-btn" data-copy="JOSE MARIA DE LA TORRE">Copiar</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL CALENDARIO ===== -->
+  <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Guardá la fecha">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span aria-hidden="true">🗓️</span> <span>Guardá la fecha</span></h3>
+        <button class="modal-close" data-close="modalCAL" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-sub">Elegí tu calendario:</p>
+
+        <div class="modal-actions">
+          <a id="googleCalLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">Google Calendar</a>
+          <button class="btn" id="downloadICS" type="button">Apple Calendar (.ics)</button>
+        </div>
+
+        <p class="modal-sub" style="margin-top:14px;">
+          (Se agenda para <span style="font-family:var(--mono)">22/11/2026 16:00</span> en Argentina.)
+        </p>
       </div>
     </div>
   </div>
@@ -652,14 +999,21 @@
       btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
     });
 
-    // Botones regalos
+    // Botones Regalos
     document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
     document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
-    document.getElementById("openList").addEventListener("click", () => openModal("modalLIST"));
 
-    // Link lista (cambialo por tu link real)
-    const LIST_URL = "https://example.com/lista-de-regalos";
-    document.getElementById("giftListLink").href = LIST_URL;
+    // Botón "Agendá la fecha" del menú
+    document.getElementById("openCalendarLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal("modalCAL");
+    });
+
+    // Lista de regalos: abrí el link en nueva pestaña (reemplazá con tu URL real)
+    document.getElementById("openList").addEventListener("click", () => {
+      const url = "https://example.com/lista-de-regalos";
+      window.open(url, "_blank", "noopener");
+    });
 
     // ===== Copy =====
     async function copyToClipboard(text){
@@ -710,6 +1064,87 @@
     }
     tick();
     setInterval(tick, 1000);
+
+    // ===== Calendar links =====
+    function toGoogleUTC(iso){
+      const d = new Date(iso);
+      const y = d.getUTCFullYear();
+      const m = pad2(d.getUTCMonth() + 1);
+      const day = pad2(d.getUTCDate());
+      const hh = pad2(d.getUTCHours());
+      const mm = pad2(d.getUTCMinutes());
+      const ss = pad2(d.getUTCSeconds());
+      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
+    }
+
+    const gStart = toGoogleUTC(EVENT.startISO);
+    const gEnd   = toGoogleUTC(EVENT.endISO);
+
+    const gUrl = new URL("https://calendar.google.com/calendar/render");
+    gUrl.searchParams.set("action", "TEMPLATE");
+    gUrl.searchParams.set("text", EVENT.title);
+    gUrl.searchParams.set("dates", `${gStart}/${gEnd}`);
+    gUrl.searchParams.set("details", EVENT.description);
+    gUrl.searchParams.set("location", EVENT.location);
+
+    // Botón de asistencia (abre Google directo)
+    document.getElementById("googleCalendarBtn").href = gUrl.toString();
+
+    // Modal CAL: link Google dentro del modal
+    document.getElementById("googleCalLink").href = gUrl.toString();
+
+    function icsEscape(s){
+      return String(s)
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/,/g, "\\,")
+        .replace(/;/g, "\\;");
+    }
+
+    function toICSDateUTC(iso){
+      const d = new Date(iso);
+      const y = d.getUTCFullYear();
+      const m = pad2(d.getUTCMonth() + 1);
+      const day = pad2(d.getUTCDate());
+      const hh = pad2(d.getUTCHours());
+      const mm = pad2(d.getUTCMinutes());
+      const ss = pad2(d.getUTCSeconds());
+      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
+    }
+
+    document.getElementById("downloadICS").addEventListener("click", () => {
+      const dtstamp = toICSDateUTC(new Date().toISOString());
+      const dtstart = toICSDateUTC(EVENT.startISO);
+      const dtend   = toICSDateUTC(EVENT.endISO);
+
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Pepe&Jo//Casamiento//ES",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${Date.now()}@pepe-jo`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART:${dtstart}`,
+        `DTEND:${dtend}`,
+        `SUMMARY:${icsEscape(EVENT.title)}`,
+        `DESCRIPTION:${icsEscape(EVENT.description)}`,
+        `LOCATION:${icsEscape(EVENT.location)}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Pepe-y-Jo.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
   </script>
 </body>
 </html>
