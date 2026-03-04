@@ -1,184 +1,150 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pepe & Jo — 22.11.2026</title>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Open Graph / WhatsApp preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pepe & Jo — 22.11.2026">
+  <meta property="og:description" content="Save the date • Pilar, Buenos Aires">
+  <meta property="og:url" content="https://pepe-y-jo.vercel.app/">
+  <meta property="og:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-<!-- Open Graph / WhatsApp preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pepe & Jo — 22.11.2026">
-<meta property="og:description" content="Save the date • Pilar, Buenos Aires">
-<meta property="og:url" content="https://pepe-y-jo.vercel.app/">
-<meta property="og:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pepe & Jo — 22.11.2026">
+  <meta name="twitter:description" content="Save the date • Pilar, Buenos Aires">
+  <meta name="twitter:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pepe & Jo — 22.11.2026">
-<meta name="twitter:description" content="Save the date • Pilar, Buenos Aires">
-<meta name="twitter:image" content="https://i.postimg.cc/YCqVZ0Bs/Heromobile.png">
-  
-<title>Pepe & Jo — 22.11.2026</title>
-</head>
-  
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&family=Meddon&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&family=Playwrite+NZ:wght@300&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <path d='M50 88
-           L15 50
-           A20 20 0 0 1 50 30
-           A20 20 0 0 1 85 50
-           Z'
-        fill='black'/>
-</svg>">
-  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <path d='M50 88 L15 50 A20 20 0 0 1 50 30 A20 20 0 0 1 85 50 Z' fill='black'/>
+  </svg>">
+
   <style>
-   :root{
-  --bg:#fbf8f4;
-  --bg-alt:#f6f3ee;   
-  --text:#111111;
-  --muted:#6f6f6f;
-  --line:rgba(0,0,0,.10);
-  --shadow:0 18px 50px rgba(0,0,0,.08);
-  --radius:20px;
+    :root{
+      --bg:#fbf8f4;
+      --bg-alt:#f6f3ee;
+      --text:#111111;
+      --muted:#6f6f6f;
+      --line:rgba(0,0,0,.10);
+      --shadow:0 18px 50px rgba(0,0,0,.08);
+      --radius:20px;
 
-  /* Layout */
-  --container:1120px;
-  --container-padding:40px;
-  --section-space:120px;
+      --container:1120px;
+      --container-padding:40px;
+      --section-space:120px;
 
-  --mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --sans:"Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-}
+      --mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans:"Roboto", ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    }
 
-*{ box-sizing:border-box; }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{ color:inherit; text-decoration:none; }
+    button{ font-family:inherit; }
 
-html{ scroll-behavior:smooth; }
+    .container{
+      width:100%;
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 var(--container-padding);
+    }
 
-body{
-  margin:0;
-  font-family:var(--sans);
-  color:var(--text);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+    .section{
+      padding:var(--section-space) 0;
+      position:relative;
+    }
+    .section-alt{ background:var(--bg-alt); }
 
-a{ color:inherit; text-decoration:none; }
-button{ font-family:inherit; }
+    .section + .section:not(.countdown-section)::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:1px;
+      background:rgba(0,0,0,.05);
+    }
 
-/* CONTAINER GLOBAL (alineado perfecto en toda la web) */
-.container{
-  width:100%;
-  max-width:var(--container);
-  margin:0 auto;
-  padding:0 var(--container-padding);
-}
+    @media (max-width:900px){
+      :root{ --container-padding:22px; --section-space:96px; }
+    }
 
-/* ESPACIADO UNIFORME ENTRE SECCIONES */
-/* SECCIÓN BASE */
-.section{
-  padding:var(--section-space) 0;
-  position:relative;
-}
+    /* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
+    .hero{
+      position:relative;
+      width:100%;
+      min-height:90vh;
+      background-color:#0b0b0b;
+      background-image:url("https://i.postimg.cc/LX1QMZsD/herodesktop.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center 48%;
+      overflow:hidden;
+    }
 
-/* SECCIÓN ALTERNADA */
-.section-alt{
-  background:var(--bg-alt);
-}
+    /* Fecha / lugar: estilo tipo Nico&Vic */
+    .hero-meta{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:110px;               /* más arriba que antes */
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:14px;                   /* más aire entre fecha y lugar */
+      pointer-events:none;
+    }
 
-/* Separador sutil arriba de cada sección 
-   (menos la primera y menos el countdown) */
-.section + .section:not(.countdown-section)::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:1px;
-  background:rgba(0,0,0,.05);
-}
+    .hero-date,
+    .hero-place{
+      font-family:var(--mono);
+      font-size:14px;
+      letter-spacing:.30em;
+      text-transform:uppercase;
+      font-weight:400;
+      color:rgba(255,255,255,.78);
+    }
 
-/* cuando hay cambio de fondo, el separador se siente más editorial */
-.section-alt:not(.countdown-section)::before{
-  background:rgba(0,0,0,.04);
-}
+    @media (max-width:720px){
+      .hero{
+        min-height:78vh;
+        background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
+        background-position:center 42%;
+      }
+      .hero-meta{
+        bottom:84px;
+        gap:12px;
+      }
+      .hero-date, .hero-place{
+        font-size:13px;
+        letter-spacing:.28em;
+      }
+    }
 
-/* Opcional: primera sección sin espacio arriba */
-.section:first-of-type{
-  padding-top:0;
-}
-    
-/* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
-.hero{
-  position:relative;
-  width:100%;
-  min-height:90vh;               /* altura portada */
-  background-color:#0b0b0b;      /* fallback */
-  background-image:url("https://i.postimg.cc/LX1QMZsD/herodesktop.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center 48%; /* ajusta encuadre en desktop */
-  overflow:hidden;
-}
-
-/* Meta (fecha/lugar) */
-.hero-meta{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:64px;                   /* BAJA la fecha/lugar */
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  pointer-events:none;           /* no molesta al scroll/click */
-}
-
-.hero-date,
-.hero-place{
-  font-family:var(--mono);
-  font-size:14px;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  font-weight:400;
-  color:rgba(255,255,255,.72);
-}
-
-/* ===== MOBILE: usa la imagen mobile para web + mejor encuadre ===== */
-@media (max-width: 720px){
-  .hero{
-    min-height:78vh;
-    background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
-    background-position:center 40%;
-  }
-
-  .hero-meta{
-    bottom:44px;
-    gap:8px;
-  }
-
-  .hero-date,
-  .hero-place{
-    font-size:18px;
-    letter-spacing:.28em;
-    color:rgba(255,255,255,.70);
-  }
-}    
-    /* ===== MENÚ (DEBAJO DEL HERO) ===== */
-   .hero-nav--below{
-  background:var(--bg);
-  border-bottom:1px solid rgba(0,0,0,.08);
-  padding:22px 0;
-  margin-bottom:24px; /* 👈 esto crea separación real hacia el countdown */
-}
-
+    /* ===== MENÚ debajo del hero ===== */
+    .hero-nav--below{
+      background:var(--bg);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      padding:22px 0;
+      margin-bottom:24px;
+    }
     .hero-nav--below .container{
       display:flex;
       justify-content:center;
@@ -190,7 +156,6 @@ button{ font-family:inherit; }
       text-transform:uppercase;
       user-select:none;
     }
-
     .hero-nav--below a{
       color:rgba(17,17,17,.78);
       position:relative;
@@ -198,916 +163,284 @@ button{ font-family:inherit; }
       transition:color .15s ease;
     }
     .hero-nav--below a:hover{ color:#111; }
+    .hero-nav--below .dot{ color:rgba(0,0,0,.25); font-family:var(--mono); letter-spacing:0; }
 
-    .hero-nav--below a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:2px;
-      height:1px;
-      background:rgba(0,0,0,.25);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .18s ease;
+    /* ===== COUNTDOWN ===== */
+    section.countdown-section{
+      padding:70px 0 !important;
+      background:transparent;
     }
-    .hero-nav--below a:hover::after{ transform:scaleX(1); }
-
-    .hero-nav--below .dot{
-      color:rgba(0,0,0,.25);
+    section.countdown-section .cd-free{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:56px;
+      flex-wrap:wrap;
+      transform:translateY(-20px);
+    }
+    .cd-unit{ text-align:center; min-width:140px; }
+    .cd-free-num{
       font-family:var(--mono);
-      letter-spacing:0;
+      font-size:64px;
+      line-height:1;
+      font-weight:600;
+      letter-spacing:.02em;
+      color:#111;
     }
-
-/* ===== COUNTDOWN (editorial, sin card) ===== */
-
-/* ===== COUNTDOWN SECTION ===== */
-.countdown-section{
-  padding:120px 0 70px;   /* 👈 MÁS espacio arriba que abajo */
-  background:transparent;
-}
-
-/* fila principal */
-.cd-free{
-  display:flex;
-  justify-content:center;
-  align-items:center;        /* centra los ":" perfectamente */
-  gap:56px;
-  flex-wrap:wrap;
-}
-
-/* cada bloque */
-.cd-unit{
-  text-align:center;
-  min-width:140px;
-}
-
-/* números */
-.cd-free-num{
-  font-family:var(--mono);
-  font-size:64px;
-  line-height:1;
-  font-weight:600;
-  letter-spacing:.02em;
-  color:#111;
-}
-
-/* labels */
-.cd-free-label{
-  margin-top:16px;
-  font-size:11px;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:500;
-}
-
-/* separadores */
-.cd-dot{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--mono);
-  font-size:36px;
-  line-height:1;
-  color:rgba(0,0,0,.20);
-}
-
-/* responsive */
-@media (max-width:720px){
-  .cd-free{ gap:24px; }
-  .cd-unit{ min-width:110px; }
-  .cd-free-num{ font-size:48px; }
-  .cd-dot{ display:none; }
-}
-   /* ===== SECTIONS (GLOBAL) ===== */
-.section{
-  padding:var(--section-space) 0;
-  position:relative;
-}
-
-/* primera sección (si querés) sin padding arriba */
-.section:first-of-type{
-  padding-top:0;
-}
-
-/* sección alternada */
-.section-alt{
-  background:var(--bg-alt);
-}
-
-/* separador sutil entre secciones */
-.section + .section::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:1px;
-  background:rgba(0,0,0,.05);
-}
-
-/* ===== SECTION HEAD ===== */
-.section-head{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:16px;
-  margin-bottom:28px; /* más aire */
-}
-
-.section-title{
-  font-size:34px;
-  margin:0;
-  letter-spacing:-.02em;
-  font-weight:600;
-}
-
-.section-kicker{
-  font-size:13px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin:0;
-  font-weight:500;
-}
-
-/* ===== CARDS GRID ===== */
-.cards{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-@media (max-width:920px){
-  .cards{ grid-template-columns:1fr; }
-}
-
-/* ===== CARD ===== */
-.card{
-  background:rgba(255,255,255,.9);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-}
-/* ===== TITULO CARD + NOMBRE/ADDRESS ===== */
-.card-title{
-  margin:0 0 18px;
-  font-size:12px;
-  font-weight:500;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.55);
-}
-
-.place-name{
-  font-size:18px;
-  margin:0 0 10px;
-  color:#1a1a1a;
-  font-weight:500;
-}
-
-.address{
-  margin:0 0 14px;
-  color:var(--muted);
-  line-height:1.55;
-  font-size:15px;
-}
-
-.meta{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#333;
-  font-size:15px;
-  margin:0;
-}
-.meta .micon{ opacity:.75; }
-
-/* ===== fila final (hora + mapa alineados) ===== */
-.card-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  margin-top:18px;
-}
-
-/* ===== ACCIONES DE LAS CARDS (botón abajo a la derecha) ===== */
-.card-actions{
-  margin-top:12px;        /* lo acerca a la hora */
-  display:flex;
-  justify-content:flex-end;
-}
-
-/* ===== BOTONES (base) ===== */
-.btn{
-  appearance:none;
-  border:1px solid rgba(0,0,0,.14);
-  background:#fff;
-  padding:12px 16px;
-  border-radius:999px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:600;
-  transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  line-height:1;
-  white-space:nowrap;
-}
-
-.btn:hover{ transform:translateY(-1px); border-color:rgba(0,0,0,.22); }
-.btn:active{ transform:translateY(0); }
-
-/* ===== Botón principal (RSVP) ===== */
-.btn-primary{
-  background:#111;
-  color:#fff;
-  border-color:#111;
-}
-.btn-primary:hover{ background:#0f0f0f; border-color:#0f0f0f; }
-
-/* ===== Botón MAPA (outline, minimal) ===== */
-.btn-map{
-  background:rgba(0,0,0,.05);  /* gris suave */
-  border:1px solid rgba(0,0,0,.10);
-  font-size:12px;
-  font-weight:500;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  padding:10px 18px;
-  color:#111;
-}
-
-.btn-map:hover{
-  background:rgba(0,0,0,.08);
-  border-color:rgba(0,0,0,.16);
-}
-
-/* Icono del botón mapa (monocromo, NO emoji) */
-.btn-map .ico{
-  width:13px;
-  height:13px;
-  opacity:.45;
-}
-    @media (max-width:920px){
-      .cards{ grid-template-columns:1fr; }
+    .cd-free-label{
+      margin-top:16px;
+      font-size:11px;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:500;
     }
-
-  /* ===== RSVP EDITORIAL ===== */
-
-.rsvp-section{
-  padding:120px 0 140px;
-}
-
-.rsvp-wrap{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-
-.rsvp-title{
-  font-size:clamp(48px, 9vw, 120px);
-  line-height:0.95;
-  letter-spacing:-.03em;
-  margin:0 0 60px;
-  font-weight:800;
-}
-
-.rsvp-actions{
-  display:flex;
-  gap:30px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.rsvp-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px 48px;
-  font-size:18px;
-  font-weight:600;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  border:2px solid #111;
-  transition:all .25s ease;
-  cursor:pointer;
-}
-
-.rsvp-btn.primary{
-  background:#111;
-  color:#fff;
-}
-
-.rsvp-btn.primary:hover{
-  background:#000;
-  transform:translateY(-2px);
-}
-
-.rsvp-btn.secondary{
-  background:transparent;
-  color:#111;
-}
-
-.rsvp-btn.secondary:hover{
-  background:#111;
-  color:#fff;
-  transform:translateY(-2px);
-}
-
-@media (max-width:768px){
-  .rsvp-actions{
-    flex-direction:column;
-    gap:18px;
-  }
-}
-    /* ===== REGALOS (VOGUE) ===== */
-.gifts-card{
-  background:transparent;                 /* más editorial */
-  border:0;
-  box-shadow:none;
-  padding:0;
-}
-
-.gifts-wrap{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:48px;
-  align-items:start;
-}
-
-.gifts-left h2{
-  margin:0 0 16px;
-  font-size:56px;
-  letter-spacing:-.03em;
-  line-height:.95;
-}
-
-.gifts-card-copy{
-  margin:0;
-  max-width:520px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.8;
-  font-family:var(--mono);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-
-.gifts-right{
-  display:grid;
-  gap:18px;
-}
-
-.gifts-tile{
-  width:100%;
-  text-align:left;
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(0,0,0,.16);
-  border-radius:18px;
-  padding:26px 26px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  cursor:pointer;
-  min-height:96px;
-  box-shadow:var(--shadow);
-  transition:transform .12s ease, border-color .12s ease, background .12s ease;
-}
-
-.gifts-tile:hover{
-  transform:translateY(-1px);
-  border-color:rgba(0,0,0,.26);
-  background:#fff;
-}
-
-.gifts-tile-left{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  min-width:0;
-}
-
-.gifts-emoji{
-  font-size:22px;
-  line-height:1;
-  opacity:.85;
-  transform:translateY(-1px);
-}
-
-.gifts-tile-main{
-  font-size:34px;
-  font-weight:800;
-  letter-spacing:-.02em;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.gifts-tile-cta{
-  font-family:var(--mono);
-  font-size:14px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.35);
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-@media (max-width:980px){
-  .gifts-wrap{ grid-template-columns:1fr; gap:22px; }
-  .gifts-left h2{ font-size:44px; }
-  .gifts-tile-main{ font-size:26px; }
-  .gifts-emoji{ font-size:20px; }
-}
-/* === REGALOS: FIX iOS (azul) + padding mobile + texto sin cortar === */
-
-/* 1) Asegurar que NUNCA se pinte azul */
-.gifts-tile,
-.gifts-tile *{
-  color: var(--text) !important;
-  -webkit-text-fill-color: var(--text) !important;
-}
-
-/* 2) Quitar look nativo iOS y highlight */
-.gifts-tile{
-  appearance:none;
-  -webkit-appearance:none;
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:22px;
-  width:100%;
-  text-align:left;
-  cursor:pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* 3) Que el texto NO se corte en mobile (LISTA DE REG...) */
-.gifts-tile-main{
-  white-space:normal;
-  overflow:visible;
-  text-overflow:unset;
-}
-
-/* 4) Más “aire” y que no quede pegado al borde en mobile */
-@media (max-width: 900px){
-  .container{
-    padding-left:22px !important;
-    padding-right:22px !important;
-  }
-
-  .gifts-right{
-    padding-right:0 !important;
-  }
-
-  .gifts-tile{
-    padding:18px 18px !important;
-  }
-}
-/* === REGALOS: ALINEACIÓN CON TÍTULO (mobile) === */
-@media (max-width: 900px){
-  .container{
-    padding-left:22px !important;
-    padding-right:22px !important;
-  }
-
-  .gifts-layout{
-    padding:0 !important;
-    margin:0 !important;
-  }
-
-  .gifts-left, .gifts-right{
-    padding:0 !important;
-    margin:0 !important;
-  }
-}   
-/* === REGALOS: BOTONES UNIFORMES (icono / título / cta) === */
-.gifts-tile{
-  display:grid !important;
-  grid-template-columns: 34px 1fr auto; /* icono | título | cta */
-  align-items:center;
-  gap:14px;
-  padding:18px 18px;
-}
-
-/* icono (emoji o svg) */
-.gifts-tile .gifts-ico{
-  width:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  line-height:1;
-}
-
-/* título */
-.gifts-tile-main{
-  font-size:28px;          /* un toque más chico */
-  font-weight:800;
-  letter-spacing:-.02em;
-  line-height:1.05;
-}
-
-/* cta derecha SIEMPRE igual */
-.gifts-tile-cta{
-  justify-self:end;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.45) !important;
-  white-space:nowrap;
-}
-
-/* el + siempre alineado */
-.gifts-tile-cta .plus{
-  font-size:18px;
-  letter-spacing:0;
-  color:rgba(0,0,0,.55);
-}
-
-/* Mobile: bajar apenas los títulos para que respiren */
-@media (max-width: 900px){
-  .gifts-tile-main{ font-size:26px; }
-}
-/* === REGALOS: botones alineados (misma estructura que tu HTML) === */
-.gifts-tile{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between; /* empuja CTA a la derecha siempre */
-  gap:16px;
-  padding:18px 18px;
-  border-radius:22px;
-}
-
-.gifts-tile-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-width:0; /* permite que el texto haga ellipsis si hace falta */
-}
-
-.gifts-emoji{
-  width:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  line-height:1;
-  flex:0 0 32px;
-}
-
-.gifts-tile-main{
-  font-size:26px;     /* un toque más chico */
-  font-weight:800;
-  letter-spacing:-.02em;
-  line-height:1.05;
-  color:#111;
-  white-space:nowrap; /* evita cortes raros */
-}
-
-.gifts-tile-cta{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.45);
-  white-space:nowrap;
-  flex:0 0 auto;
-}
-
-/* el + siempre en el mismo lugar visual */
-.gifts-tile-cta span[aria-hidden="true"]{
-  font-size:18px;
-  letter-spacing:0;
-  color:rgba(0,0,0,.55);
-}
-
-/* Mobile: baja apenas el título para que respire */
-@media (max-width: 480px){
-  .gifts-tile{ padding:16px 16px; }
-  .gifts-tile-main{ font-size:24px; }
-}    
-/* === FIX CTA "VER DATOS" que se pisa (Regalos) === */
-.gifts-tile{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-}
-
-.gifts-tile-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-width:0;          /* CLAVE: permite que el título se recorte */
-  flex:1 1 auto;
-}
-
-.gifts-tile-main{
-  min-width:0;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.gifts-tile-cta{
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:10px;
-  white-space:nowrap;
-  text-align:right;
-}    
-    /* ===== MODALS ===== */
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.42);
-      z-index:2000;
-      padding:18px;
-    }
-    .modal.open{
+    .cd-dot{
       display:flex;
       align-items:center;
       justify-content:center;
+      font-family:var(--mono);
+      font-size:36px;
+      line-height:1;
+      color:rgba(0,0,0,.20);
     }
-    .modal-card{
+    @media (max-width:720px){
+      section.countdown-section .cd-free{ gap:24px; }
+      .cd-unit{ min-width:110px; }
+      .cd-free-num{ font-size:48px; }
+      .cd-dot{ display:none; }
+    }
+
+    /* ===== REGALOS (limpio y alineado) ===== */
+    .gifts-wrap{
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:48px;
+      align-items:start;
+    }
+    .gifts-left h2{
+      margin:0 0 16px;
+      font-size:56px;
+      letter-spacing:-.03em;
+      line-height:.95;
+    }
+    .gifts-copy{
+      margin:0;
+      max-width:520px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.9;
+      font-family:var(--mono);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    .gifts-right{ display:grid; gap:18px; }
+
+    .gifts-tile{
+      appearance:none;
+      -webkit-appearance:none;
       width:100%;
-      max-width:620px;
-      background:#fff;
+      text-align:left;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(0,0,0,.12);
       border-radius:22px;
+      padding:18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      cursor:pointer;
+      min-height:88px;
+      box-shadow:var(--shadow);
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+      -webkit-tap-highlight-color: transparent;
+      color:var(--text);
+    }
+    .gifts-tile:hover{
+      transform:translateY(-1px);
+      border-color:rgba(0,0,0,.22);
+      background:#fff;
+    }
+
+    .gifts-tile-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+      flex:1 1 auto;
+    }
+    .gifts-emoji{
+      width:32px;
+      flex:0 0 32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      line-height:1;
+      opacity:.9;
+    }
+    .gifts-tile-main{
+      font-size:26px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      line-height:1.05;
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .gifts-tile-cta{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+      white-space:nowrap;
+    }
+    .gifts-tile-cta span[aria-hidden="true"]{
+      font-size:18px;
+      letter-spacing:0;
+      color:rgba(0,0,0,.55);
+    }
+
+    @media (max-width:980px){
+      .gifts-wrap{ grid-template-columns:1fr; gap:22px; }
+      .gifts-left h2{ font-size:44px; }
+      .gifts-tile-main{ font-size:24px; }
+    }
+
+    /* ===== MODALS (editorial, alineado izquierda) ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.35);
+      display:none;
+      padding:22px;
+      z-index:9999;
+    }
+    .modal.open{ display:flex; align-items:center; justify-content:center; }
+
+    .modal-card{
+      width:min(680px, 100%);
+      background:rgba(255,255,255,.96);
       border:1px solid rgba(0,0,0,.10);
-      box-shadow:0 30px 90px rgba(0,0,0,.22);
+      border-radius:22px;
+      box-shadow:0 20px 60px rgba(0,0,0,.18);
       overflow:hidden;
     }
     .modal-head{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
-      padding:18px 18px 10px;
+      gap:16px;
+      padding:18px 20px 12px;
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
     .modal-title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:18px;
-      font-weight:700;
       margin:0;
-      letter-spacing:-.01em;
+      font-size:16px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:700;
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
     .modal-close{
       appearance:none;
-      background:rgba(0,0,0,.04);
-      border:1px solid rgba(0,0,0,.08);
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      cursor:pointer;
-      font-size:20px;
+      border:0;
+      background:transparent;
+      font-size:26px;
       line-height:1;
+      cursor:pointer;
+      opacity:.55;
     }
-    .modal-body{ padding:0 18px 18px; }
+    .modal-close:hover{ opacity:.9; }
+
+    .modal-body{
+      padding:16px 20px 22px;
+      text-align:left;
+    }
     .modal-sub{
       margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:15px;
-      text-align:center;
+      color:rgba(0,0,0,.55);
+      font-size:13px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
     }
+
     .copy-list{
-      border-top:1px solid rgba(0,0,0,.07);
-      margin-top:8px;
+      display:flex;
+      flex-direction:column;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
     }
     .copy-row{
       display:grid;
-      grid-template-columns:120px 1fr auto;
+      grid-template-columns:120px 1fr 92px;
       gap:12px;
       align-items:center;
-      padding:14px 0;
-      border-bottom:1px solid rgba(0,0,0,.07);
+      padding:14px 14px;
+      border-top:1px solid rgba(0,0,0,.08);
     }
-    .copy-key{ color:#111; font-weight:600; font-size:15px; }
+    .copy-row:first-child{ border-top:0; }
+    .copy-key{
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+      font-weight:600;
+    }
     .copy-val{
-      color:#111;
       font-size:15px;
+      color:#111;
       overflow-wrap:anywhere;
     }
-    .copy-val.mono{
-      font-family:var(--mono);
-      letter-spacing:.01em;
-    }
+    .copy-val.mono{ font-family:var(--mono); letter-spacing:.02em; }
+
     .copy-btn{
+      justify-self:end;
       appearance:none;
-      border:1px solid rgba(0,0,0,.10);
-      background:rgba(0,0,0,.03);
-      border-radius:12px;
+      border:1px solid rgba(0,0,0,.14);
+      background:rgba(0,0,0,.04);
       padding:10px 12px;
+      border-radius:999px;
       cursor:pointer;
-      font-weight:700;
-      font-size:13px;
-      min-width:92px;
-      transition:transform .12s ease, background .12s ease;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:600;
+      transition:background .12s ease, border-color .12s ease, transform .12s ease;
     }
-    .copy-btn:hover{ transform:translateY(-1px); background:rgba(0,0,0,.05); }
+    .copy-btn:hover{ background:rgba(0,0,0,.07); border-color:rgba(0,0,0,.22); transform:translateY(-1px); }
     .copy-btn:active{ transform:translateY(0); }
 
-    .modal-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:8px;
+    @media (max-width:520px){
+      .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
+      .copy-btn{ justify-self:start; }
     }
 
     .spacer{ height:70px; }
-
-    @media (max-width:520px){
-      .copy-row{ grid-template-columns:1fr; gap:8px; }
-      .copy-btn{ justify-self:start; }
-      .section-title{ font-size:28px; }
-    }
-  /* === MODALS: look editorial + alineado izquierda === */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.35);
-  display:none;
-  padding:22px;
-  z-index:9999;
-}
-.modal.open{ display:flex; align-items:center; justify-content:center; }
-
-.modal-card{
-  width:min(640px, 100%);
-  background:rgba(255,255,255,.96);
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.18);
-  overflow:hidden;
-}
-
-.modal-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:16px;
-  padding:18px 20px 12px;
-  border-bottom:1px solid rgba(0,0,0,.08);
-}
-
-.modal-title{
-  margin:0;
-  font-size:16px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  font-weight:700;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.modal-close{
-  appearance:none;
-  border:0;
-  background:transparent;
-  font-size:26px;
-  line-height:1;
-  cursor:pointer;
-  opacity:.55;
-}
-.modal-close:hover{ opacity:.9; }
-
-.modal-body{
-  padding:16px 20px 22px;
-  text-align:left; /* CLAVE: no centrado */
-}
-
-.modal-sub{
-  margin:0 0 14px;
-  color:rgba(0,0,0,.55);
-  font-size:13px;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-.copy-list{
-  display:flex;
-  flex-direction:column;
-  gap:0;
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:16px;
-  overflow:hidden;
-  background:#fff;
-}
-
-.copy-row{
-  display:grid;
-  grid-template-columns:120px 1fr 92px; /* key / value / copy */
-  gap:12px;
-  align-items:center;
-  padding:14px 14px;
-  border-top:1px solid rgba(0,0,0,.08);
-}
-.copy-row:first-child{ border-top:0; }
-
-.copy-key{
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.45);
-  font-weight:600;
-}
-
-.copy-val{
-  font-size:15px;
-  color:#111;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.copy-val.mono{
-  font-family:var(--mono);
-  letter-spacing:.02em;
-}
-
-.copy-btn{
-  justify-self:end;
-  appearance:none;
-  border:1px solid rgba(0,0,0,.14);
-  background:rgba(0,0,0,.04);
-  padding:10px 12px;
-  border-radius:999px;
-  cursor:pointer;
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:600;
-}
-.copy-btn:hover{ background:rgba(0,0,0,.07); border-color:rgba(0,0,0,.22); }
-
-@media (max-width:520px){
-  .copy-row{
-    grid-template-columns:1fr; /* stack */
-    gap:8px;
-    align-items:flex-start;
-  }
-  .copy-btn{ justify-self:start; }
-  .copy-val{ white-space:normal; }
-}  
-  /* === COUNTDOWN: tamaño chico + centrado óptico === */
-section.countdown-section{
-  /* sección más chica */
-  padding:70px 0 !important;     /* mismo arriba/abajo */
-  background:transparent;
-}
-
-/* no uses flex-centering en el container (eso te deformó el layout) */
-section.countdown-section > .container{
-  display:block !important;
-}
-
-/* centrado óptico: subimos apenas el bloque (labels “pesan” abajo) */
-section.countdown-section .cd-free{
-  transform:translateY(-20px);
-}
-
-/* por si algún style viejo agrega márgenes */
-section.countdown-section .countdown-band{
-  margin:0 auto !important;
-}
   </style>
 </head>
 
 <body>
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="container">
+  <!-- HERO -->
+  <header class="hero" id="top" aria-label="Portada">
     <div class="hero-meta">
       <div class="hero-date">Domingo 22 de noviembre 2026</div>
       <div class="hero-place">Pilar · Buenos Aires</div>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- MENÚ (debajo del hero) -->
+  <!-- MENÚ -->
   <nav class="hero-nav--below" aria-label="Navegación">
     <div class="container">
       <a href="#ceremonia">Ceremonia</a><span class="dot">·</span>
@@ -1118,269 +451,170 @@ section.countdown-section .countdown-band{
     </div>
   </nav>
 
+  <!-- COUNTDOWN -->
   <section class="section countdown-section" aria-label="Cuenta regresiva">
-  <div class="container">
-    <div class="cd-free">
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdDays">00</div>
-        <div class="cd-free-label">DÍAS</div>
-      </div>
-
-      <div class="cd-dot">:</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdHours">00</div>
-        <div class="cd-free-label">HORAS</div>
-      </div>
-
-      <div class="cd-dot">:</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdMins">00</div>
-        <div class="cd-free-label">MINUTOS</div>
-      </div>
-
-      <div class="cd-dot">:</div>
-
-      <div class="cd-unit">
-        <div class="cd-free-num" id="cdSecs">00</div>
-        <div class="cd-free-label">SEGUNDOS</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
- <!-- ¿DÓNDE? -->
-<section class="section section-alt" id="donde">
-  <div class="container">
-
-    <div class="section-head">
-      <h2 class="section-title">¿DONDE?</h2>
-      <p class="section-kicker">CEREMONIA & FIESTA</p>
-    </div>
-
-    <div class="cards">
-
-      <!-- CEREMONIA -->
-      <article class="card" id="ceremonia">
-        <h3 class="card-title">CEREMONIA</h3>
-
-        <p class="place-name">
-          Iglesia Sagrada Familia - Nuestra Señora del Cielo
-        </p>
-
-        <p class="address">
-          Pedro Pico 1686, La Lonja, Provincia de Buenos Aires
-        </p>
-
-        <div class="card-footer">
-          <div class="meta">
-            <span class="micon">🕓</span>
-            <span>16:00 hs</span>
-          </div>
-
-          <a class="btn btn-map"
-             href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
-             target="_blank" rel="noopener">
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor"
-                d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-            </svg>
-            <span>Mapa</span>
-          </a>
+    <div class="container">
+      <div class="cd-free">
+        <div class="cd-unit">
+          <div class="cd-free-num" id="cdDays">00</div>
+          <div class="cd-free-label">DÍAS</div>
         </div>
-      </article>
 
-      <!-- FIESTA -->
-      <article class="card" id="fiesta">
-        <h3 class="card-title">FIESTA</h3>
+        <div class="cd-dot">:</div>
 
-        <p class="place-name">
-          Espacio Pilar I
-        </p>
-
-        <p class="address">
-          Chile 1963, B1630 La Lonja, Provincia de Buenos Aires
-        </p>
-
-        <div class="card-footer">
-          <div class="meta">
-            <span class="micon">🕓</span>
-            <span>18:00 hs</span>
-          </div>
-
-          <a class="btn btn-map"
-             href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
-             target="_blank" rel="noopener">
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor"
-                d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-            </svg>
-            <span>Mapa</span>
-          </a>
+        <div class="cd-unit">
+          <div class="cd-free-num" id="cdHours">00</div>
+          <div class="cd-free-label">HORAS</div>
         </div>
-      </article>
 
-    </div> <!-- /cards -->
+        <div class="cd-dot">:</div>
 
-  </div> <!-- /container -->
-</section> <!-- /#donde -->
-      
-<!-- ASISTENCIA -->
-<section class="section rsvp-section" id="asistencia">
-  <div class="container rsvp-wrap">
+        <div class="cd-unit">
+          <div class="cd-free-num" id="cdMins">00</div>
+          <div class="cd-free-label">MINUTOS</div>
+        </div>
 
-    <h2 class="rsvp-title">
-      CONFIRMAR<br>ASISTENCIA
-    </h2>
+        <div class="cd-dot">:</div>
 
-    <div class="rsvp-actions">
-      <a href="https://docs.google.com/forms/d/18aiDmC2bec4oxFOJQ58ENlDxxWHwHatZ19dZ-TTMiMA/viewform"
-         target="_blank" rel="noopener"
-         class="rsvp-btn primary">
-        Confirmar acá
-      </a>
-
-     <a class="rsvp-btn secondary" id="googleCalendarBtn"
-   target="_blank" rel="noopener">
-  Agendá la fecha
-</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- REGALOS -->
-<section class="section section-alt" id="regalos">
-  <div class="container">
-    <div class="gifts-wrap">
-      <!-- Columna izquierda -->
-      <div class="gifts-left">
-        <h2>REGALOS</h2>
-
-        <p class="gifts-card-copy">
-          LO MÁS LINDO ES PODER COMPARTIR<br />
-          ESTE DÍA CON VOS.<br /><br />
-          Y SI QUERÉS HACERNOS UN REGALO, <br />
-          TE DEJAMOS ALGUNAS OPCIONES.
-        </p>
-
-      </div>
-
-      <!-- Columna derecha -->
-      <div class="gifts-right">
-        <button class="gifts-tile" id="openList" type="button">
-          <span class="gifts-tile-left">
-            <span class="gifts-emoji" aria-hidden="true">🎁</span>
-            <span class="gifts-tile-main">LISTA DE REGALOS</span>
-          </span>
-          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
-        </button>
-
-        <button class="gifts-tile" id="openARS" type="button">
-          <span class="gifts-tile-left">
-            <span class="gifts-emoji" aria-hidden="true">🇦🇷</span>
-            <span class="gifts-tile-main">CUENTA ARS</span>
-          </span>
-          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
-        </button>
-
-        <button class="gifts-tile" id="openUSD" type="button">
-          <span class="gifts-tile-left">
-            <span class="gifts-emoji" aria-hidden="true">💵</span>
-            <span class="gifts-tile-main">CUENTA USD</span>
-          </span>
-          <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
-        </button>
+        <div class="cd-unit">
+          <div class="cd-free-num" id="cdSecs">00</div>
+          <div class="cd-free-label">SEGUNDOS</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="spacer"></div>
+  <!-- REGALOS -->
+  <section class="section section-alt" id="regalos">
+    <div class="container">
+      <div class="gifts-wrap">
+        <div class="gifts-left">
+          <h2>REGALOS</h2>
+          <p class="gifts-copy">
+            LO MÁS LINDO ES PODER COMPARTIR<br>
+            ESTE DÍA CON VOS.<br><br>
+            Y SI QUERÉS HACERNOS UN REGALO,<br>
+            TE DEJAMOS ALGUNAS OPCIONES.
+          </p>
+        </div>
 
-  <!-- ===== MODAL ARS ===== -->
-  <div class="modal-body">
-  <p class="modal-sub">Copiá los datos de la cuenta</p>
+        <div class="gifts-right">
+          <button class="gifts-tile" id="openList" type="button">
+            <span class="gifts-tile-left">
+              <span class="gifts-emoji" aria-hidden="true">🎁</span>
+              <span class="gifts-tile-main">LISTA DE REGALOS</span>
+            </span>
+            <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+          </button>
 
-  <div class="copy-list">
-    <div class="copy-row">
-      <div class="copy-key">Banco</div>
-      <div class="copy-val">Mercado Pago</div>
-      <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
+          <button class="gifts-tile" id="openARS" type="button">
+            <span class="gifts-tile-left">
+              <span class="gifts-emoji" aria-hidden="true">🇦🇷</span>
+              <span class="gifts-tile-main">CUENTA ARS</span>
+            </span>
+            <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+          </button>
+
+          <button class="gifts-tile" id="openUSD" type="button">
+            <span class="gifts-tile-left">
+              <span class="gifts-emoji" aria-hidden="true">💵</span>
+              <span class="gifts-tile-main">CUENTA USD</span>
+            </span>
+            <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
+          </button>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="copy-row">
-      <div class="copy-key">Alias</div>
-      <div class="copy-val mono">casoriopyj</div>
-      <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
-    </div>
+  <div class="spacer"></div>
 
-    <div class="copy-row">
-      <div class="copy-key">CBU</div>
-      <div class="copy-val mono">0000003100031594279802</div>
-      <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
-    </div>
-
-    <div class="copy-row">
-      <div class="copy-key">Titular</div>
-      <div class="copy-val">Josefina Serra</div>
-      <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
-    </div>
-  </div>
-</div>
-
-  <!-- ===== MODAL USD ===== -->
-  <div class="modal-body">
-  <p class="modal-sub">Copiá los datos de la cuenta</p>
-
-  <div class="copy-list">
-    <div class="copy-row">
-      <div class="copy-key">Banco</div>
-      <div class="copy-val">Galicia</div>
-      <button class="copy-btn" data-copy="Galicia">Copiar</button>
-    </div>
-
-    <div class="copy-row">
-      <div class="copy-key">Alias</div>
-      <div class="copy-val mono">casoriopyj.usd</div>
-      <button class="copy-btn" data-copy="casoriopyj.usd">Copiar</button>
-    </div>
-
-    <div class="copy-row">
-      <div class="copy-key">CBU</div>
-      <div class="copy-val mono">00701026-31004008485973</div>
-      <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
-    </div>
-
-    <div class="copy-row">
-      <div class="copy-key">Titular</div>
-      <div class="copy-val">JOSE MARIA DE LA TORRE</div>
-      <button class="copy-btn" data-copy="JOSE MARIA DE LA TORRE">Copiar</button>
-    </div>
-  </div>
-</div>
-  
-  <!-- ===== MODAL CALENDARIO ===== -->
-  <div class="modal" id="modalCAL" aria-hidden="true" role="dialog" aria-label="Guardá la fecha">
+  <!-- ===== MODAL LISTA ===== -->
+  <div class="modal" id="modalLIST" aria-hidden="true" role="dialog" aria-label="Lista de regalos">
     <div class="modal-card">
       <div class="modal-head">
-        <h3 class="modal-title"><span>🗓️</span> <span>Guardá la fecha</span></h3>
-        <button class="modal-close" data-close="modalCAL" aria-label="Cerrar">×</button>
+        <h3 class="modal-title"><span aria-hidden="true">🎁</span> <span>Lista de regalos</span></h3>
+        <button class="modal-close" data-close="modalLIST" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <p class="modal-sub">Elegí tu calendario:</p>
-
-        <div class="modal-actions">
-          <a id="googleCalLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">Google Calendar</a>
-          <button class="btn" id="downloadICS" type="button">Apple Calendar (.ics)</button>
+        <p class="modal-sub">Abrí la lista para ver opciones</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="copy-btn" id="giftListLink" href="#" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+            Abrir lista ↗
+          </a>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <p class="modal-sub" style="margin-top:14px;">
-          (Se agenda para <span style="font-family:var(--mono)">22/11/2026 16:00</span> en Argentina.)
-        </p>
+  <!-- ===== MODAL ARS ===== -->
+  <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta ARS">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span aria-hidden="true">🇦🇷</span> <span>Cuenta ARS</span></h3>
+        <button class="modal-close" data-close="modalARS" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-sub">Copiá los datos de la cuenta</p>
+
+        <div class="copy-list">
+          <div class="copy-row">
+            <div class="copy-key">Banco</div>
+            <div class="copy-val">Mercado Pago</div>
+            <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">Alias</div>
+            <div class="copy-val mono">casoriopyj</div>
+            <button class="copy-btn" data-copy="casoriopyj">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">CBU</div>
+            <div class="copy-val mono">0000003100031594279802</div>
+            <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">Titular</div>
+            <div class="copy-val">Josefina Serra</div>
+            <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL USD ===== -->
+  <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta USD">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span aria-hidden="true">💵</span> <span>Cuenta USD</span></h3>
+        <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-sub">Copiá los datos de la cuenta</p>
+
+        <div class="copy-list">
+          <div class="copy-row">
+            <div class="copy-key">Banco</div>
+            <div class="copy-val">Galicia</div>
+            <button class="copy-btn" data-copy="Galicia">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">Alias</div>
+            <div class="copy-val mono">casoriopyj.usd</div>
+            <button class="copy-btn" data-copy="casoriopyj.usd">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">CBU</div>
+            <div class="copy-val mono">00701026-31004008485973</div>
+            <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
+          </div>
+          <div class="copy-row">
+            <div class="copy-key">Titular</div>
+            <div class="copy-val">JOSE MARIA DE LA TORRE</div>
+            <button class="copy-btn" data-copy="JOSE MARIA DE LA TORRE">Copiar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1401,12 +635,14 @@ section.countdown-section .countdown-band{
       if (!m) return;
       m.classList.add("open");
       m.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     }
     function closeModal(id){
       const m = document.getElementById(id);
       if (!m) return;
       m.classList.remove("open");
       m.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     }
 
     document.querySelectorAll(".modal").forEach(m => {
@@ -1416,17 +652,14 @@ section.countdown-section .countdown-band{
       btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
     });
 
+    // Botones regalos
     document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
     document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
-    document.getElementById("openCalendarLink").addEventListener("click", (e) => {
-      e.preventDefault();
-      openModal("modalCAL");
-    });
+    document.getElementById("openList").addEventListener("click", () => openModal("modalLIST"));
 
-    document.getElementById("openList").addEventListener("click", () => {
-      const url = "https://example.com/lista-de-regalos";
-      window.open(url, "_blank", "noopener");
-    });
+    // Link lista (cambialo por tu link real)
+    const LIST_URL = "https://example.com/lista-de-regalos";
+    document.getElementById("giftListLink").href = LIST_URL;
 
     // ===== Copy =====
     async function copyToClipboard(text){
@@ -1477,83 +710,6 @@ section.countdown-section .countdown-band{
     }
     tick();
     setInterval(tick, 1000);
-
-    // ===== Calendar links =====
-    function toGoogleUTC(iso){
-      const d = new Date(iso);
-      const y = d.getUTCFullYear();
-      const m = pad2(d.getUTCMonth() + 1);
-      const day = pad2(d.getUTCDate());
-      const hh = pad2(d.getUTCHours());
-      const mm = pad2(d.getUTCMinutes());
-      const ss = pad2(d.getUTCSeconds());
-      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
-    }
-
-    const gStart = toGoogleUTC(EVENT.startISO);
-    const gEnd   = toGoogleUTC(EVENT.endISO);
-
-    const gUrl = new URL("https://calendar.google.com/calendar/render");
-    gUrl.searchParams.set("action", "TEMPLATE");
-    gUrl.searchParams.set("text", EVENT.title);
-    gUrl.searchParams.set("dates", `${gStart}/${gEnd}`);
-    gUrl.searchParams.set("details", EVENT.description);
-    gUrl.searchParams.set("location", EVENT.location);
-
-    document.getElementById("googleCalendarBtn").href = gUrl.toString();
-
-    function icsEscape(s){
-      return String(s)
-        .replace(/\\/g, "\\\\")
-        .replace(/\n/g, "\\n")
-        .replace(/,/g, "\\,")
-        .replace(/;/g, "\\;");
-    }
-
-    function toICSDateUTC(iso){
-      const d = new Date(iso);
-      const y = d.getUTCFullYear();
-      const m = pad2(d.getUTCMonth() + 1);
-      const day = pad2(d.getUTCDate());
-      const hh = pad2(d.getUTCHours());
-      const mm = pad2(d.getUTCMinutes());
-      const ss = pad2(d.getUTCSeconds());
-      return `${y}${m}${day}T${hh}${mm}${ss}Z`;
-    }
-
-    document.getElementById("downloadICS").addEventListener("click", () => {
-      const dtstamp = toICSDateUTC(new Date().toISOString());
-      const dtstart = toICSDateUTC(EVENT.startISO);
-      const dtend   = toICSDateUTC(EVENT.endISO);
-
-      const ics = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Pepe&Jo//Casamiento//ES",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "BEGIN:VEVENT",
-        `UID:${Date.now()}@pepe-jo`,
-        `DTSTAMP:${dtstamp}`,
-        `DTSTART:${dtstart}`,
-        `DTEND:${dtend}`,
-        `SUMMARY:${icsEscape(EVENT.title)}`,
-        `DESCRIPTION:${icsEscape(EVENT.description)}`,
-        `LOCATION:${icsEscape(EVENT.location)}`,
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "Pepe-y-Jo.ics";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    });
   </script>
 </body>
 </html>
