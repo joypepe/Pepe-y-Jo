@@ -129,12 +129,15 @@ button{ font-family:inherit; }
   isolation:isolate;
 }
 
-/* Imagen desktop */
+/* Imagen */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("images/herok.jpg") center/cover no-repeat;
+  background-image:url("https://i.postimg.cc/7YBwtpJK/herok.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
   z-index:-2;
   transform:scale(1.02);
   filter:contrast(1.02);
@@ -151,11 +154,21 @@ button{ font-family:inherit; }
   z-index:-1;
 }
 
-/* Baja SOLO la meta (fecha/lugar) para no tapar la foto */
 .hero .container{
   position:relative;
   z-index:1;
-  transform:translateY(110px);
+  transform:translateY(90px);
+}
+
+/* Nombres */
+.names{
+  margin:0 0 18px;
+  font-family:"Playwrite NZ", cursive;
+  font-weight:300;
+  font-size:92px;
+  line-height:1.05;
+  color:rgba(255,255,255,.70);
+  text-shadow:0 14px 60px rgba(0,0,0,.55);
 }
 
 /* Fecha y lugar */
@@ -164,6 +177,7 @@ button{ font-family:inherit; }
   flex-direction:column;
   gap:10px;
   align-items:center;
+  margin-top:80px;
 }
 
 .hero-date,
@@ -176,16 +190,16 @@ button{ font-family:inherit; }
   color:rgba(255,255,255,.62);
 }
 
-/* Mobile: cambia imagen a Heromobile.png */
+/* Mobile: usa imagen vertical */
 @media (max-width:720px){
   .hero{ min-height:78vh; padding:70px 0; }
+  .hero .container{ transform:translateY(55px); }
+  .names{ font-size:58px; }
+  .hero-date,.hero-place{ font-size:11px; }
 
   .hero::before{
-    background:url("images/Heromobile.png") center/cover no-repeat;
+    background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
   }
-
-  .hero .container{ transform:translateY(75px); }
-  .hero-date,.hero-place{ font-size:11px; }
 }
     
     /* ===== MENÚ (DEBAJO DEL HERO) ===== */
