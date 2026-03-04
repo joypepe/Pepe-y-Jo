@@ -126,7 +126,6 @@ button{ font-family:inherit; }
   color:#fff;
   overflow:hidden;
   padding:90px 0;
-  isolation:isolate;
 }
 
 /* Imagen */
@@ -138,37 +137,16 @@ button{ font-family:inherit; }
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
-  z-index:-2;
-  transform:scale(1.02);
-  filter:contrast(1.02);
-}
-
-/* Overlay */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(1200px 520px at 50% 40%, rgba(0,0,0,.18), rgba(0,0,0,.55)),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.52));
   z-index:-1;
 }
 
+/* Contenedor texto */
 .hero .container{
   position:relative;
   z-index:1;
-  transform:translateY(90px);
-}
 
-/* Nombres */
-.names{
-  margin:0 0 18px;
-  font-family:"Playwrite NZ", cursive;
-  font-weight:300;
-  font-size:92px;
-  line-height:1.05;
-  color:rgba(255,255,255,.70);
-  text-shadow:0 14px 60px rgba(0,0,0,.55);
+  /* ↓ baja la fecha debajo de los nombres */
+  transform:translateY(140px);
 }
 
 /* Fecha y lugar */
@@ -177,7 +155,6 @@ button{ font-family:inherit; }
   flex-direction:column;
   gap:10px;
   align-items:center;
-  margin-top:80px;
 }
 
 .hero-date,
@@ -187,19 +164,30 @@ button{ font-family:inherit; }
   letter-spacing:.28em;
   text-transform:uppercase;
   font-weight:400;
-  color:rgba(255,255,255,.62);
+  color:white;
 }
 
-/* Mobile: usa imagen vertical */
+/* Mobile */
 @media (max-width:720px){
-  .hero{ min-height:78vh; padding:70px 0; }
-  .hero .container{ transform:translateY(55px); }
-  .names{ font-size:58px; }
-  .hero-date,.hero-place{ font-size:11px; }
+
+  .hero{
+    min-height:78vh;
+    padding:70px 0;
+  }
 
   .hero::before{
     background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
   }
+
+  .hero .container{
+    transform:translateY(100px);
+  }
+
+  .hero-date,
+  .hero-place{
+    font-size:11px;
+  }
+
 }
     
     /* ===== MENÚ (DEBAJO DEL HERO) ===== */
