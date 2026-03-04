@@ -754,7 +754,65 @@
       .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
       .copy-btn{ justify-self:start; }
     }
+/* === REGALOS: CTA compacto (VER / DATOS) + plus fijo === */
+.gifts-tile{
+  padding-right:16px !important; /* más aire al borde */
+}
 
+.gifts-tile-cta{
+  display:grid !important;
+  grid-auto-flow:column;
+  align-items:center;
+  column-gap:12px;
+}
+
+/* "VER DATOS" en dos líneas */
+.gifts-tile-cta{
+  white-space:normal !important;
+  text-align:right;
+  line-height:1.05;
+}
+
+.gifts-tile-cta{
+  font-size:11px !important;
+  letter-spacing:.22em !important;
+}
+
+.gifts-tile-cta{
+  grid-template-columns:auto auto;
+}
+
+/* fuerza salto: VER arriba, DATOS abajo */
+.gifts-tile-cta{
+  place-items:end;
+}
+.gifts-tile-cta::before{
+  content:"VER";
+  display:block;
+}
+.gifts-tile-cta{
+  position:relative;
+}
+.gifts-tile-cta > span{
+  font-size:18px !important; /* el + */
+  color:rgba(0,0,0,.55) !important;
+  transform:translateY(-1px);
+}
+
+/* reemplaza el texto "VER DATOS" por "DATOS" (porque VER ya lo ponemos arriba) */
+.gifts-tile-cta{
+  color:transparent; /* oculta el texto original */
+}
+.gifts-tile-cta{
+  -webkit-text-fill-color:transparent;
+}
+.gifts-tile-cta::after{
+  content:"DATOS";
+  display:block;
+  color:rgba(0,0,0,.45);
+  -webkit-text-fill-color:rgba(0,0,0,.45);
+  letter-spacing:.22em;
+}
     .spacer{ height:70px; }
   </style>
 </head>
