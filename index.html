@@ -92,7 +92,7 @@
       :root{ --container-padding:22px; --section-space:96px; }
     }
 
-        /* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
+    /* ===== HERO (FOTO TAL CUAL, SIN OVERLAY) ===== */
     .hero{
       position:relative;
       width:100%;
@@ -105,16 +105,15 @@
       overflow:hidden;
     }
 
-    /* Fecha/lugar: más arriba, más aire (referencia Nico&Vic) */
     .hero-meta{
       position:absolute;
       left:50%;
       transform:translateX(-50%);
-      bottom:120px;      /* BAJÁ/ SUBÍ desde acá */
+      bottom:120px;
       text-align:center;
       display:flex;
       flex-direction:column;
-      gap:14px;          /* aire entre fecha y lugar */
+      gap:14px;
       pointer-events:none;
     }
 
@@ -131,7 +130,7 @@
     @media (max-width:720px){
       .hero{
         min-height:78vh;
-        background-image:url("https://i.postimg.cc/YCqVZ0Bs/Heromobile.png");
+        background-image:url("https://i.postimg.cc/bY1vLyh4/heromobileok.png");
         background-position:center 42%;
       }
       .hero-meta{
@@ -143,7 +142,6 @@
         letter-spacing:.28em;
       }
     }
-
 
     /* ===== MENÚ (debajo del HERO) ===== */
     .hero-nav--below{
@@ -191,288 +189,244 @@
       font-family:var(--mono);
       letter-spacing:0;
     }
-/* ===== COUNTDOWN (VOGUE / 1 LINEA EN MOBILE) ===== */
-.countdown-section{
-  padding:80px 0 !important;
-  background:transparent;
-}
 
-.countdown-section .container{
-  display:block !important;
-}
+    /* ===== COUNTDOWN (VOGUE / 1 LINEA EN MOBILE) ===== */
+    .countdown-section{
+      padding:80px 0 !important;
+      background:transparent;
+    }
 
-/* Banda editorial */
-.cd-free{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:nowrap;                 /* clave */
-  gap:44px;
-  padding:34px 28px;
-  border-radius:999px;
-  background:#0d0d0d;
-  box-shadow:0 26px 70px rgba(0,0,0,.14);
-  margin:0 auto;
-  max-width:920px;
-}
+    .countdown-section .container{
+      display:block !important;
+    }
 
-.cd-unit{
-  text-align:center;
-  min-width:140px;
-}
+    .cd-free{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:nowrap;
+      gap:44px;
+      padding:34px 28px;
+      border-radius:999px;
+      background:#0d0d0d;
+      box-shadow:0 26px 70px rgba(0,0,0,.14);
+      margin:0 auto;
+      max-width:920px;
+    }
 
-.cd-free-num{
-  font-family:var(--mono);
-  font-size:64px;
-  line-height:1;
-  font-weight:600;
-  letter-spacing:.02em;
-  color:#fff;
-}
+    .cd-unit{ text-align:center; min-width:140px; }
 
-.cd-free-label{
-  margin-top:14px;
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.34em;
-  text-transform:uppercase;
-  font-weight:500;
-  color:rgba(255,255,255,.55);
-}
+    .cd-free-num{
+      font-family:var(--mono);
+      font-size:64px;
+      line-height:1;
+      font-weight:600;
+      letter-spacing:.02em;
+      color:#fff;
+    }
 
-/* Separadores “:” */
-.cd-dot{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--mono);
-  font-size:22px;
-  line-height:1;
-  color:rgba(255,255,255,.28);
-  transform:translateY(-6px);
-}
+    .cd-free-label{
+      margin-top:14px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      font-weight:500;
+      color:rgba(255,255,255,.55);
+    }
 
-/* ===== MOBILE: SIEMPRE 1 SOLA LINEA (4 columnas), sin ":" ===== */
-@media (max-width:720px){
-  .countdown-section{
-    padding:70px 0 !important;
-  }
+    .cd-dot{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:var(--mono);
+      font-size:22px;
+      line-height:1;
+      color:rgba(255,255,255,.28);
+      transform:translateY(-6px);
+    }
 
-  .cd-free{
-    width:100%;
-    max-width:560px;
-    padding:22px 16px;
-    border-radius:26px;           /* menos “píldora” */
-    gap:18px;
-  }
+    @media (max-width:720px){
+      .countdown-section{ padding:70px 0 !important; }
 
-  .cd-dot{
-    display:none;                 /* 4 columnas limpias */
-  }
+      .cd-free{
+        width:100%;
+        max-width:560px;
+        padding:22px 16px;
+        border-radius:26px;
+        gap:18px;
+      }
 
-  .cd-unit{
-    min-width:0;
-    flex:1 1 0;                   /* 4 columnas */
-  }
+      .cd-dot{ display:none; }
 
-  .cd-free-num{
-    font-size:40px;
-  }
+      .cd-unit{
+        min-width:0;
+        flex:1 1 0;
+      }
 
-  .cd-free-label{
-    font-size:10px;
-    letter-spacing:.26em;
-    margin-top:12px;
-  }
-}
-/* ================================
-   DÓNDE (VOGUE / EDITORIAL)
-   Reemplaza el bloque actual de:
-   .section-head / .cards / .card / .btn-map
-================================== */
+      .cd-free-num{ font-size:40px; }
 
-/* Head */
-.section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:22px;
-  margin-bottom:36px;
-}
+      .cd-free-label{
+        font-size:10px;
+        letter-spacing:.26em;
+        margin-top:12px;
+      }
+    }
 
-.section-title{
-  margin:0;
-  font-size:56px;
-  letter-spacing:-.03em;
-  font-weight:800;
-}
+    /* ===== DÓNDE (EDITORIAL) ===== */
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:22px;
+      margin-bottom:36px;
+    }
 
-.section-kicker{
-  margin:0;
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.55);
-  font-weight:500;
-}
+    .section-title{
+      margin:0;
+      font-size:56px;
+      letter-spacing:-.03em;
+      font-weight:800;
+      line-height:.95;
+    }
 
-/* Grid */
-.cards{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
-  align-items:stretch;
-}
+    .section-kicker{
+      margin:0;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.55);
+      font-weight:500;
+    }
 
-/* Card editorial */
-.card{
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:24px;
-  box-shadow:none;              /* más editorial */
-  padding:34px 34px 28px;
-  display:flex;
-  flex-direction:column;
-  position:relative;
-}
+    .cards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:stretch;
+    }
 
-/* “01 / CEREMONIA” */
-.card-topline{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:22px;
-}
+    .card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:24px;
+      box-shadow:none;
+      padding:34px 34px 28px;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+    }
 
-.card-tag{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.60);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
+    .card-topline{ display:flex; align-items:center; gap:12px; margin-bottom:22px; }
 
-.card-tag .num{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:36px;
-  height:28px;
-  border:1px solid rgba(0,0,0,.14);
-  border-radius:10px;
-  color:#111;
-  letter-spacing:.12em;
-}
+    .card-tag{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.60);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
 
-/* Título lugar */
-.place-name{
-  margin:0 0 12px;
-  font-size:26px;
-  font-weight:750;
-  letter-spacing:-.02em;
-  color:#111;
-  line-height:1.15;
-}
+    .card-tag .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px;
+      height:28px;
+      border:1px solid rgba(0,0,0,.14);
+      border-radius:10px;
+      color:#111;
+      letter-spacing:.12em;
+    }
 
-/* Dirección: mono, aire y look editorial */
-.address{
-  margin:0 0 22px;
-  font-family:var(--mono);
-  font-size:13px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.50);
-  line-height:1.65;
-}
+    .place-name{
+      margin:0 0 12px;
+      font-size:26px;
+      font-weight:750;
+      letter-spacing:-.02em;
+      color:#111;
+      line-height:1.15;
+    }
 
-/* Divider fino */
-.card-divider{
-  height:1px;
-  background:rgba(0,0,0,.08);
-  margin:0 0 22px;
-}
+    .address{
+      margin:0 0 22px;
+      font-family:var(--mono);
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.50);
+      line-height:1.65;
+    }
 
-/* Footer row: horario izquierda, link derecha */
-.card-footer{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:18px;
-  margin-top:auto;
-}
+    .card-divider{
+      height:1px;
+      background:rgba(0,0,0,.08);
+      margin:0 0 22px;
+    }
 
-/* Horario */
-.time-block{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+    .card-footer{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-top:auto;
+    }
 
-.time-label{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.45);
-}
+    .time-block{ display:flex; flex-direction:column; gap:10px; }
 
-.time-value{
-  font-family:var(--mono);
-  font-size:28px;
-  letter-spacing:.06em;
-  font-weight:650;
-  color:#111;
-}
+    .time-label{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+    }
 
-/* Link mapa: editorial (subrayado) */
-.map-link{
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:#111;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding-bottom:6px;
-  border-bottom:1px solid rgba(0,0,0,.55);
-  opacity:.88;
-  transition:opacity .15s ease, transform .15s ease;
-  white-space:nowrap;
-}
+    .time-value{
+      font-family:var(--mono);
+      font-size:28px;
+      letter-spacing:.06em;
+      font-weight:650;
+      color:#111;
+    }
 
-.map-link:hover{
-  opacity:1;
-  transform:translateY(-1px);
-}
+    .map-link{
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:#111;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding-bottom:6px;
+      border-bottom:1px solid rgba(0,0,0,.55);
+      opacity:.88;
+      transition:opacity .15s ease, transform .15s ease;
+      white-space:nowrap;
+    }
 
-.map-link .pin{
-  width:14px;
-  height:14px;
-  opacity:.55;
-}
+    .map-link:hover{ opacity:1; transform:translateY(-1px); }
 
-/* Responsive */
-@media (max-width: 920px){
-  .cards{ grid-template-columns:1fr; gap:18px; }
-  .section-title{ font-size:36px; }
-  .card{ padding:26px 22px 22px; border-radius:22px; }
-  .place-name{ font-size:22px; }
-  .time-value{ font-size:26px; }
-}
+    .map-link .pin{ width:14px; height:14px; opacity:.55; }
 
-@media (max-width: 520px){
-  .section-head{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:10px;
-  }
-}    
-    /* ===== RSVP ===== */
+    @media (max-width: 920px){
+      .cards{ grid-template-columns:1fr; gap:18px; }
+      .section-title{ font-size:36px; }
+      .card{ padding:26px 22px 22px; border-radius:22px; }
+      .place-name{ font-size:22px; }
+      .time-value{ font-size:26px; }
+    }
+
+    @media (max-width: 520px){
+      .section-head{ align-items:flex-start; flex-direction:column; gap:10px; }
+    }
+
+    /* ===== RSVP (VOGUE) ===== */
     .rsvp-section{ padding:120px 0 140px; }
 
     .rsvp-wrap{
@@ -485,96 +439,57 @@
     .rsvp-title{
       font-size:clamp(48px, 9vw, 120px);
       line-height:0.95;
-      letter-spacing:-.03em;
+      letter-spacing:-.04em;
       margin:0 0 60px;
       font-weight:800;
     }
 
-    .rsvp-actions{
-      display:flex;
-      gap:30px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
+    .rsvp-actions{ display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
 
     .rsvp-btn{
+      border-radius:999px;
+      padding:16px 30px;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      border:1px solid rgba(0,0,0,.18);
+      background:transparent;
+      color:#111;
+      transition:background .18s ease, border-color .18s ease, transform .12s ease;
+      cursor:pointer;
+      text-decoration:none;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:22px 48px;
-      font-size:18px;
-      font-weight:600;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      border:2px solid #111;
-      transition:all .25s ease;
-      cursor:pointer;
-      text-decoration:none;
     }
 
     .rsvp-btn.primary{
       background:#111;
       color:#fff;
-    }
-    .rsvp-btn.primary:hover{
-      background:#000;
-      transform:translateY(-2px);
+      border-color:#111;
     }
 
-    .rsvp-btn.secondary{
-      background:transparent;
-      color:#111;
+    .rsvp-btn.primary:hover{
+      background:#000;
+      border-color:#000;
+      transform:translateY(-1px);
     }
+
     .rsvp-btn.secondary:hover{
-      background:#111;
-      color:#fff;
-      transform:translateY(-2px);
+      background:rgba(0,0,0,.05);
+      border-color:rgba(0,0,0,.28);
+      transform:translateY(-1px);
     }
 
     @media (max-width:768px){
-      .rsvp-actions{ flex-direction:column; gap:18px; }
+      .rsvp-actions{ flex-direction:column; gap:18px; width:100%; }
+      .rsvp-btn{ width:100%; max-width:420px; }
     }
-/* ===== RSVP — VOGUE ===== */
-.rsvp-title{
-  letter-spacing:-.04em;
-  font-weight:800;
-}
 
-.rsvp-actions{ gap:18px; }
+    /* ===== REGALOS (ARREGLADO + COHERENTE EN MOBILE) ===== */
+    #regalos{ overflow: visible; }
 
-.rsvp-btn{
-  border-radius:999px;
-  padding:16px 30px;
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.26em;
-  text-transform:uppercase;
-
-  border:1px solid rgba(0,0,0,.18);
-  background:transparent;
-  color:#111;
-
-  transition:background .18s ease, border-color .18s ease, transform .12s ease;
-}
-
-.rsvp-btn.primary{
-  background:#111;
-  color:#fff;
-  border-color:#111;
-}
-
-.rsvp-btn.primary:hover{
-  background:#000;
-  border-color:#000;
-  transform:translateY(-1px);
-}
-
-.rsvp-btn.secondary:hover{
-  background:rgba(0,0,0,.05);
-  border-color:rgba(0,0,0,.28);
-  transform:translateY(-1px);
-}
-    /* ===== REGALOS ===== */
     .gifts-wrap{
       display:grid;
       grid-template-columns:1fr 1.2fr;
@@ -587,6 +502,7 @@
       font-size:56px;
       letter-spacing:-.03em;
       line-height:.95;
+      font-weight:800;
     }
 
     .gifts-copy{
@@ -600,23 +516,33 @@
       text-transform:uppercase;
     }
 
-    .gifts-right{ display:grid; gap:18px; }
+    .gifts-right{
+      display:grid;
+      gap:18px;
+      overflow:visible;
+    }
 
+    /* Tile: pasamos a GRID para que “VER DATOS +” no se pegue/recorte */
     .gifts-tile{
       appearance:none;
       -webkit-appearance:none;
       width:100%;
+      max-width:100%;
       text-align:left;
+
       background:rgba(255,255,255,.92);
       border:1px solid rgba(0,0,0,.12);
       border-radius:22px;
-      padding:18px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      cursor:pointer;
+
+      padding:20px 18px;
       min-height:88px;
+
+      display:grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto; /* icon | title | cta */
+      align-items:center;
+      column-gap:14px;
+
+      cursor:pointer;
       box-shadow:var(--shadow);
       transition:transform .12s ease, border-color .12s ease, background .12s ease;
       -webkit-tap-highlight-color: transparent;
@@ -629,17 +555,9 @@
       background:#fff;
     }
 
-    .gifts-tile-left{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width:0;
-      flex:1 1 auto;
-    }
-
     .gifts-emoji{
-      width:32px;
-      flex:0 0 32px;
+      width:42px;
+      height:42px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -660,8 +578,7 @@
     }
 
     .gifts-tile-cta{
-      flex:0 0 auto;
-      display:flex;
+      display:inline-flex;
       align-items:center;
       gap:10px;
       font-family:var(--mono);
@@ -670,6 +587,7 @@
       text-transform:uppercase;
       color:rgba(0,0,0,.45);
       white-space:nowrap;
+      padding-left:10px; /* aire del borde */
     }
 
     .gifts-tile-cta span[aria-hidden="true"]{
@@ -680,147 +598,211 @@
 
     @media (max-width:980px){
       .gifts-wrap{ grid-template-columns:1fr; gap:22px; }
-      .gifts-left h2{ font-size:44px; }
-      .gifts-tile-main{ font-size:24px; }
+      .gifts-left h2{ font-size:44px; } /* baja REGALOS en mobile/tablet */
+      .gifts-tile-main{ font-size:22px; }
     }
 
-   /* ===== REGALOS (VOGUE CLEAN) ===== */
-#gifts, #regalos { overflow: visible; }
+    @media (max-width:720px){
+      .gifts-left h2{ font-size:44px; } /* coherente con DÓNDE */
+      .gifts-tile{
+        padding:18px 16px;
+        grid-template-columns: 40px minmax(0, 1fr) auto;
+      }
+      .gifts-tile-cta{
+        font-size:11px;
+        letter-spacing:.18em;
+        gap:8px;
+        max-width:34vw;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    }
 
-#regalos .gifts-wrap{
-  display:grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
-  align-items:start;
-}
+    /* ===== BOTONES GENERALES (para modal CAL) ===== */
+    .btn{
+      appearance:none;
+      border:1px solid rgba(0,0,0,.18);
+      background:rgba(0,0,0,.03);
+      padding:12px 16px;
+      border-radius:999px;
+      cursor:pointer;
 
-#regalos .gifts-card-copy{
-  margin: 0;
-  max-width: 520px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.85;
-  font-family: var(--mono);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:500;
+      color:#111;
 
-/* Tiles */
-#regalos .gifts-right{
-  display: grid;
-  gap: 18px;
-  overflow: visible;
-}
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
 
-#regalos .gifts-tile{
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  appearance: none;
-  -webkit-appearance: none;
+      transition:background .12s ease, border-color .12s ease, transform .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ background:rgba(0,0,0,.06); border-color:rgba(0,0,0,.28); transform:translateY(-1px); }
+    .btn:active{ transform:translateY(0); }
 
-  background: rgba(255,255,255,.92);
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 22px;
-  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+    .btn-primary{
+      background:#111;
+      border-color:#111;
+      color:#fff;
+    }
+    .btn-primary:hover{ background:#000; border-color:#000; }
 
-  padding: 22px 22px;          /* aire */
-  display: grid;               /* clave para que no se corte */
-  grid-template-columns: 42px minmax(0, 1fr) auto; /* icono | título | cta */
-  align-items: center;
-  column-gap: 16px;
+    /* ===== MODALS (VOGUE) ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.38);
+      display:none;
+      padding:22px;
+      z-index:9999;
+    }
+    .modal.open{ display:flex; align-items:center; justify-content:center; }
 
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform .12s ease, border-color .12s ease, background .12s ease;
-}
+    .modal-card{
+      width:min(720px, 100%);
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:24px;
+      box-shadow:0 30px 90px rgba(0,0,0,.22);
+      overflow:hidden;
+    }
 
-#regalos .gifts-tile:hover{
-  transform: translateY(-1px);
-  border-color: rgba(0,0,0,.22);
-  background: #fff;
-}
+    .modal-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 22px 14px;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
 
-/* Icono */
-#regalos .gifts-emoji{
-  width: 42px;
-  height: 42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 20px;
-  line-height: 1;
-  opacity: .9;
-}
+    .modal-title{
+      margin:0;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      font-weight:500;
+      color:rgba(0,0,0,.70);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
 
-/* Título */
-#regalos .gifts-tile-main{
-  min-width: 0;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -.02em;
-  line-height: 1.05;
-  color: #111;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+    .modal-close{
+      appearance:none;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(0,0,0,.03);
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+      color:rgba(0,0,0,.55);
+      transition:background .12s ease, transform .12s ease, border-color .12s ease;
+    }
+    .modal-close:hover{
+      background:rgba(0,0,0,.06);
+      border-color:rgba(0,0,0,.18);
+      transform:translateY(-1px);
+    }
 
-/* CTA “VER DATOS +” */
-#regalos .gifts-tile-cta{
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,.45);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
+    .modal-body{
+      padding:18px 22px 22px;
+      text-align:left;
+    }
 
-  padding-left: 10px;          /* micro-respiro */
-}
+    .modal-sub{
+      margin:0 0 14px;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+    }
 
-#regalos .gifts-tile-cta span[aria-hidden="true"]{
-  font-size: 18px;
-  letter-spacing: 0;
-  color: rgba(0,0,0,.55);
-}
+    .copy-list{
+      display:flex;
+      flex-direction:column;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+    }
 
-/* Mobile layout */
-@media (max-width: 980px){
-  #regalos .gifts-wrap{
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-}
+    .copy-row{
+      display:grid;
+      grid-template-columns:140px minmax(0, 1fr) 110px;
+      gap:12px;
+      align-items:center;
+      padding:14px 14px;
+      border-top:1px solid rgba(0,0,0,.08);
+    }
+    .copy-row:first-child{ border-top:0; }
 
-/* Mobile: que nunca quede “al borde” ni se corte */
-@media (max-width: 720px){
-  #regalos .gifts-tile{
-    padding: 18px 16px; /* más fino */
-    grid-template-columns: 40px minmax(0, 1fr) auto;
-    column-gap: 14px;
-  }
+    .copy-key{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+      font-weight:500;
+    }
 
-  #regalos .gifts-tile-main{
-    font-size: 22px;   /* <- acá ganás lugar + estética */
-  }
+    .copy-val{
+      font-size:15px;
+      color:#111;
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .copy-val.mono{ font-family:var(--mono); letter-spacing:.02em; }
 
-  #regalos .gifts-tile-cta{
-    font-size: 11px;   /* <- reduce presión visual */
-    letter-spacing: .18em;
-    gap: 8px;
-  }
+    .copy-btn{
+      justify-self:end;
+      appearance:none;
+      border:1px solid rgba(0,0,0,.14);
+      background:rgba(0,0,0,.03);
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:500;
+      color:rgba(0,0,0,.75);
+      transition:background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .copy-btn:hover{ background:rgba(0,0,0,.06); border-color:rgba(0,0,0,.22); transform:translateY(-1px); }
+    .copy-btn:active{ transform:translateY(0); }
 
-  /* Si igual te queda justo en algún iPhone: */
-  #regalos .gifts-tile-cta{
-    max-width: 34vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-    
+    .modal-actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    @media (max-width:520px){
+      .modal{ padding:14px; }
+      .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
+      .copy-val{ white-space:normal; }
+      .copy-btn{ justify-self:start; }
+    }
+
+    .spacer{ height:70px; }
+  </style>
+</head>
+
 <body>
   <!-- HERO -->
   <header class="hero" id="top">
@@ -874,90 +856,91 @@
     </div>
   </section>
 
- <!-- ¿DÓNDE? (reemplazá tu sección actual completa por esta) -->
-<section class="section section-alt" id="donde">
-  <div class="container">
+  <!-- ¿DÓNDE? -->
+  <section class="section section-alt" id="donde">
+    <div class="container">
 
-    <div class="section-head">
-      <h2 class="section-title">¿DÓNDE?</h2>
-      <p class="section-kicker">CEREMONIA &amp; FIESTA</p>
+      <div class="section-head">
+        <h2 class="section-title">¿DÓNDE?</h2>
+        <p class="section-kicker">CEREMONIA &amp; FIESTA</p>
+      </div>
+
+      <div class="cards">
+
+        <!-- CEREMONIA -->
+        <article class="card" id="ceremonia">
+          <div class="card-topline">
+            <div class="card-tag">
+              <span class="num">01</span>
+              <span>Ceremonia</span>
+            </div>
+          </div>
+
+          <p class="place-name">Iglesia Sagrada Familia – Nuestra Señora del Cielo</p>
+
+          <p class="address">
+            Pedro Pico 1686, La Lonja<br>
+            Provincia de Buenos Aires
+          </p>
+
+          <div class="card-divider"></div>
+
+          <div class="card-footer">
+            <div class="time-block">
+              <div class="time-label">Horario</div>
+              <div class="time-value">16:00 HS</div>
+            </div>
+
+            <a class="map-link"
+               href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
+               target="_blank" rel="noopener">
+              <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+              </svg>
+              <span>Google Maps</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- FIESTA -->
+        <article class="card" id="fiesta">
+          <div class="card-topline">
+            <div class="card-tag">
+              <span class="num">02</span>
+              <span>Fiesta</span>
+            </div>
+          </div>
+
+          <p class="place-name">Espacio Pilar I</p>
+
+          <p class="address">
+            Chile 1963, B1630 La Lonja<br>
+            Provincia de Buenos Aires
+          </p>
+
+          <div class="card-divider"></div>
+
+          <div class="card-footer">
+            <div class="time-block">
+              <div class="time-label">Horario</div>
+              <div class="time-value">18:00 HS</div>
+            </div>
+
+            <a class="map-link"
+               href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
+               target="_blank" rel="noopener">
+              <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+              </svg>
+              <span>Google Maps</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
     </div>
+  </section>
 
-    <div class="cards">
-
-      <!-- CEREMONIA -->
-      <article class="card" id="ceremonia">
-        <div class="card-topline">
-          <div class="card-tag">
-            <span class="num">01</span>
-            <span>Ceremonia</span>
-          </div>
-        </div>
-
-        <p class="place-name">Iglesia Sagrada Familia – Nuestra Señora del Cielo</p>
-
-        <p class="address">
-          Pedro Pico 1686, La Lonja<br>
-          Provincia de Buenos Aires
-        </p>
-
-        <div class="card-divider"></div>
-
-        <div class="card-footer">
-          <div class="time-block">
-            <div class="time-label">Horario</div>
-            <div class="time-value">16:00 HS</div>
-          </div>
-
-          <a class="map-link"
-             href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
-             target="_blank" rel="noopener">
-            <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-            </svg>
-            <span>Google Maps</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- FIESTA -->
-      <article class="card" id="fiesta">
-        <div class="card-topline">
-          <div class="card-tag">
-            <span class="num">02</span>
-            <span>Fiesta</span>
-          </div>
-        </div>
-
-        <p class="place-name">Espacio Pilar I</p>
-
-        <p class="address">
-          Chile 1963, B1630 La Lonja<br>
-          Provincia de Buenos Aires
-        </p>
-
-        <div class="card-divider"></div>
-
-        <div class="card-footer">
-          <div class="time-block">
-            <div class="time-label">Horario</div>
-            <div class="time-value">18:00 HS</div>
-          </div>
-
-          <a class="map-link"
-             href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
-             target="_blank" rel="noopener">
-            <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-            </svg>
-            <span>Google Maps</span>
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
   <!-- ASISTENCIA -->
   <section class="section rsvp-section" id="asistencia">
     <div class="container rsvp-wrap">
@@ -993,26 +976,20 @@
 
         <div class="gifts-right">
           <button class="gifts-tile" id="openList" type="button">
-            <span class="gifts-tile-left">
-              <span class="gifts-emoji" aria-hidden="true">🎁</span>
-              <span class="gifts-tile-main">LISTA DE REGALOS</span>
-            </span>
+            <span class="gifts-emoji" aria-hidden="true">🎁</span>
+            <span class="gifts-tile-main">LISTA DE REGALOS</span>
             <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
           </button>
 
           <button class="gifts-tile" id="openARS" type="button">
-            <span class="gifts-tile-left">
-              <span class="gifts-emoji" aria-hidden="true">🇦🇷</span>
-              <span class="gifts-tile-main">CUENTA ARS</span>
-            </span>
+            <span class="gifts-emoji" aria-hidden="true">🇦🇷</span>
+            <span class="gifts-tile-main">CUENTA ARS</span>
             <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
           </button>
 
           <button class="gifts-tile" id="openUSD" type="button">
-            <span class="gifts-tile-left">
-              <span class="gifts-emoji" aria-hidden="true">💵</span>
-              <span class="gifts-tile-main">CUENTA USD</span>
-            </span>
+            <span class="gifts-emoji" aria-hidden="true">💵</span>
+            <span class="gifts-tile-main">CUENTA USD</span>
             <span class="gifts-tile-cta">VER DATOS <span aria-hidden="true">+</span></span>
           </button>
         </div>
@@ -1243,10 +1220,7 @@
     gUrl.searchParams.set("details", EVENT.description);
     gUrl.searchParams.set("location", EVENT.location);
 
-    // Botón de asistencia (abre Google directo)
     document.getElementById("googleCalendarBtn").href = gUrl.toString();
-
-    // Modal CAL: link Google dentro del modal
     document.getElementById("googleCalLink").href = gUrl.toString();
 
     function icsEscape(s){
