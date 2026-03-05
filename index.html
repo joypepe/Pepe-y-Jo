@@ -285,7 +285,11 @@
     margin-top:12px;
   }
 }
-/* ===== ¿DÓNDE? — VOGUE EDITORIAL ===== */
+/* ================================
+   DÓNDE (VOGUE / EDITORIAL)
+   Reemplaza el bloque actual de:
+   .section-head / .cards / .card / .btn-map
+================================== */
 
 /* Head */
 .section-head{
@@ -293,13 +297,12 @@
   align-items:flex-end;
   justify-content:space-between;
   gap:22px;
-  margin-bottom:34px;
+  margin-bottom:36px;
 }
 
 .section-title{
   margin:0;
   font-size:44px;
-  line-height:1;
   letter-spacing:-.03em;
   font-weight:800;
 }
@@ -307,138 +310,168 @@
 .section-kicker{
   margin:0;
   font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.34em;
+  font-size:12px;
+  letter-spacing:.32em;
   text-transform:uppercase;
-  color:rgba(0,0,0,.45);
+  color:rgba(0,0,0,.55);
   font-weight:500;
-  transform:translateY(-6px); /* lo sube apenas para que “respire” */
 }
 
 /* Grid */
 .cards{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:22px;
+  gap:28px;
+  align-items:stretch;
 }
 
-/* Card */
+/* Card editorial */
 .card{
-  background:rgba(255,255,255,.96);
+  background:rgba(255,255,255,.92);
   border:1px solid rgba(0,0,0,.10);
-  border-radius:26px;
-  box-shadow:0 20px 60px rgba(0,0,0,.06);
-  padding:32px 32px 26px;
+  border-radius:24px;
+  box-shadow:none;              /* más editorial */
+  padding:34px 34px 28px;
   display:flex;
   flex-direction:column;
+  position:relative;
 }
 
-/* Label (CEREMONIA / FIESTA) */
-.card-title{
-  margin:0 0 18px;
+/* “01 / CEREMONIA” */
+.card-topline{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+}
+
+.card-tag{
   font-family:var(--mono);
   font-size:11px;
-  letter-spacing:.34em;
+  letter-spacing:.28em;
   text-transform:uppercase;
-  color:rgba(0,0,0,.42);
-  font-weight:500;
-}
-
-/* Nombre lugar */
-.place-name{
-  margin:0 0 10px;
-  font-size:20px;
-  line-height:1.25;
-  color:#111;
-  font-weight:650;
-  letter-spacing:-.01em;
-}
-
-/* Dirección */
-.address{
-  margin:0;
-  color:rgba(0,0,0,.55);
-  line-height:1.65;
-  font-size:15px;
-}
-
-/* Separador interno (editorial) */
-.card .rule{
-  height:1px;
-  background:rgba(0,0,0,.08);
-  margin:22px 0 18px;
-}
-
-/* Footer */
-.card-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-
-/* Hora */
-.meta{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:0;
-  color:rgba(0,0,0,.78);
-  font-size:15px;
-}
-.meta .micon{ opacity:.55; }
-
-/* Botón MAPA (más Vogue) */
-.btn-map{
-  appearance:none;
+  color:rgba(0,0,0,.60);
   display:inline-flex;
   align-items:center;
   gap:10px;
+}
 
-  background:rgba(0,0,0,.04);
-  border:1px solid rgba(0,0,0,.12);
+.card-tag .num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:28px;
+  border:1px solid rgba(0,0,0,.14);
+  border-radius:10px;
   color:#111;
+  letter-spacing:.12em;
+}
 
-  padding:10px 18px;
-  border-radius:999px;
+/* Título lugar */
+.place-name{
+  margin:0 0 12px;
+  font-size:26px;
+  font-weight:750;
+  letter-spacing:-.02em;
+  color:#111;
+  line-height:1.15;
+}
 
+/* Dirección: mono, aire y look editorial */
+.address{
+  margin:0 0 22px;
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.50);
+  line-height:1.65;
+}
+
+/* Divider fino */
+.card-divider{
+  height:1px;
+  background:rgba(0,0,0,.08);
+  margin:0 0 22px;
+}
+
+/* Footer row: horario izquierda, link derecha */
+.card-footer{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:auto;
+}
+
+/* Horario */
+.time-block{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.time-label{
   font-family:var(--mono);
   font-size:11px;
-  letter-spacing:.30em;
+  letter-spacing:.32em;
   text-transform:uppercase;
-  font-weight:600;
+  color:rgba(0,0,0,.45);
+}
 
-  transition:transform .12s ease, background .12s ease, border-color .12s ease;
+.time-value{
+  font-family:var(--mono);
+  font-size:28px;
+  letter-spacing:.06em;
+  font-weight:650;
+  color:#111;
+}
+
+/* Link mapa: editorial (subrayado) */
+.map-link{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#111;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(0,0,0,.55);
+  opacity:.88;
+  transition:opacity .15s ease, transform .15s ease;
   white-space:nowrap;
 }
 
-.btn-map:hover{
+.map-link:hover{
+  opacity:1;
   transform:translateY(-1px);
-  background:rgba(0,0,0,.07);
-  border-color:rgba(0,0,0,.18);
 }
 
-.btn-map:active{ transform:translateY(0); }
-
-.btn-map .ico{
-  width:13px;
-  height:13px;
+.map-link .pin{
+  width:14px;
+  height:14px;
   opacity:.55;
 }
 
 /* Responsive */
-@media (max-width:920px){
-  .cards{ grid-template-columns:1fr; }
-  .section-head{ margin-bottom:26px; }
-  .section-title{ font-size:38px; }
-  .card{ padding:28px 24px 22px; border-radius:24px; }
+@media (max-width: 920px){
+  .cards{ grid-template-columns:1fr; gap:18px; }
+  .section-title{ font-size:36px; }
+  .card{ padding:26px 22px 22px; border-radius:22px; }
+  .place-name{ font-size:22px; }
+  .time-value{ font-size:26px; }
 }
 
-@media (max-width:520px){
-  .section-title{ font-size:34px; }
-  .section-kicker{ letter-spacing:.28em; }
-}
-    
+@media (max-width: 520px){
+  .section-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+  }
+}    
     /* ===== RSVP ===== */
     .rsvp-section{ padding:120px 0 140px; }
 
@@ -845,80 +878,90 @@
     </div>
   </section>
 
-  <!-- ¿DÓNDE? -->
-  <section class="section section-alt" id="donde">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">¿DONDE?</h2>
-        <p class="section-kicker">CEREMONIA &amp; FIESTA</p>
-      </div>
+ <!-- ¿DÓNDE? (reemplazá tu sección actual completa por esta) -->
+<section class="section section-alt" id="donde">
+  <div class="container">
 
-      <div class="cards">
-        <!-- CEREMONIA -->
-        <article class="card" id="ceremonia">
-          <h3 class="card-title">CEREMONIA</h3>
-
-          <p class="place-name">
-            Iglesia Sagrada Familia - Nuestra Señora del Cielo
-          </p>
-
-          <p class="address">
-            Pedro Pico 1686, La Lonja, Provincia de Buenos Aires
-          </p>
-
-          <div class="rule"></div>
-
-          <div class="card-footer">
-            <div class="meta">
-              <span class="micon">🕓</span>
-              <span>16:00 hs</span>
-            </div>
-
-            <a class="btn btn-map"
-               href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
-               target="_blank" rel="noopener">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-              </svg>
-              <span>Mapa</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- FIESTA -->
-        <article class="card" id="fiesta">
-          <h3 class="card-title">FIESTA</h3>
-
-          <p class="place-name">Espacio Pilar I</p>
-
-          <p class="address">
-            Chile 1963, B1630 La Lonja, Provincia de Buenos Aires
-          </p>
-
-          <div class="rule"></div>
-
-          <div class="card-footer">
-            <div class="meta">
-              <span class="micon">🕓</span>
-              <span>18:00 hs</span>
-            </div>
-
-            <a class="btn btn-map"
-               href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
-               target="_blank" rel="noopener">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
-              </svg>
-              <span>Mapa</span>
-            </a>
-          </div>
-        </article>
-      </div>
+    <div class="section-head">
+      <h2 class="section-title">¿DÓNDE?</h2>
+      <p class="section-kicker">CEREMONIA &amp; FIESTA</p>
     </div>
-  </section>
 
+    <div class="cards">
+
+      <!-- CEREMONIA -->
+      <article class="card" id="ceremonia">
+        <div class="card-topline">
+          <div class="card-tag">
+            <span class="num">01</span>
+            <span>Ceremonia</span>
+          </div>
+        </div>
+
+        <p class="place-name">Iglesia Sagrada Familia – Nuestra Señora del Cielo</p>
+
+        <p class="address">
+          Pedro Pico 1686, La Lonja<br>
+          Provincia de Buenos Aires
+        </p>
+
+        <div class="card-divider"></div>
+
+        <div class="card-footer">
+          <div class="time-block">
+            <div class="time-label">Horario</div>
+            <div class="time-value">16:00 HS</div>
+          </div>
+
+          <a class="map-link"
+             href="https://maps.app.goo.gl/ahPiovaNRK8gRdsG8"
+             target="_blank" rel="noopener">
+            <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+            </svg>
+            <span>Google Maps</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- FIESTA -->
+      <article class="card" id="fiesta">
+        <div class="card-topline">
+          <div class="card-tag">
+            <span class="num">02</span>
+            <span>Fiesta</span>
+          </div>
+        </div>
+
+        <p class="place-name">Espacio Pilar I</p>
+
+        <p class="address">
+          Chile 1963, B1630 La Lonja<br>
+          Provincia de Buenos Aires
+        </p>
+
+        <div class="card-divider"></div>
+
+        <div class="card-footer">
+          <div class="time-block">
+            <div class="time-label">Horario</div>
+            <div class="time-value">18:00 HS</div>
+          </div>
+
+          <a class="map-link"
+             href="https://maps.app.goo.gl/sMyQaUgRfFaaNtYs9"
+             target="_blank" rel="noopener">
+            <svg class="pin" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 2c-3.31 0-6 2.69-6 6c0 4.5 6 14 6 14s6-9.5 6-14c0-3.31-2.69-6-6-6zm0 8.2c-1.22 0-2.2-.98-2.2-2.2S10.78 5.8 12 5.8s2.2.98 2.2 2.2S13.22 10.2 12 10.2z"/>
+            </svg>
+            <span>Google Maps</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
   <!-- ASISTENCIA -->
   <section class="section rsvp-section" id="asistencia">
     <div class="container rsvp-wrap">
