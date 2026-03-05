@@ -1118,12 +1118,20 @@
       document.body.style.overflow = "hidden";
     }
     function closeModal(id){
-      const m = document.getElementById(id);
-      if (!m) return;
-      m.classList.remove("open");
-      m.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
+  const m = document.getElementById(id);
+  if (!m) return;
+
+  m.classList.remove("open");
+  m.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  // ✅ RESET botones "Copiar" dentro de este modal
+  m.querySelectorAll("[data-copy]").forEach(btn => {
+    btn.textContent = "Copiar";
+    btn.disabled = false;
+    delete btn.dataset.copied;
+  });
+}
 
     document.querySelectorAll(".modal").forEach(m => {
       m.addEventListener("click", (e) => { if (e.target === m) closeModal(m.id); });
@@ -1167,14 +1175,15 @@
     }
 
     document.querySelectorAll("[data-copy]").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const val = btn.getAttribute("data-copy");
-        const prev = btn.textContent;
-        const ok = await copyToClipboard(val);
-        btn.textContent = ok ? "Copiado ✓" : "Error";
-        setTimeout(() => btn.textContent = prev, 1000);
-      });
-    });
+  btn.addEventListener("click", async () => {
+    const val = btn.getAttribute("data-copy");
+    const ok = await copyToClipboard(val);
+
+    btn.textContent = ok ? "Copiado ✓" : "Error";
+    btn.disabled = true;
+    btn.dataset.copied = ok ? "1" : "0";
+  });
+});
 
     // ===== Countdown =====
     const target = new Date(EVENT.startISO).getTime();
