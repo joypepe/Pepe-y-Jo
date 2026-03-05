@@ -681,123 +681,112 @@
       border-bottom:1px solid rgba(0,0,0,.08);
     }
 
-    .modal-title{
-      margin:0;
-      font-family:var(--mono);
-      font-size:12px;
-      letter-spacing:.26em;
-      text-transform:uppercase;
-      font-weight:500;
-      color:rgba(0,0,0,.70);
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
+    /* ===== REEMPLAZAR DESDE .modal-title HASTA .copy-btn + estado ===== */
 
-    .modal-close{
-      appearance:none;
-      border:1px solid rgba(0,0,0,.10);
-      background:rgba(0,0,0,.03);
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:22px;
-      line-height:1;
-      color:rgba(0,0,0,.55);
-      transition:background .12s ease, transform .12s ease, border-color .12s ease;
-    }
-    .modal-close:hover{
-      background:rgba(0,0,0,.06);
-      border-color:rgba(0,0,0,.18);
-      transform:translateY(-1px);
-    }
+.modal-title{
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
 
-    .modal-body{
-      padding:18px 22px 22px;
-      text-align:left;
-    }
+  /* jerarquía */
+  font-family:var(--mono);
+  font-size:14px;              /* antes 12px */
+  letter-spacing:.34em;        /* más editorial */
+  text-transform:uppercase;
+  font-weight:600;             /* antes 500 */
+  color:#111;
+}
 
-    .modal-sub{
-      margin:0 0 14px;
-      font-family:var(--mono);
-      font-size:11px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.45);
-    }
+.modal-title .modal-emoji{
+  font-size:14px;
+  line-height:1;
+  opacity:.95;
+}
 
-    .copy-list{
-      display:flex;
-      flex-direction:column;
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:18px;
-      overflow:hidden;
-      background:#fff;
-    }
+/* filas: botón a la derecha alineado con el valor */
+.copy-row{
+  display:grid;
+  grid-template-columns:140px minmax(0, 1fr) 140px; /* más espacio para COPIADO ✓ */
+  gap:18px;
+  align-items:center;
+  padding:18px 18px;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+.copy-row:first-child{ border-top:0; }
 
-    .copy-row{
-      display:grid;
-      grid-template-columns:140px minmax(0, 1fr) 110px;
-      gap:12px;
-      align-items:center;
-      padding:14px 14px;
-      border-top:1px solid rgba(0,0,0,.08);
-    }
-    .copy-row:first-child{ border-top:0; }
+.copy-key{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.26em;        /* un poco más aire */
+  text-transform:uppercase;
+  color:rgba(0,0,0,.45);
+  font-weight:500;
+}
 
-    .copy-key{
-      font-family:var(--mono);
-      font-size:11px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.45);
-      font-weight:500;
-    }
+.copy-val{
+  font-size:16px;              /* antes 15px */
+  color:#111;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.copy-val.mono{
+  font-family:var(--mono);
+  letter-spacing:.04em;
+}
 
-    .copy-val{
-      font-size:15px;
-      color:#111;
-      min-width:0;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-    .copy-val.mono{ font-family:var(--mono); letter-spacing:.02em; }
+/* botón: inline-flex para que COPIADO ✓ no se baje */
+.copy-btn{
+  justify-self:end;
+  appearance:none;
+  border:1px solid rgba(0,0,0,.14);
+  background:rgba(0,0,0,.03);
 
-    .copy-btn{
-      justify-self:end;
-      appearance:none;
-      border:1px solid rgba(0,0,0,.14);
-      background:rgba(0,0,0,.03);
-      padding:10px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      font-family:var(--mono);
-      font-size:11px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      font-weight:500;
-      color:rgba(0,0,0,.75);
-      transition:background .12s ease, border-color .12s ease, transform .12s ease;
-    }
-    .copy-btn:hover{ background:rgba(0,0,0,.06); border-color:rgba(0,0,0,.22); transform:translateY(-1px); }
-    .copy-btn:active{ transform:translateY(0); }
+  padding:10px 16px;
+  border-radius:999px;
+  cursor:pointer;
 
-    .modal-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:rgba(0,0,0,.75);
 
-    @media (max-width:520px){
-      .modal{ padding:14px; }
-      .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
-      .copy-val{ white-space:normal; }
-      .copy-btn{ justify-self:start; }
-    }
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+
+  white-space:nowrap;
+  line-height:1;
+
+  transition:background .12s ease, border-color .12s ease, transform .12s ease;
+}
+.copy-btn:hover{
+  background:rgba(0,0,0,.06);
+  border-color:rgba(0,0,0,.22);
+  transform:translateY(-1px);
+}
+.copy-btn:active{ transform:translateY(0); }
+
+/* estado "copiado": queda marcado y no confunde */
+.copy-btn[disabled]{
+  background:#111;
+  border-color:#111;
+  color:#fff;
+  transform:none;
+  cursor:default;
+}
+
+/* mobile: mantené tu media query tal cual, solo ajusto ancho del último col */
+@media (max-width:520px){
+  .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
+  .copy-val{ white-space:normal; }
+  .copy-btn{ justify-self:start; }
+}
 
     .spacer{ height:70px; }
   </style>
