@@ -783,9 +783,38 @@
 
 /* mobile: mantené tu media query tal cual, solo ajusto ancho del último col */
 @media (max-width:520px){
-  .copy-row{ grid-template-columns:1fr; gap:8px; align-items:flex-start; }
-  .copy-val{ white-space:normal; }
-  .copy-btn{ justify-self:start; }
+  .modal{ padding:14px; }
+
+  .copy-row{
+    grid-template-columns:1fr auto;
+    gap:8px 12px;
+    align-items:start;
+  }
+
+  .copy-key{
+    grid-column:1;
+    grid-row:1;
+    align-self:center;
+  }
+
+  .copy-btn{
+    grid-column:2;
+    grid-row:1;
+    justify-self:end;
+    align-self:center;
+    padding:9px 12px;
+    min-width:120px;
+  }
+
+  .copy-val{
+    grid-column:1 / -1;
+    grid-row:2;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+    line-height:1.4;
+    margin-top:2px;
+  }
 }
 
     .spacer{ height:70px; }
