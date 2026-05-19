@@ -285,8 +285,9 @@
     }
     .card-img-wrap img {
       width: 100%; height: 100%;
-      object-fit: cover; display: block;
+      object-fit: contain; display: block;
       transition: transform .3s ease;
+      padding: 12px;
     }
     .gift-card:hover .card-img-wrap img { transform: scale(1.03); }
     .card-img-placeholder {
@@ -329,7 +330,7 @@
       background: rgba(0,0,0,.08); color: rgba(0,0,0,.35);
       cursor: default; pointer-events: none;
     }
-
+    
     /* ===== CUENTAS BANCARIAS ===== */
     .banks-section { background: #0d0d0d; padding: 52px 0 60px; }
     .banks-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: center; }
