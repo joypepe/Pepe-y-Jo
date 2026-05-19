@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Regalos — Pepe & Jo">
+  <meta property="og:description" content="Lista de regalos · Casamiento 22.11.2026">
+  <meta property="og:url" content="https://pepe-y-jo.vercel.app/regalos">
+
+  <title>Regalos — Pepe & Jo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <path d='M50 88 L15 50 A20 20 0 0 1 50 30 A20 20 0 0 1 85 50 Z' fill='black'/>
+  </svg>">
+
+  <style>
+    :root {
+      --bg: #fbf8f4;
+      --bg-alt: #f6f3ee;
+      --text: #111111;
+      --muted: #6f6f6f;
+      --line: rgba(0,0,0,.10);
+      --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: "Roboto", ui-sans-serif, system-ui, -apple-system, Arial, sans-serif;
+      --container: 1120px;
+      --container-padding: 40px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    /* ===== TOP NAV ===== */
+    .top-nav {
+      background: var(--bg);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      padding: 18px 0;
+    }
+
+    .top-nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.55);
+      transition: color .15s;
+    }
+    .nav-back:hover { color: #111; }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    .nav-brand {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #111;
+    }
+
+    .nav-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.38);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 64px 0 0;
+      background: var(--bg);
+    }
+
+    .page-header .container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+
+    .page-title {
+      margin: 0;
+      font-size: 72px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: .9;
+      color: #111;
+    }
+
+    .page-copy {
+      max-width: 380px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.45);
+      line-height: 1.9;
+      text-align: right;
+    }
+
+    /* ===== GRID ===== */
+    .gifts-section {
+      padding: 48px 0 80px;
+      background: var(--bg);
+    }
+
+    .gifts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    /* ===== CARD ===== */
+    .gift-card {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      transition: background .15s;
+    }
+    .gift-card:hover { background: #fff; }
+
+    /* imagen */
+    .card-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-alt);
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+    .gift-card:hover .card-img-wrap img { transform: scale(1.03); }
+
+    /* placeholder si no hay imagen */
+    .card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(0,0,0,.2);
+    }
+    .card-img-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    /* badge comprado */
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #111;
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    /* overlay comprado */
+    .gift-card.comprado .card-img-wrap img,
+    .gift-card.comprado .card-img-placeholder {
+      opacity: .35;
+    }
+    .gift-card.comprado .card-name {
+      text-decoration: line-through;
+      color: rgba(0,0,0,.3);
+    }
+
+    /* body */
+    .card-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .card-category {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.38);
+    }
+
+    .card-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: #111;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.38);
+      line-height: 1.6;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-price {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: rgba(0,0,0,.5);
+    }
+
+    /* botón comprar */
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #111;
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 999px;
+      transition: background .15s, transform .12s;
+      white-space: nowrap;
+    }
+    .card-btn:hover { background: #000; transform: translateY(-1px); }
+
+    /* botón comprado */
+    .card-btn.btn-comprado {
+      background: rgba(0,0,0,.08);
+      color: rgba(0,0,0,.35);
+      cursor: default;
+      pointer-events: none;
+    }
+    .card-btn.btn-comprado:hover { transform: none; }
+
+    /* ===== CUENTAS BANCARIAS ===== */
+    .banks-section {
+      background: #0d0d0d;
+      padding: 52px 0 60px;
+    }
+
+    .banks-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .banks-left h2 {
+      margin: 0 0 14px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: #fff;
+      line-height: .95;
+    }
+
+    .banks-copy {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+      line-height: 1.9;
+    }
+
+    .banks-right {
+      display: grid;
+      gap: 14px;
+    }
+
+    /* tile banco */
+    .bank-tile {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      text-align: left;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: background .12s, border-color .12s, transform .12s;
+      color: #fff;
+    }
+    .bank-tile:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-1px);
+    }
+
+    .bank-emoji {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bank-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: #fff;
+    }
+
+    .bank-cta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+      white-space: nowrap;
+    }
+
+    /* ===== MODALS ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.38);
+      display: none;
+      padding: 22px;
+      z-index: 9999;
+    }
+    .modal.open { display: flex; align-items: center; justify-content: center; }
+
+    .modal-card {
+      width: min(720px, 100%);
+      background: rgba(255,255,255,.98);
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.22);
+      overflow: hidden;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+
+    .modal-title {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .modal-close {
+      appearance: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: rgba(0,0,0,.4);
+      line-height: 1;
+      padding: 0 2px;
+      transition: color .12s;
+    }
+    .modal-close:hover { color: #111; }
+
+    .copy-row {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr) 140px;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .copy-row:first-child { border-top: 0; }
+
+    .copy-key {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.45);
+      font-weight: 500;
+    }
+
+    .copy-val {
+      font-size: 16px;
+      color: #111;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .copy-val.mono { font-family: var(--mono); letter-spacing: .04em; }
+
+    .copy-btn {
+      justify-self: end;
+      appearance: none;
+      border: 1px solid rgba(0,0,0,.14);
+      background: rgba(0,0,0,.03);
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(0,0,0,.75);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      transition: background .12s, border-color .12s, transform .12s;
+    }
+    .copy-btn:hover { background: rgba(0,0,0,.06); border-color: rgba(0,0,0,.22); transform: translateY(-1px); }
+    .copy-btn[disabled] { background: #111; border-color: #111; color: #fff; transform: none; cursor: default; }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(0,0,0,.08);
+      padding: 28px 0;
+    }
+
+    .site-footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.5);
+    }
+
+    .footer-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.45);
+      transition: color .15s;
+    }
+    .footer-back:hover { color: #111; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      :root { --container-padding: 22px; }
+      .gifts-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-title { font-size: 48px; }
+      .page-copy { font-size: 10px; }
+      .banks-inner { grid-template-columns: 1fr; gap: 32px; }
+      .banks-left h2 { font-size: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .gifts-grid { grid-template-columns: 1fr; }
+      .page-header .container { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .page-copy { text-align: left; }
+      .nav-date { display: none; }
+      .copy-row { grid-template-columns: 1fr auto; gap: 8px 12px; align-items: start; }
+      .copy-key { grid-column: 1; grid-row: 1; }
+      .copy-btn { grid-column: 2; grid-row: 1; justify-self: end; padding: 9px 12px; min-width: 110px; }
+      .copy-val { grid-column: 1 / -1; grid-row: 2; white-space: normal; overflow: visible; text-overflow: unset; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="top-nav">
+    <div class="container">
+      <a href="./index.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Volver
+      </a>
+      <span class="nav-brand">Pepe &amp; Jo</span>
+      <span class="nav-date">22 · 11 · 2026</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">REGALOS</h1>
+      <p class="page-copy">
+        Lo más lindo es poder compartir<br>
+        este día con vos.<br><br>
+        Y si querés hacernos un regalo,<br>
+        te dejamos algunas opciones.
+      </p>
+    </div>
+  </header>
+
+  <!-- GRILLA -->
+  <section class="gifts-section">
+    <div class="container">
+      <div class="gifts-grid" id="giftsGrid">
+
+        <!--
+          ══════════════════════════════════════════════
+          CÓMO AGREGAR O MODIFICAR UN ITEM:
+
+          1. Copiá un bloque <article class="gift-card"> completo
+          2. Cambiá los datos: imagen, categoría, nombre, descripción, precio, link
+          3. Para marcar como COMPRADO: agregá la clase "comprado" al article
+             Ejemplo: <article class="gift-card comprado">
+          4. Para items múltiples (ej. toallas x3): copiá el bloque 3 veces
+          ══════════════════════════════════════════════
+        -->
+
+        <!-- ── ITEM 1: Cubiertos para asado ── -->
+        <article class="gift-card">
+          <div class="card-img-wrap">
+            <!--
+              Para agregar imagen: reemplazá el div.card-img-placeholder por:
+              <img src="./images/cubiertos-asado.jpg" alt="Cubiertos para asado">
+            -->
+            <div class="card-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span>Agregar foto</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Cocina</div>
+            <div class="card-name">Cubiertos para asado</div>
+            <div class="card-desc">Blend de hueso y guayubira</div>
+            <div class="card-footer">
+              <span class="card-price"></span>
+              <a class="card-btn"
+                 href="https://tiendaciervo.com.ar/productos/blend-de-hueso-y-guayubira-1ajdo/?variant=1456567820&pf=mc"
+                 target="_blank" rel="noopener">
+                Comprar →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── ITEM 2: Juego de toallas (1 de 3) ── -->
+        <article class="gift-card">
+          <div class="card-img-wrap">
+            <div class="card-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span>Agregar foto</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Baño</div>
+            <div class="card-name">Juego de toallas</div>
+            <div class="card-desc">Espalma Dual Vision · Blanco</div>
+            <div class="card-footer">
+              <span class="card-price"></span>
+              <a class="card-btn"
+                 href="https://tiendaespalma.com.ar/productos/juego-de-toallas-espalma-dual-vision-blanco/"
+                 target="_blank" rel="noopener">
+                Comprar →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── ITEM 3: Juego de toallas (2 de 3) ── -->
+        <article class="gift-card">
+          <div class="card-img-wrap">
+            <div class="card-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span>Agregar foto</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Baño</div>
+            <div class="card-name">Juego de toallas</div>
+            <div class="card-desc">Espalma Dual Vision · Blanco</div>
+            <div class="card-footer">
+              <span class="card-price"></span>
+              <a class="card-btn"
+                 href="https://tiendaespalma.com.ar/productos/juego-de-toallas-espalma-dual-vision-blanco/"
+                 target="_blank" rel="noopener">
+                Comprar →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── ITEM 4: Juego de toallas (3 de 3) ── -->
+        <article class="gift-card">
+          <div class="card-img-wrap">
+            <div class="card-img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span>Agregar foto</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-category">Baño</div>
+            <div class="card-name">Juego de toallas</div>
+            <div class="card-desc">Espalma Dual Vision · Blanco</div>
+            <div class="card-footer">
+              <span class="card-price"></span>
+              <a class="card-btn"
+                 href="https://tiendaespalma.com.ar/productos/juego-de-toallas-espalma-dual-vision-blanco/"
+                 target="_blank" rel="noopener">
+                Comprar →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!--
+          ══════════════════════════════════
+          AGREGÁ MÁS ITEMS AQUÍ
+          Copiá uno de los bloques de arriba
+          ══════════════════════════════════
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CUENTAS BANCARIAS -->
+  <section class="banks-section">
+    <div class="container">
+      <div class="banks-inner">
+        <div class="banks-left">
+          <h2>O TRANSFERÍ<br>DIRECTO</h2>
+          <p class="banks-copy">
+            También podés hacernos<br>
+            una transferencia en pesos<br>
+            o en dólares.
+          </p>
+        </div>
+        <div class="banks-right">
+          <button class="bank-tile" id="openARS" type="button">
+            <span class="bank-emoji" aria-hidden="true">🇦🇷</span>
+            <span class="bank-name">Cuenta ARS</span>
+            <span class="bank-cta">Ver datos +</span>
+          </button>
+          <button class="bank-tile" id="openUSD" type="button">
+            <span class="bank-emoji" aria-hidden="true">💵</span>
+            <span class="bank-name">Cuenta USD</span>
+            <span class="bank-cta">Ver datos +</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <span class="footer-brand">Pepe &amp; Jo — 22.11.2026</span>
+      <a href="./index.html" class="footer-back">
+        ← Volver al inicio
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL ARS ===== -->
+  <div class="modal" id="modalARS" aria-hidden="true" role="dialog" aria-label="Cuenta ARS">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span aria-hidden="true">🇦🇷</span> <span>Cuenta ARS</span></h3>
+        <button class="modal-close" data-close="modalARS" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="copy-row">
+          <div class="copy-key">Banco</div>
+          <div class="copy-val">Mercado Pago</div>
+          <button class="copy-btn" data-copy="Mercado Pago">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">Alias</div>
+          <div class="copy-val mono">casoriopyj.ars</div>
+          <button class="copy-btn" data-copy="casoriopyj.ars">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">CBU</div>
+          <div class="copy-val mono">0000003100031594279802</div>
+          <button class="copy-btn" data-copy="0000003100031594279802">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">Titular</div>
+          <div class="copy-val">Josefina Serra</div>
+          <button class="copy-btn" data-copy="Josefina Serra">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL USD ===== -->
+  <div class="modal" id="modalUSD" aria-hidden="true" role="dialog" aria-label="Cuenta USD">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title"><span aria-hidden="true">💵</span> <span>Cuenta USD</span></h3>
+        <button class="modal-close" data-close="modalUSD" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="copy-row">
+          <div class="copy-key">Banco</div>
+          <div class="copy-val">Galicia</div>
+          <button class="copy-btn" data-copy="Galicia">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">Alias</div>
+          <div class="copy-val mono">casoriopyj.usd</div>
+          <button class="copy-btn" data-copy="casoriopyj.usd">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">CBU</div>
+          <div class="copy-val mono">00701026-31004008485973</div>
+          <button class="copy-btn" data-copy="00701026-31004008485973">Copiar</button>
+        </div>
+        <div class="copy-row">
+          <div class="copy-key">Titular</div>
+          <div class="copy-val">JOSE MARIA DE LA TORRE</div>
+          <button class="copy-btn" data-copy="JOSE MARIA DE LA TORRE">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== MODALS =====
+    function openModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.add("open");
+      m.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(id) {
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.classList.remove("open");
+      m.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      m.querySelectorAll("[data-copy]").forEach(btn => {
+        btn.textContent = "Copiar";
+        btn.disabled = false;
+      });
+    }
+
+    document.querySelectorAll(".modal").forEach(m => {
+      m.addEventListener("click", (e) => { if (e.target === m) closeModal(m.id); });
+    });
+    document.querySelectorAll("[data-close]").forEach(btn => {
+      btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
+    });
+
+    document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
+    document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
+
+    // ESC para cerrar
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".modal.open").forEach(m => closeModal(m.id));
+      }
+    });
+
+    // ===== COPY =====
+    async function copyToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand("copy"); return true; }
+      catch { return false; }
+      finally { document.body.removeChild(ta); }
+    }
+
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const ok = await copyToClipboard(btn.getAttribute("data-copy"));
+        btn.textContent = ok ? "Copiado ✓" : "Error";
+        btn.disabled = true;
+      });
+    });
+  </script>
+
+</body>
+</html>
