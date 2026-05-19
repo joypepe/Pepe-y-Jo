@@ -1172,21 +1172,17 @@
       btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close")));
     });
 
-    // Botones Regalos
+// Botones Regalos
+    document.getElementById("openList").addEventListener("click", () => {
+      window.location.href = "./regalos.html";
+    });
     document.getElementById("openARS").addEventListener("click", () => openModal("modalARS"));
     document.getElementById("openUSD").addEventListener("click", () => openModal("modalUSD"));
-    document.getElementById("openList").addEventListener("click", () => {
-window.location.href = "./regalos.html";
 
     // Botón "Agendá la fecha" del menú
     document.getElementById("openCalendarLink").addEventListener("click", (e) => {
       e.preventDefault();
       openModal("modalCAL");
-    });
-
-    // Lista de regalos: abrí el link en nueva pestaña (reemplazá con tu URL real)
-  document.getElementById("openList").addEventListener("click", () => {
-  window.location.href = "./regalos.html";
     });
 
     // ===== Copy =====
